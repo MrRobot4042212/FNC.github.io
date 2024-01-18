@@ -1,0 +1,275 @@
+
+html{
+    scroll-behavior: smooth;
+}
+
+.estructura {
+    display: grid; 
+ 
+    grid-template-rows: 1fr 100px 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    
+    gap: 0px;
+    height: 100%;
+    
+ }
+
+
+/* TITULO (HEADER) *//* TITULO (HEADER) *//* TITULO (HEADER) *//* TITULO (HEADER) */
+
+
+
+ #titulo {
+
+    /* configuracion del grid */
+
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-row-end: 2;
+    grid-column-end: 6;
+
+    /*------------------------*/
+
+    text-align:right;
+    padding: 20px;
+    position: relative;
+
+ }
+ #titulo::before{
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url(./img/wallpaper_op2.jpeg) fixed;
+      filter: blur(5px);
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+ }
+
+ #titulo h1{
+    font-size: 100px;
+    margin: 20px;
+    color:rgb(250, 9, 69);
+    font-family: Impact;
+    letter-spacing: 5px;
+ }
+
+ #titulo h2{
+   margin: 20px;
+   font-size: 25px;
+   color: white;
+ }
+
+ 
+
+
+
+/* NAVIGATION CONTROL*//* NAVIGATION CONTROL*//* NAVIGATION CONTROL*//* NAVIGATION CONTROL*/
+
+
+
+ #subtitulo {
+      /* configuracion del grid */
+
+      grid-row-start: 2;
+      grid-column-start: 1;
+      grid-row-end: 3;
+      grid-column-end: 6;
+
+      /*------------------------*/
+
+    background-color: rgb(252, 167, 0, 0.3);
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+
+ }
+
+ .despegable ul li {
+   width: 100%;
+ }
+ 
+ .despegable ul li a {
+   padding: 1rem 2rem;
+   line-height: unset;
+   white-space: nowrap;
+ }
+ 
+ nav ul {
+   display: flex;
+   align-self: center;
+ }
+ 
+ nav ul li {
+   list-style: none;
+   position: relative;
+ }
+ 
+ nav ul li a {
+   display: block;
+   padding: 0rem 3rem;
+   line-height: 5rem;
+   color: #0a0a0a;
+   text-decoration: none;
+ }
+ 
+ nav {
+   width: 100%;
+   height: 5rem;
+   display: flex;
+ }
+ 
+ nav ul {
+   display: flex;
+   align-self: center;
+ }
+ 
+ nav ul li {
+   list-style: none;
+   position: relative;
+ }
+ 
+ nav ul li a {
+   font-size: 20px;
+   display: inline-block;
+   margin: auto;
+   line-height: 5rem;
+   color: #17181c;
+   text-decoration: none;
+   position: relative;
+ }
+ 
+ .despegable ul {
+   display: none;
+   position: absolute;
+   width: 100%;
+ }
+ 
+ .links ul li:hover ul {
+   display: block;
+ }
+ 
+ .despegable ul li {
+   width: 100%;
+ }
+ 
+ .despegable ul li a {
+   padding: 5% 10%;
+   line-height: unset;
+   white-space: nowrap;
+   float: left;
+   width: 100%;
+ }
+ 
+ .despegable {
+   position: -webkit-sticky;
+   position: sticky;
+   top: 0px;
+   z-index: 10;
+ }
+ 
+ .links {
+   z-index: 10;
+   display: flex;
+   width: 100%;
+   position: -webkit-sticky;
+   position: sticky;
+ 
+ }
+ .despegable:hover {
+   transform: scale(1.02);
+   z-index: 4;
+   transition: all 0.3s;
+ }
+ 
+ .despegable li:hover {
+   transform: scale(1.02);
+   display: inline-block;
+   transition: all 0.2s;
+ }
+ 
+ .despegable a {
+   border-radius: 10px 10px;
+   margin: auto;
+ }
+ .despegable img{
+   width: 70%;
+   height: 100%;
+   bottom: 50%;
+   position: absolute;
+   float: left;
+   transform: scale(0.8);
+ }
+
+/*CUERPO*//*CUERPO*//*CUERPO*//*CUERPO*//*CUERPO*//*CUERPO*//*CUERPO*//*CUERPO*/
+
+ #cuerpo {
+    grid-row-start: 3;
+    grid-column-start: 1;
+    grid-row-end: 5;
+    grid-column-end: 6;
+ }
+ #cuerpo::before{
+   content: "";
+   position:relative;
+   background: url(./img/wallpaper_op2.jpeg) fixed;
+   background-size: cover;
+   filter: blur(5px);
+   z-index: -1;
+   width: 100%;
+   height: 100%;
+}
+ #cuerpo .espacioPeliculas{
+
+    display: flex;
+    justify-content:center; 
+    align-items:flex-start; 
+    flex-direction: row; 
+    flex-wrap: nowrap; 
+    align-content: flex-start;
+    flex-grow: 0;
+    background-color: #bbdefb;
+    gap: 5px;
+
+ }
+
+ .espacioPeliculas  div{
+    top: 0;
+    bottom: 0;
+    background: #ffecb3;
+    border: 3px solid #ffcc80;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+.espacioPeliculas  div img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+#cuerpo h1{
+    text-align: center;
+    font-size: 30px;
+}
+
+ #piePagina {
+
+    background-color: #95DECC; 
+    grid-row-start: 5;
+    grid-column-start: 1;
+ 
+    grid-row-end: 6;
+    grid-column-end: 6;
+    
+ }
+
+
+
+  
+
