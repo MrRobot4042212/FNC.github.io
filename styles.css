@@ -37,7 +37,8 @@ body{
       left: 0;
       bottom: 0;
       background: url(./img/wallpaper_op2.jpeg) fixed repeat-x;
-      filter: grayscale(1), blur(5px);
+      filter: blur(5px);
+      filter: grayscale(11);
       z-index: -10;
       width: 100%;
       height: 100%;
