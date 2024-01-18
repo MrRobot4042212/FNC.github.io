@@ -197,14 +197,6 @@ html{
    border-radius: 10px 10px;
    margin: auto;
  }
- .despegable img{
-   width: 70%;
-   height: 100%;
-   bottom: 50%;
-   position: absolute;
-   float: left;
-   transform: scale(0.8);
- }
 
 /*CUERPO*//*CUERPO*//*CUERPO*//*CUERPO*//*CUERPO*//*CUERPO*//*CUERPO*//*CUERPO*/
 
@@ -216,7 +208,7 @@ html{
  }
  #cuerpo::before{
    content: "";
-   position:relative;
+   position:;
    background: url(./img/wallpaper_op2.jpeg) fixed;
    background-size: cover;
    filter: blur(5px);
