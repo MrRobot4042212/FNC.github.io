@@ -7,9 +7,34 @@ body{
   background-color:rgb(31, 31, 31);
 }
 
+@font-face {
+  font-family: 'montserrat';
+  src: url(../fonts/montserrat/Montserrat-Bold.ttf);
+  font-weight: bold;
+  font-style: bold;
+}
+@font-face {
+  font-family: 'montserrat';
+  src: url(../fonts/montserrat/Montserrat-Medium.ttf);
+  font-weight: 700;
+  font-style:normal;
+}
+@font-face {
+  font-family: 'montserrat';
+  src: url(../fonts/montserrat/Montserrat-Regular.ttf);
+  font-weight: normal;
+  font-style:normal;
+}
+@font-face {
+  font-family: 'montserrat';
+  src: url(../fonts/montserrat/Montserrat-SemiBold.ttf);
+  font-weight: 800;
+  font-style:normal;
+}
+
 .estructura_principal {
     display: grid;  
-    grid-template-rows: 300px 100px 1fr 1fr 1fr;
+    grid-template-rows: 300px 100px 2fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     gap: 0px;
     height: 100%;
@@ -36,11 +61,11 @@ body{
       top: 0;
       left: 0;
       bottom: 0;
-      background: url(../img/wallpaper_op2.jpeg) fixed repeat-x;
-      filter: grayscale(1), blur(5px);
-      z-index: -10;
+      background: url(../img/wallpaper_op2.jpeg) fixed;
+      filter: grayscale(100%) blur(3px);
       width: 100%;
       height: 100%;
+      z-index: -10;
  }
  .fnc{
   display: flex;
@@ -48,8 +73,8 @@ body{
   color: rgb(228, 3, 61);
   filter: blur(1px);
   font-size: 100px;
-
  }
+
  .n{
   color: white;
   z-index: -5;
@@ -57,22 +82,25 @@ body{
   font-size: 300px;
   right: 2.6em;
   bottom: -0.3em;
-
  }
 
  .header h1{
   letter-spacing: 10px;
   margin: 10px;
-  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-family:'montserrat';
+  font-weight: bold;
+  font-style: bold;
   z-index: -1;
  }
 
  .header h2{
-   margin: 20px;
-   font-size: 40px;
+   margin: 30px;
+   font-size: 25px;
    color: rgb(228, 3, 61);
    text-align: center;
-   font-family:Georgia, 'Times New Roman', Times, serif;
+   font-family:'montserrat';
+   font-weight: 700;
+   font-style: normal;
 
  }
 
@@ -97,9 +125,11 @@ body{
     position: relative;
 
     z-index: 10;
-    box-shadow: 5px 20px 20px;
+    box-shadow: 5px 5px 5px 5px;
     background: url(../img/wallpaper_op2.jpeg) fixed;
-    border: 10px solid black;
+    border: 2px solid black;
+    align-content: center;
+    display: grid;
 
  }
  .bNavegacion::before{
@@ -110,7 +140,6 @@ body{
   right: 0;
   bottom:0;
   background: rgb(255, 0, 67,0.3) ;
-  outline:dotted 7px rgba(255, 255, 255, 1);
  }
 
  nav ul {
@@ -122,16 +151,17 @@ body{
    position: relative;
  }
  nav ul li a {
-  font-family: 'Franklin Gothic Medium';
-   padding: 0rem 3rem;
-   font-size: 20px;
+  font-family: 'montserrat';
+  font-weight: normal;
+  font-style: normal;
+  padding: 0rem 3rem;
+   font-size: 25px;
    font:bold;
    display: inline-block;
    margin: 10px;
    line-height: 5rem;
    color: white;
    text-decoration: none;
-   background-image: url('./img/filmFX.png');
    text-decoration: none;
  }
  .despegable ul {
@@ -152,36 +182,53 @@ body{
    width: 100%;
  }
 .despegable:hover {
-   transform: scale(1.02);
+   transform: scale(1.03);
    z-index: 4;
-   transition: all 0.3s;
+   transition: all 0.2s;
+   box-shadow: 2px 2px 2px 2px rgb(31, 31, 31, 0.6);
  }
  .despegable a {
    margin: auto;
  }
 
 
-
 /* FIN DE: ESTILOS PARA EL CONTENIDO DE LA BARRA DE NAVEGACIÓN */
+
+
+
 
 /*CUERPO*//*CUERPO*//*CUERPO*//*CUERPO*//*CUERPO*//*CUERPO*//*CUERPO*//*CUERPO*/
 
- #cuerpo {
+ .cuerpo {
     grid-row-start: 3;
     grid-column-start: 1;
     grid-row-end: 5;
     grid-column-end: 6;
+    position: relative;
+    display: grid;
+    row-gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  
+    padding-bottom: 300px;
+
+
  }
- #cuerpo::before{
-   content: "";
-   position:absolute;
-   background-size: cover;
-   filter: blur(5px);
-   z-index: -1;
-   width: 100%;
-   height: 100%;
+ 
+ .cuerpo::before {
+  position: absolute;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom:0;
+  z-index: -10;
+  filter: blur(1px);
+  background: url(../img/wallpaper_op2.jpeg) fixed;
 }
- #cuerpo .espacioPeliculas{
+
+ .cuerpo .espacioPeliculas{
     display: flex;
     justify-content:center; 
     align-items:flex-start; 
@@ -189,41 +236,72 @@ body{
     flex-wrap: nowrap; 
     align-content: flex-start;
     flex-grow: 0;
-    background-color: #bbdefb;
-    gap: 5px;
-
+    position: relative;
  }
+ .cuerpo .espacioPeliculas::before{
+  display: flex;
+  justify-content:center; 
+  align-items:flex-start; 
+  flex-direction: row; 
+  flex-wrap: nowrap; 
+  align-content: flex-start;
+  flex-grow: 0;
+  position: relative;
+}
+
 
  .espacioPeliculas  div{
     top: 0;
     bottom: 0;
-    background: #ffecb3;
-    border: 3px solid #ffcc80;
-    border-radius: 5px;
+    box-shadow: 1px 1px 5px 5px;
     width: 100%;
     height: 100%;
+}
+
+.espacioPeliculas > :nth-child(odd){
+  position: relative;
+  top: 150px;
+  left: 50px;
+  z-index: 2;
+}
+.espacioPeliculas > :nth-child(even){
+  margin: 40px;
 }
 
 .espacioPeliculas  div img{
-    object-fit: cover;
+    object-fit: fill;
     width: 100%;
     height: 100%;
 }
-#cuerpo h1{
+
+.cuerpo h1{
+    color: rgb(228, 3, 61);
     text-align: center;
-    font-size: 30px;
+    font-size: 40px;
+    font-family:'montserrat';
+    font-weight: 800;
+    font-style: normal;
 }
 
- #piePagina {
 
+
+/*ESTILOS PARA EL CONTENIDO DE FOOTER*/
+ .piePagina {
     background-color: #95DECC; 
     grid-row-start: 5;
     grid-column-start: 1;
- 
     grid-row-end: 6;
     grid-column-end: 6;
-    
- }
+    background-color:rgb(19, 19, 19);
+  }
+
+
+
+ 
+
+
+
+ /* FIN DE LOS ESTILOS PARA EL CONTENIDO FOOTER*/
 
 
 
