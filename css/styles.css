@@ -287,13 +287,14 @@ body{
 
 /*ESTILOS PARA EL CONTENIDO DE FOOTER*/
  .piePagina {
-    background-color: #95DECC; 
+    background-color: rgb(19, 19, 19); 
     grid-row-start: 5;
     grid-column-start: 1;
     grid-row-end: 6;
     grid-column-end: 6;
     
  }
+ /*FIN DE LOS ESTILOS PARA EL CONTENIDO DE FOOTER*/
 
 
 
