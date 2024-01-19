@@ -31,10 +31,20 @@ body{
   font-weight: 800;
   font-style:normal;
 }
+@font-face{
+  font-family: 'montserrat';
+  src: url(../fonts/montserrat/Montserrat-Italic.ttf);
+  font-weight:400;
+  font-style: italic; 
+}
+
+br{
+  margin: 50px;
+}
 
 .estructura_principal {
     display: grid;  
-    grid-template-rows: 300px 100px 2fr 1fr 1fr;
+    grid-template-rows: 300px 100px 2fr 1fr 300px;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     gap: 0px;
     height: 100%;
@@ -61,12 +71,13 @@ body{
       top: 0;
       left: 0;
       bottom: 0;
-      background: url(../img/wallpaper_op2.jpeg) fixed;
+      background: url(../img/fondos/fondoOp2.jpeg) fixed;
       filter: grayscale(100%) blur(3px);
       width: 100%;
       height: 100%;
       z-index: -10;
  }
+
  .fnc{
   display: flex;
   justify-content: center; 
@@ -122,11 +133,11 @@ body{
     height: 100%;
     margin: 0;
     padding: 0;
-    position: relative;
-
+    position: sticky;
+    top: 0;
     z-index: 10;
     box-shadow: 5px 5px 5px 5px;
-    background: url(../img/wallpaper_op2.jpeg) fixed;
+    background: url(../img/fondos/fondoOp2.jpeg) fixed;
     border: 2px solid black;
     align-content: center;
     display: grid;
@@ -225,10 +236,85 @@ body{
   bottom:0;
   z-index: -10;
   filter: blur(1px);
-  background: url(../img/wallpaper_op2.jpeg) fixed;
+  background: url(../img/fondos/fondoOp2.jpeg) fixed;
+}
+.espacioFondo{
+  background-color: rgb(0, 0, 0,0.5);
+  margin: 5px;
+
+}
+h4{
+  text-align: center;
+  font-family:'montserrat';
+  font-weight: 400;
+  font-style: italic;
+  font-size: 20px;
+  color:white;
+}
+.separador{
+  padding: 5px;
+  box-shadow: 3px 3px 3px 3px rgb(0, 0, 0,0.8);
 }
 
- .cuerpo .espacioPeliculas{
+
+.espacioCine{
+  display: flex;
+}
+.slider {
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.slider ul {
+  padding: 0%;
+  display: flex;
+  width: 600%;
+  text-align: center;
+  border-bottom: 10px;
+
+  animation: cambio 20s infinite;
+  animation-direction: alternate;
+}
+
+.slider li {
+  width: 100%;
+  list-style: none;
+}
+
+.slider img {
+  object-fit: fill;
+  width: 50%;
+  height: 100%;
+  text-align: center;
+  box-shadow: 10px 10px 10px 10px rgb(0, 0, 0,0.8);
+
+  
+}
+
+@keyframes cambio {
+  0% { margin-left: 0;}
+  20% {margin-left: 0;}
+
+  25% {margin-left: -100%;}
+  45% {margin-left: -100%;}
+
+  50% {margin-left: -100%;}
+  70% {margin-left: -200%;}
+
+  75% {margin-left: -200%;}
+  100% {margin-left: -200%;}
+
+}
+
+.textoDescriptivo{
+    background-color: rgb(0, 0, 0,0.5);
+    width: 100%;
+
+}
+
+
+ .cuerpo .espacioTopPeliculas{
     display: flex;
     justify-content:center; 
     align-items:flex-start; 
@@ -238,7 +324,7 @@ body{
     flex-grow: 0;
     position: relative;
  }
- .cuerpo .espacioPeliculas::before{
+ .cuerpo .espacioTopPeliculas::before{
   display: flex;
   justify-content:center; 
   align-items:flex-start; 
@@ -250,32 +336,33 @@ body{
 }
 
 
- .espacioPeliculas  div{
+ .espacioTopPeliculas  div{
     top: 0;
     bottom: 0;
-    box-shadow: 1px 1px 5px 5px;
     width: 100%;
     height: 100%;
 }
 
-.espacioPeliculas > :nth-child(odd){
+.espacioTopPeliculas > :nth-child(odd){
   position: relative;
   top: 150px;
   left: 50px;
   z-index: 2;
 }
-.espacioPeliculas > :nth-child(even){
+.espacioTopPeliculas > :nth-child(even){
   margin: 40px;
 }
 
-.espacioPeliculas  div img{
+.espacioTopPeliculas  div img{
     object-fit: fill;
     width: 100%;
     height: 100%;
+    box-shadow: 10px 10px 10px 10px rgb(0, 0, 0,0.8);
+
 }
 
 .cuerpo h1{
-    color: rgb(228, 3, 61);
+    color:white ;
     text-align: center;
     font-size: 40px;
     font-family:'montserrat';
@@ -292,8 +379,14 @@ body{
     grid-column-start: 1;
     grid-row-end: 6;
     grid-column-end: 6;
-    
+    display: flex;
+
+
  }
+ .piePagina li{
+  list-style: none;
+ }
+
  /*FIN DE LOS ESTILOS PARA EL CONTENIDO DE FOOTER*/
 
 
@@ -349,6 +442,7 @@ grid-row-end:6;
 }
 
 .pelicula img {
+  width: 100%;
   max-width: 100%;
   height: auto;
   border-radius: 8px;
