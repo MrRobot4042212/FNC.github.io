@@ -7,73 +7,124 @@ body{
   background-color:rgb(31, 31, 31);
 }
 
-.estructura_principal {
-    display: grid;  
-    grid-template-rows: 300px 100px 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    gap: 0px;
-    height: 100%;
- }
+/*----------------------- SECCION FUENTES--------------------------- */
+
+@font-face {
+  font-family: 'montserrat';
+  src: url(../fonts/montserrat/Montserrat-Bold.ttf);
+  font-weight: bold;
+  font-style: bold;
+}
+@font-face {
+  font-family: 'montserrat';
+  src: url(../fonts/montserrat/Montserrat-Medium.ttf);
+  font-weight: 700;
+  font-style:normal;
+}
+@font-face {
+  font-family: 'montserrat';
+  src: url(../fonts/montserrat/Montserrat-Regular.ttf);
+  font-weight: normal;
+  font-style:normal;
+}
+@font-face {
+  font-family: 'montserrat';
+  src: url(../fonts/montserrat/Montserrat-SemiBold.ttf);
+  font-weight: 800;
+  font-style:normal;
+}
+@font-face{
+  font-family: 'montserrat';
+  src: url(../fonts/montserrat/Montserrat-Italic.ttf);
+  font-weight:400;
+  font-style: italic; 
+}
+
+/*----------------------- SECCION ESTILOS PAGINA PRINCIPAL--------------------------- */
 
 
-/* ESTILOS PARA EL CONTENIDO DE HEADER */
+    a{
+      text-decoration: none;
+    }
+
+    .estructuraPrincipal {
+        display: grid;  
+        grid-template-rows: 300px 100px 2fr 2fr 200px;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        gap: 0px;
+        height: 100%;
+    }
 
 
-.header {
-    /* configuracion del grid */
-    grid-row-start: 1;
-    grid-column-start: 1;
-    grid-row-end: 2;
-    grid-column-end: 6;
-    /*------------------------*/
-    padding: 20px;
-    position: relative;
+ /* ESTILOS PARA EL CONTENIDO DE HEADER */
 
- }
- .header::before{
-      content: "";
+
+  .header {
+
+        /* configuracion del grid */
+        grid-row-start: 1;
+        grid-column-start: 1;
+        grid-row-end: 2;
+        grid-column-end: 6;
+        /*------------------------*/
+
+        padding: 20px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+  }
+
+  .header::before{
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          background: url(../img/fondos/fondoOp2.jpeg) fixed;
+          filter: grayscale(100%) blur(3px);
+          width: 100%;
+          height: 100%;
+          z-index: -10;
+  }
+
+      .fnc{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+
+        color: rgb(228, 3, 61);
+        filter: blur(1px);
+        font-size: 100px;
+      }
+
+  .n{
+      color: white;
+      z-index: -5;
       position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      background: url(../img/wallpaper_op2.jpeg) fixed;
-      z-index: -10;
-      width: 100%;
-      height: 100%;
- }
- .fnc{
-  display: flex;
-  justify-content: center; 
-  color: rgb(228, 3, 61);
-  filter: blur(1px);
-  font-size: 100px;
+      font-size: 300px;
+  }
+  .header h1{
+      letter-spacing: 10px;
+      margin: 10px;
+      font-family:'montserrat';
+      font-weight: bold;
+      font-style: bold;
+      z-index: -1;
+  }
 
- }
- .n{
-  color: white;
-  z-index: -5;
-  position: absolute;
-  font-size: 300px;
-  right: 2.6em;
-  bottom: -0.3em;
+  .header h2{
+      margin: 30px;
+      font-size: 25px;
+      color: rgb(228, 3, 61);
+      text-align: center;
+      font-family:'montserrat';
+      font-weight: 700;
+      font-style: normal;
+  }
 
- }
-
- .header h1{
-  letter-spacing: 10px;
-  margin: 10px;
-  font-family:Georgia, 'Times New Roman', Times, serif;
-  z-index: -1;
- }
-
- .header h2{
-   margin: 20px;
-   font-size: 40px;
-   color: rgb(228, 3, 61);
-   text-align: center;
-   font-family:Georgia, 'Times New Roman', Times, serif;
-
- }
 
 /* FIN DE: ESTILOS PARA EL CONTENIDO DE HEADER */
 
@@ -81,106 +132,215 @@ body{
 
 
 
-/* NAVIGATION CONTROL*//* NAVIGATION CONTROL*//* NAVIGATION CONTROL*//* NAVIGATION CONTROL*/
+/* ESTILOS PARA EL CONTENIDO DE bNavegacion */
 
- .bNavegacion {
-      /* configuracion del grid */
-      grid-row-start: 2;
-      grid-column-start: 1;
-      grid-row-end: 3;
-      grid-column-end: 6;
-      /*------------------------*/
-    height: 100%;
-    margin: 0;
-    padding: 0;
+  .bNavegacion {
+
+        /* configuracion del grid */
+        grid-row-start: 2;
+        grid-column-start: 1;
+        grid-row-end: 3;
+        grid-column-end: 6;
+        /*------------------------*/
+
+      width: 100%;
+        height: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 5px 5px 5px 5px;
+      background: url(../img/fondos/fondoOp2.jpeg) fixed;
+      border: 2px solid black;
+      align-content: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+
+  }
+  .bNavegacion::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom:0;
+    background: rgb(255, 0, 67,0.3) ;
+  }
+
+
+  nav ul {
+    display: flex;
+    align-self:center;
+  }
+  nav ul li {
+    list-style: none;
     position: relative;
+    padding: 5px;
+  }
+  nav ul li a {
+    font-family: 'montserrat';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 25px;
+    margin: 10px;
+    line-height: 5rem;
+    color: white;
+    text-decoration: none;
+  }
+  .despegable ul {
+    display: none;
+    position: absolute;
+    width: 100%;
+  }
+  .links ul li:hover ul {
+    display: block;
+  }
+  .despegable ul li {
+    width: 100%;
+  }
+  .despegable ul li a {
+    padding: 10px;
+    line-height: unset;
+    white-space: nowrap;
+    width: 100%;
+  }
+  .despegable:hover {
+    transform: scale(1.03);
+    z-index: 4;
+    transition: all 0.2s;
+    box-shadow: 2px 2px 2px 2px rgb(31, 31, 31, 0.6);
+    background: rgb(0, 0, 0, 0.3);
+  }
 
-    z-index: 10;
-    box-shadow: 5px 20px 20px;
-    background: url(../img/wallpaper_op2.jpeg) fixed;
-    border: 10px solid black;
 
- }
- .bNavegacion::before{
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom:0;
-  background: rgb(255, 0, 67,0.3) ;
-  outline:dotted 7px rgba(255, 255, 255, 1);
- }
-
- nav ul {
-   display: flex;
-   align-self:flex-start;
- }
- nav ul li {
-   list-style: none;
-   position: relative;
- }
- nav ul li a {
-  font-family: 'Franklin Gothic Medium';
-   padding: 0rem 3rem;
-   font-size: 20px;
-   font:bold;
-   display: inline-block;
-   margin: 10px;
-   line-height: 5rem;
-   color: white;
-   text-decoration: none;
-   background-image: url('./img/filmFX.png');
-   text-decoration: none;
- }
- .despegable ul {
-   display: none;
-   position: absolute;
-   width: 100%;
- }
- .links ul li:hover ul {
-   display: block;
- }
- .despegable ul li {
-   width: 100%;
- }
- .despegable ul li a {
-   padding: 10px;
-   line-height: unset;
-   white-space: nowrap;
-   width: 100%;
- }
-.despegable:hover {
-   transform: scale(1.02);
-   z-index: 4;
-   transition: all 0.3s;
- }
- .despegable a {
-   margin: auto;
- }
+/* FIN DE: ESTILOS PARA EL CONTENIDO DE bNavegacion */
 
 
 
-/* FIN DE: ESTILOS PARA EL CONTENIDO DE LA BARRA DE NAVEGACIÓN */
 
-/*CUERPO*//*CUERPO*//*CUERPO*//*CUERPO*//*CUERPO*//*CUERPO*//*CUERPO*//*CUERPO*/
 
- #cuerpo {
-    grid-row-start: 3;
-    grid-column-start: 1;
-    grid-row-end: 5;
-    grid-column-end: 6;
- }
- #cuerpo::before{
-   content: "";
-   position:absolute;
-   background-size: cover;
-   filter: blur(5px);
-   z-index: -1;
-   width: 100%;
-   height: 100%;
-}
- #cuerpo .espacioPeliculas{
+
+/* ESTILOS PARA EL CONTENIDO DE cuerpo */
+
+  .cuerpo {
+    
+      /* configuracion del grid */
+      grid-row-start: 3;
+      grid-column-start: 1;
+      grid-row-end: 5;
+      grid-column-end: 6;
+      row-gap: 10px;
+      /*------------------------*/
+
+      position: relative;
+      display: grid;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding-bottom: 300px;
+  }
+  
+  .cuerpo::before {
+    position: absolute;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom:0;
+    z-index: -10;
+    filter: blur(1px);
+    background: url(../img/fondos/fondoOp2.jpeg) fixed;
+  }
+  .espacioFondo{
+    background-color: rgb(0, 0, 0,0.5);
+    margin: 5px;
+
+  }
+  h4{
+    text-align: center;
+    font-family:'montserrat';
+    font-weight: 400;
+    font-style: italic;
+    font-size: 20px;
+    color:white;
+  }
+  .separador{
+    padding: 5px;
+    box-shadow: 3px 3px 3px 3px rgb(0, 0, 0,0.8);
+  }
+
+
+  .espacioCine{
+    display: flex;
+  }
+  .slider {
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+  }
+
+  .slider ul {
+    padding: 0%;
+    display: flex;
+    width: 600%;
+    text-align: center;
+    border-bottom: 10px;
+
+    animation: cambio 20s infinite;
+    animation-direction: alternate;
+  }
+
+  .slider li {
+    width: 100%;
+    list-style: none;
+  }
+
+  .slider img {
+    object-fit: fill;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    box-shadow: 10px 10px 10px 10px rgb(0, 0, 0,0.8);
+
+    
+  }
+
+  @keyframes cambio {
+    0% { margin-left: 0;}
+    20% {margin-left: 0;}
+
+    25% {margin-left: -100%;}
+    45% {margin-left: -100%;}
+
+    50% {margin-left: -100%;}
+    70% {margin-left: -200%;}
+
+    75% {margin-left: -200%;}
+    100% {margin-left: -200%;}
+
+  }
+
+  .textoDescriptivo{
+      background-color: rgb(0, 0, 0,0.5);
+      width: 100%;
+
+  }
+
+
+  .cuerpo .espacioTopPeliculas{
+      display: flex;
+      justify-content:center; 
+      align-items:center; 
+      flex-direction: row; 
+      flex-wrap: nowrap; 
+      align-content: flex-start;
+      flex-grow: 0;
+      position: relative;
+      width: 100%;
+      height: 100%;
+  }
+  .cuerpo .espacioTopPeliculas::before{
     display: flex;
     justify-content:center; 
     align-items:flex-start; 
@@ -188,128 +348,190 @@ body{
     flex-wrap: nowrap; 
     align-content: flex-start;
     flex-grow: 0;
-    background-color: #bbdefb;
-    gap: 5px;
+    position: relative;
+  }
 
- }
 
- .espacioPeliculas  div{
-    top: 0;
-    bottom: 0;
-    background: #ffecb3;
-    border: 3px solid #ffcc80;
-    border-radius: 5px;
-    width: 100%;
+  .espacioTopPeliculas  div{
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+  }
+
+  .espacioTopPeliculas > :nth-child(odd){
+    position: relative;
+    top: 150px;
+    left: 50px;
+    z-index: 2;
+  }
+  .espacioTopPeliculas > :nth-child(even){
+    padding: 40px;
+  }
+
+  .espacioTopPeliculas  div img{
+      object-fit: fill;
+      width: 100%;
+      height: 100%;
+      box-shadow: 10px 10px 10px 10px rgb(0, 0, 0,0.8);
+
+  }
+
+  .cuerpo h1{
+      color:white ;
+      text-align: center;
+      font-size: 40px;
+      font-family:'montserrat';
+      font-weight: 800;
+      font-style: normal;
+  }
+
+/* FIN DE: ESTILOS PARA EL CONTENIDO DE bNavegacion */
+
+
+
+/*ESTILOS PARA EL CONTENIDO DE FOOTER*/
+
+  .piePagina {
+      background-color: rgb(19, 19, 19); 
+      grid-row-start: 5;
+      grid-column-start: 1;
+      grid-row-end: 6;
+      grid-column-end: 6;
+      position: relative;
+      display: flex;
+      justify-content:center;
+      width: 100%;
+      height: 100%;
+  }
+  .piePagina section{
+    margin: 30px;
+  }
+
+  .cc{
+    width: 200px;
+    margin: 0;
+    height: auto;
+  }
+
+  .piePagina ul{
+    list-style: none;
+  }
+
+  h5{
+    font-family: 'montserrat';
+    font-weight:400 ;
+    font-style: italic;
+  }
+
+  .piePagina a{
+    color: rgb(255, 255, 255,0.5);
+  }
+  .piePagina a:hover{
+    color: rgb(255, 255, 255,1);
+    transition: 50ms;
+  }
+  .piePagina section img{
+    object-fit: fill;
+    box-shadow: 3px 3px 3px 3px rgb(0, 0, 0,0.8);
+  }
+  .iconosSocial{
+    width: 50px;
+  }
+
+/*FIN DE LOS ESTILOS PARA EL CONTENIDO DE FOOTER*/
+
+
+
+
+/*------------------FIN DE LOS ESTILOS PARA EL CONTENIDO DE LA PÁGINA PRINCIPAL-----------------------------*/
+
+
+
+
+
+/*------------------ SECCION ESTILOS PAGINAS PELICULAS,DIRECTORES,PRODUCTORES,ACTORES-------------------- */
+
+  .estructuraPDPA {
+    display: grid;  
+    grid-template-rows: 300px 100px 2fr 2fr 200px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px;
     height: 100%;
-}
+  }
 
-.espacioPeliculas  div img{
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-}
-#cuerpo h1{
+  /*ESTILOS PARA EL CONTENIDO DE headerPDPA*/
+
+    .headerPDPA {
+
+      /* configuracion del grid */
+      grid-row-start: 1;
+      grid-column-start: 1;
+      grid-row-end: 2;
+      grid-column-end: 6;
+      /*------------------------*/
+
+      padding: 20px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .headerPDPA::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        background: url(../img/fondos/fondoOp2.jpeg) fixed;
+        filter: grayscale(100%) blur(3px);
+        width: 100%;
+        height: 100%;
+        z-index: -10;
+    }
+
+    .fncPDPA{
+    display: flex;
+    justify-content: left;
+    flex-direction: row; 
+    color: rgb(228, 3, 61);
+    filter: blur(1px);
+    font-size: 100px;
+    }
+
+    .nPDPA{
+    color: white;
+    z-index: -5;
+    position: absolute;
+    font-size: 150px;
+    left: 0.3em;
+    bottom:;
+    }
+
+    .headerPDPA h1{
+    letter-spacing: 10px;
+    margin: 10px;
+    font-family:'montserrat';
+    font-weight: bold;
+    font-style: bold;
+    z-index: -1;
+    }
+
+    .headerPDPA h2{
+    margin: 30px;
+    font-size: 25px;
+    color: rgb(228, 3, 61);
     text-align: center;
-    font-size: 30px;
-}
+    font-family:'montserrat';
+    font-weight: 700;
+    font-style: normal;
+    }
 
- #piePagina {
-
-    background-color: #95DECC; 
-    grid-row-start: 5;
-    grid-column-start: 1;
- 
-    grid-row-end: 6;
-    grid-column-end: 6;
-    
- }
+  /*FIN DE LOS ESTILOS PARA EL CONTENIDO DE headerPDPA*/
 
 
 
-  
-/* ADD PAGINA PELICULAS*/
-.estructura_pelis {
-  display: grid; 
-
-  grid-template-rows: 100px 200px 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  
-  gap: 0px;
-  height: 100%;
-  
-}
-.cabecera{
-  grid-row-start: 1;
-  grid-column-start:1 ;
-  grid-row-end: 2;
-  grid-column-end:6;
-}
-.filter {
-grid-row-start: 2;
-grid-column-start: 1;
-grid-column-end: 2;
-grid-row-end:6;
-}
-
-.filter h3 {
-  margin-bottom: 5px;
-
-}
-footer {
-  grid-row-start: 5; /* Ajusta esto según la cantidad de filas en tu cuadrícula */
-  grid-column-start: 1;
-  grid-column-end: 6;
-  grid-row-end: 5;
-  background-color: rgb(19, 19, 19);
-}
-
-.peliculas-container {
-  grid-row-start: 1;
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-end: 1;
-  display: flex;
-  align-items: center; 
-  flex-wrap: wrap;  /* Permite que las películas se envuelvan en líneas */
-  gap: 3px;  /* Espaciado entre las películas */
-  justify-content: space-between;
-}
 
 
-
-  
-
-div > img {
-  width: 45%;
-}
-.pelicula {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 32px;
-}
-
-.pelicula img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0px 0px 30px #000;
-}
-
-.pelicula h3 {
-  margin-top: 0.5em;
-}
-
-.pelicula p {
-  margin-bottom: 0.5em;
-}
-
-footer{
-  grid-row-start: 3;
-  grid-column-start: 1;
-  grid-column-end: 6;
-  grid-row-end: auto;
-  background-color: rgb(19, 19, 19);
-}
-
-
-/* FIN PAGINA PELICULAS */
+/*------------------ FIN DE LOS ESTILOS PAGINAS PELICULAS,DIRECTORES,PRODUCTORES,ACTORES-------------------- */
