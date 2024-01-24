@@ -1,46 +1,19 @@
 var flipPeliculas = document.querySelectorAll(".contenedorPeliculas");
-var flipOverlay = document.querySelectorAll(".overlay")
-var contenidoFlipped = document.querySelectorAll(".contenidoFlip")
-var contenidoDefault = document.querySelectorAll(".contenidoDefault")
-var frontPeliculas = document.querySelectorAll(".peliculasActive");
-var backPeliculas = document.querySelectorAll(".peliculasBackInactive");
-var mostrarFiltros = document.querySelectorAll(".cuerpoPDPA");
-var botonFiltrar = document.querySelector(".filtros");
-
-
-
 
 
 flipPeliculas.forEach(function (elemento) {
-    elemento.addEventListener('click', function () {
-        var overlay = elemento.querySelector(".overlay");
-        var contenidoFlipped = elemento.querySelector(".contenidoFlip");
-        var contenidoDefault = elemento.querySelector(".contenidoDefault");
-        var frontPelicula = elemento.querySelector(".peliculasActive");
-        var backPelicula = elemento.querySelector(".peliculasBackInactive");
+    elemento.addEventListener('click', function cambiarCara () {
+        if (elemento.classList.contains("animacionDefault")) {
+          
 
-        if (!elemento.classList.contains("animacionFlip")) {
-            elemento.classList.add("animacionFlip");
-            elemento.classList.remove("animacionDefault");
 
-            overlay.classList.remove("overlayDefault");
-            overlay.classList.add("overlayFlip");
-
-            contenidoFlipped.classList.remove("contenidoFlip");
-            contenidoFlipped.classList.add("contenidoFlipBlock");
-
-            contenidoDefault.classList.remove("contenidoDefault");
-            contenidoDefault.classList.add("contenidoDefaultRemove");
-
-            frontPelicula.classList.remove("peliculasActive");
-            frontPelicula.classList.add("peliculasInactive");
-
-            backPelicula.classList.remove("peliculasBackInactive");
-            backPelicula.classList.add("peliculasBackActive");
-
-        } else if (overlay.classList.contains("overlayFlip")) {
+        } else{
+          
             elemento.classList.remove("animacionFlip");
             elemento.classList.add("animacionDefault");
+
+            overlay.classList.add("overlayDefault");
+            overlay.classList.remove("overlayFlip");
 
             contenidoFlipped.classList.remove("contenidoFlipBlock");
             contenidoFlipped.classList.add("contenidoFlip");

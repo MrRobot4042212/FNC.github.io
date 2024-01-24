@@ -41,50 +41,6 @@ body{
   font-style: italic; 
 }
 
-/* ------------------------FIN DE SECCION DE FUENTES-------------*/
-
-/*------------------------SECCION ANIMACIONES----------------------*/
-
-@keyframes desaparecer{
-  0%{
-    display: block;
-    opacity: 1;
-
-  }
-  50%{
-    display: block;
-    opacity: 0.5;
-
-  }
-  100%{
-    opacity: 0;
-    display: none;
-  }
-}
-
-@keyframes aparecer{
-  0%{
-    display: none;
-    opacity: 0;
-  }
-  50%{
-    display: none;
-    opacity: 0.5;
-  }
-  100%{
-    display: block;
-    opacity: 1;
-  }
-}
-
-
-
-
-
-
-
-
-/*------------------------FIN DE SECCION DE ANIMACIONES-------------*/
 
 /*----------------------- SECCION ESTILOS PAGINA PRINCIPAL--------------------------- */
 
@@ -129,7 +85,7 @@ body{
           left: 0;
           bottom: 0;
           background: url(../img/fondos/fondoOp2.jpeg) fixed;
-          filter: grayscale(100%) blur(3px);
+          filter: grayscale(100%) blur(4px);
           width: 100%;
           height: 100%;
           z-index: -10;
@@ -142,7 +98,7 @@ body{
         align-items: center;
 
         color: rgb(228, 3, 61);
-        filter: blur(1px);
+        filter: blur(0px);
         font-size: 100px;
       }
 
@@ -164,12 +120,14 @@ body{
   .header h2{
       margin: 30px;
       font-size: 25px;
-      color: rgb(228, 3, 61);
+      color:  rgb(255, 255, 255);
       text-align: center;
       font-family:'montserrat';
       font-weight: 700;
       font-style: normal;
-  }
+      background: rgb(0, 0, 0, 0.4);
+    }
+
 
 
 /* FIN DE: ESTILOS PARA EL CONTENIDO DE HEADER */
@@ -229,7 +187,7 @@ body{
     font-weight: normal;
     font-style: normal;
     font-size: 25px;
-    margin: 10px;
+    padding: 20px;
     line-height: 5rem;
     color: white;
     text-decoration: none;
@@ -284,6 +242,7 @@ body{
       margin-top: 20px;
       margin-bottom: 20px;
       padding-bottom: 300px;
+      bottom: 0;
   }
   
   .cuerpo::before {
@@ -295,7 +254,7 @@ body{
     right: 0;
     bottom:0;
     z-index: -10;
-    filter: blur(1px);
+    filter: blur(4px) saturate(0.8);
     background: url(../img/fondos/fondoOp2.jpeg) fixed;
   }
   .espacioFondo{
@@ -447,7 +406,7 @@ body{
       display: flex;
       justify-content:center;
       width: 100%;
-      height: 100%;
+
   }
   .piePagina section{
     margin: 30px;
@@ -482,6 +441,9 @@ body{
   }
   .iconosSocial{
     width: 50px;
+  }
+  li{
+    list-style:none;
   }
 
 /*FIN DE LOS ESTILOS PARA EL CONTENIDO DE FOOTER*/
@@ -584,19 +546,14 @@ body{
     height: 100%;
     display: grid;
     grid-template-rows: auto;
-    
-    grid-template-columns: 4fr;
+    grid-template-columns: 1fr 4fr;
     align-content: center;
     align-items: center;
     justify-items: center;
     justify-content: center;
     grid-auto-flow: row;  
-
-    
-
   }
 
-  
 .gridPeliculas{
     width: 100%;
     display:grid;
@@ -605,46 +562,17 @@ body{
     gap: 50px;
     margin: 100px;
   }
-
-
 .contenedorPeliculas {
     position: relative;
     width: 100%;
-    height: 100%;
     cursor: pointer;
 }
-
-.animacionFlip{
-  transition: 2s;
-  transform: rotateY(180deg);
-}
-.animacionDefault{
-  transition: 2s;
-  transform: rotateY(0deg);
-}
-
-.peliculasInactive{
-  display: none;
-}
-.peliculasActive {
-  display: block;
+.animacion .peliculasActive {
     object-fit: fill;
     width: 100%;
     height: 100%;
     box-shadow: 10px 10px 10px 10px rgb(0, 0, 0,0.8);
     transition: opacity 0.3s ease-in-out;
-}
-.peliculasBackInactive{
-  z-index: -5;
-  display: none;
-}
-.peliculasBackActive{
-  display: block;
-  object-fit: fill;
-  width: 100%;
-  height: 100%;
-  box-shadow: 10px 10px 10px 10px rgb(0, 0, 0,0.8);
-  transition: opacity 0.3s ease-in-out;
 }
 
 .overlay {
@@ -656,46 +584,13 @@ body{
     background-color: rgba(255, 0, 0, 0);
     transition: background-color 0.3s ease-in-out;
 }
-
-.overlayDefault{
-  transition: 4s;
-  transform: rotateY(0deg);
-}
-
-.overlayFlip{
-  transition: 4s;
-  transform: rotateY(180deg);
-}
-
-.contenedorPeliculas:hover .overlay {
-  transition: 1s;
-  background-color: rgb(31, 31, 31,0.5);
-}
-
-.contenedorPeliculas:hover .overlay  *{
-  transition: 1s;
+.overlay .overlayFrontal{
   opacity: 1;
 }
-.contenedorPeliculas:hover .peliculasActive {
-  transition: 1s;
-  opacity: 1;
-  filter: blur(5px);
-}
-
-.contenedorPeliculas .overlay  *{
-  transition: 1s;
+.overlay .overlayDetras{
+  display: none;
   opacity: 0;
 }
-
-.contenidoDefault{
-  display: block;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-}
-.contenidoDefaultRemove{
-  display: none;
-}
-
 .contenedorPeliculas h1{
   color: white;
   font-size: 35px;
@@ -738,6 +633,15 @@ body{
   margin: 5px;
   word-spacing: 2px;
 }
+.contenedorPeliculas h4{
+    text-align: center;
+    font-family:'montserrat';
+    font-weight: 400;
+    font-style: italic;
+    font-size: 20px;
+    color:white;
+    opacity: 0;
+}
 .contenedorEstrellas{
   display: flex;
 }
@@ -749,44 +653,6 @@ body{
   display: none;
   transition: 2s;
   opacity: 0;
-}
-.contenidoFlipBlock{
-  display: block;
-  transition: 2;
-  opacity: 1;
-}
-
-.rating {
-  display: flex;
-  font-size: 0;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-  margin-top: 100px;
-
-}
-.contenedorStars{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 100px;
-}
-
-.star {
-  text-align: center;
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  background-image: url('../img/iconos/starVacia.png');
-  background-size: cover;
-  cursor: pointer;
-}
-
-.star:hover,
-.star.active {
-  background-image: url('../img/iconos/starllena.png');
 }
 
 
