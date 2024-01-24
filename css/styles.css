@@ -1,6 +1,7 @@
 
 html{
     scroll-behavior: smooth;
+    scrollbar-color: rgb(31, 31, 31) ;
 }
 
 body{
@@ -39,6 +40,7 @@ body{
   font-weight:400;
   font-style: italic; 
 }
+
 
 /*----------------------- SECCION ESTILOS PAGINA PRINCIPAL--------------------------- */
 
@@ -83,7 +85,7 @@ body{
           left: 0;
           bottom: 0;
           background: url(../img/fondos/fondoOp2.jpeg) fixed;
-          filter: grayscale(100%) blur(3px);
+          filter: grayscale(100%) blur(4px);
           width: 100%;
           height: 100%;
           z-index: -10;
@@ -96,7 +98,7 @@ body{
         align-items: center;
 
         color: rgb(228, 3, 61);
-        filter: blur(1px);
+        filter: blur(0px);
         font-size: 100px;
       }
 
@@ -118,12 +120,14 @@ body{
   .header h2{
       margin: 30px;
       font-size: 25px;
-      color: rgb(228, 3, 61);
+      color:  rgb(255, 255, 255);
       text-align: center;
       font-family:'montserrat';
       font-weight: 700;
       font-style: normal;
-  }
+      background: rgb(0, 0, 0, 0.4);
+    }
+
 
 
 /* FIN DE: ESTILOS PARA EL CONTENIDO DE HEADER */
@@ -183,7 +187,7 @@ body{
     font-weight: normal;
     font-style: normal;
     font-size: 25px;
-    margin: 10px;
+    padding: 20px;
     line-height: 5rem;
     color: white;
     text-decoration: none;
@@ -238,6 +242,7 @@ body{
       margin-top: 20px;
       margin-bottom: 20px;
       padding-bottom: 300px;
+      bottom: 0;
   }
   
   .cuerpo::before {
@@ -249,7 +254,7 @@ body{
     right: 0;
     bottom:0;
     z-index: -10;
-    filter: blur(1px);
+    filter: blur(4px) saturate(0.8);
     background: url(../img/fondos/fondoOp2.jpeg) fixed;
   }
   .espacioFondo{
@@ -374,7 +379,6 @@ body{
       width: 100%;
       height: 100%;
       box-shadow: 10px 10px 10px 10px rgb(0, 0, 0,0.8);
-
   }
 
   .cuerpo h1{
@@ -402,7 +406,7 @@ body{
       display: flex;
       justify-content:center;
       width: 100%;
-      height: 100%;
+
   }
   .piePagina section{
     margin: 30px;
@@ -438,6 +442,9 @@ body{
   .iconosSocial{
     width: 50px;
   }
+  li{
+    list-style:none;
+  }
 
 /*FIN DE LOS ESTILOS PARA EL CONTENIDO DE FOOTER*/
 
@@ -454,8 +461,8 @@ body{
 
   .estructuraPDPA {
     display: grid;  
-    grid-template-rows: 300px 100px 2fr 2fr 200px;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows:auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 0px;
     height: 100%;
   }
@@ -506,7 +513,6 @@ body{
     position: absolute;
     font-size: 150px;
     left: 0.3em;
-    bottom:;
     }
 
     .headerPDPA h1{
@@ -530,8 +536,183 @@ body{
 
   /*FIN DE LOS ESTILOS PARA EL CONTENIDO DE headerPDPA*/
 
+  .cuerpoPDPA{
+    grid-row-start: 3;
+    grid-column-start: 1;
+    grid-row-end: 5;
+    grid-column-end: 6;
 
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 4fr;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    grid-auto-flow: row;  
+  }
 
+.gridPeliculas{
+    width: 100%;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 50px;
+    margin: 100px;
+  }
+.contenedorPeliculas {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+}
+.animacion .peliculasActive {
+    object-fit: fill;
+    width: 100%;
+    height: 100%;
+    box-shadow: 10px 10px 10px 10px rgb(0, 0, 0,0.8);
+    transition: opacity 0.3s ease-in-out;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 0, 0, 0);
+    transition: background-color 0.3s ease-in-out;
+}
+.overlay .overlayFrontal{
+  opacity: 1;
+}
+.overlay .overlayDetras{
+  display: none;
+  opacity: 0;
+}
+.contenedorPeliculas h1{
+  color: white;
+  font-size: 35px;
+  font-family:'montserrat';
+  font-weight:bold;
+  font-style: bold;
+  text-align: center;
+  margin: 10px;
+  position: relative;
+  opacity: 0;
+}
+.contenedorPeliculas h2{
+  color: white;
+  font-size: 25px;
+  font-family:'montserrat';
+  font-weight:bold;
+  font-style: normal;
+  text-align: center;
+  margin: 10px;
+  position: relative;
+  opacity: 0;
+}
+.contenedorPeliculas p{
+  color: white;
+  font-size: 12px;
+  font-family:'montserrat';
+  font-weight:400;
+  font-style: normal;
+  opacity: 0;
+  margin: 5px;
+  word-spacing: 2px;
+}
+.contenedorPeliculas h3{
+  color: white;
+  font-size: 12px;
+  font-family:'montserrat';
+  font-weight:700;
+  font-style: normal;
+  opacity: 0;
+  margin: 5px;
+  word-spacing: 2px;
+}
+.contenedorPeliculas h4{
+    text-align: center;
+    font-family:'montserrat';
+    font-weight: 400;
+    font-style: italic;
+    font-size: 20px;
+    color:white;
+    opacity: 0;
+}
+.contenedorEstrellas{
+  display: flex;
+}
+.estrellas{
+  width: 100%;
+  height: 100%;
+}
+.contenidoFlip{
+  display: none;
+  transition: 2s;
+  opacity: 0;
+}
+
+/*ESTILOS PARA LA PAGINA DE PREMIOS */
+.cuerpoPremios {
+  grid-row-start: 3;
+  grid-column-start: 1;
+  grid-row-end: 6;
+  grid-column-end: 6;
+  row-gap: 10px;
+  /*------------------------*/
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  grid-template-rows: auto;
+  position: relative;
+  display: grid;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 300px;
+  bottom: 0;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+.cuerpoPremios::before {
+  position: absolute;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom:0;
+  z-index: -10;
+  filter: blur(4px) saturate(0.8);
+  background: url(../img/fondos/fondoOp2.jpeg) fixed;
+}
+.goya{
+  width: 500px;
+  height: 100%;
+  grid-column-start: 1;
+}
+.oscar{
+  width: 563px;
+  grid-column-start: 2;
+  height: 100%;
+}
+.oro{
+  width: 592px;
+  grid-column-start: 3;
+  height: 100%;
+}
+.cuerpoPremios div img{
+  width: 100%;
+  object-fit: fill;
+  position: relative;
+}
+.cuerpoPremios div h3 {
+text-align: center;
+font-family:"montserrat";
+color: #fff;
+}
 
 
 /*------------------ FIN DE LOS ESTILOS PAGINAS PELICULAS,DIRECTORES,PRODUCTORES,ACTORES-------------------- */
