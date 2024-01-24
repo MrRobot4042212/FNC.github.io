@@ -1,5 +1,6 @@
 var flipPeliculas = document.querySelectorAll(".contenedorPeliculas");
-
+var goyaAccion = document.querySelector(".goya");
+var boton = document.querySelectorAll(".botonZoom");
 
 flipPeliculas.forEach(function (elemento) {
     elemento.addEventListener('click', function cambiarCara () {
@@ -86,3 +87,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
   
+
+
+
+boton.forEach(function(elemento2){
+  elemento2.addEventListener("click", function(){
+    goyaAccion.classList.add("goyaZoom")
+  });
+});

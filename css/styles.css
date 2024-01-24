@@ -688,21 +688,27 @@ body{
   filter: blur(4px) saturate(0.8);
   background: url(../img/fondos/fondoOp2.jpeg) fixed;
 }
+.goyaZoom{
+  animation: zoom 3s linear ;
+}
 .goya{
   width: 500px;
   height: 100%;
   grid-column-start: 1;
 }
+
 .oscar{
   width: 563px;
   grid-column-start: 2;
   height: 100%;
-}
+  }
+
 .oro{
   width: 592px;
   grid-column-start: 3;
   height: 100%;
 }
+
 .cuerpoPremios div img{
   width: 100%;
   object-fit: fill;
@@ -714,5 +720,20 @@ font-family:"montserrat";
 color: #fff;
 }
 
+/*ANIMACIONES PREMIOS*/
+@keyframes zoom {
+  0%{
+    transform: scale(0);
+  }
+  25%{
+    transform: scale(2);
+  }
+  50%{
+    transform: scale(2.5);
+  }
+  100%{
+    transform: scale(4);
+  }
+}
 
 /*------------------ FIN DE LOS ESTILOS PAGINAS PELICULAS,DIRECTORES,PRODUCTORES,ACTORES-------------------- */
