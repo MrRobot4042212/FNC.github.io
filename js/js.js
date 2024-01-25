@@ -1,7 +1,5 @@
 var flipPeliculas = document.querySelectorAll(".contenedorPeliculas");
 var flipOverlay = document.querySelectorAll(".overlay")
-var contenidoFlipped = document.querySelectorAll(".contenidoFlip")
-var contenidoDefault = document.querySelectorAll(".contenidoDefault")
 var frontPeliculas = document.querySelectorAll(".peliculasActive");
 var backPeliculas = document.querySelectorAll(".peliculasBackInactive");
 var mostrarFiltros = document.querySelectorAll(".cuerpoPDPA");
@@ -9,6 +7,9 @@ var botonFiltrar = document.querySelector(".masFiltros");
 var botonQuitarFiltros = document.querySelector(".menosFiltros");
 var advFilter = document.querySelector(".filtrosAvanzados");
 var basicFilter = document.querySelector(".filtrosBasicos");
+var botonDesglose = document.querySelectorAll('.botonGeneros');
+var listaGeneros = document.querySelector('.listaGeneros');
+ 
 
 var goyaAccion = document.querySelector(".goya");
 var boton = document.querySelectorAll(".botonZoom");
@@ -26,9 +27,7 @@ flipPeliculas.forEach(function (elemento) {
   });
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-  var botonDesglose = document.querySelectorAll('.botonGeneros');
-  var listaGeneros = document.querySelector('.listaGeneros');
+
 
 botonDesglose.forEach(function (botonDesglose) {
     botonDesglose.addEventListener('click', function () {
@@ -41,7 +40,74 @@ botonDesglose.forEach(function (botonDesglose) {
       }
     });
   });
-});
+
+  let checkOverlayDefault = document.querySelectorAll(".overlayDefault");
+  let checkOverlayFlip = document.querySelectorAll(".overlayFlip"); 
+
+  document.addEventListener('DOMContentLoaded', function () {
+    checkOverlayDefault.forEach(function (checkOverlay) {
+      checkOverlay.children[0].classList.add("tituloPelicula");
+    });
+    checkOverlayFlip.forEach(function (checkOverlayFlip) {
+      checkOverlayFlip.children[0].classList.add("tituloPelicula");
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    checkOverlayFlip.forEach(function (checkOverlayGenero) {
+      if (checkOverlayGenero.children.length >= 11) {
+        checkOverlayGenero.children[10].classList.add("generoPelicula");
+      }
+    });
+  
+    let inputFiltroGenero = document.querySelectorAll(".genero");
+  
+    inputFiltroGenero.forEach(function (inputGen) {
+      inputGen.addEventListener('click', function () {
+        let inputGenValue = inputGen.innerHTML;
+        let flipPeliculas = document.querySelectorAll(".contenedorPeliculas");
+  
+        flipPeliculas.forEach(function (filtradoGen) {
+          let peliculaGenero = filtradoGen.querySelector(".generoPelicula");
+          
+          if (peliculaGenero) {
+            peliculaGenero = peliculaGenero.innerHTML;
+            console.log(inputGenValue);
+            console.log(peliculaGenero);
+  
+            let belongsToGenre = peliculaGenero.includes(inputGenValue);
+  
+            if (belongsToGenre) {
+              filtradoGen.style.display = "block";
+            } else {
+              filtradoGen.style.display = "none";
+            }
+          }
+        });
+      });
+    });
+  });
+  
+
+
+  let contenidoTituloPelicula = document.querySelectorAll(".tituloPelicula");
+  let inputFiltroPelicula = document.querySelectorAll(".inputNombrePelicula");
+  
+  inputFiltroPelicula.forEach(function (inputF) {
+    inputF.addEventListener('keydown', function () {
+      let inputValue = inputF.value.toLowerCase();
+      let flipPeliculas = document.querySelectorAll(".contenedorPeliculas");
+      flipPeliculas.forEach(function (filtrado) {
+        let peliculaTitulo = filtrado.querySelector(".tituloPelicula").innerHTML.toLowerCase();
+  
+        if (peliculaTitulo.includes(inputValue)) {
+          filtrado.style.display = "block";
+        } else {
+          filtrado.style.display = "none";
+        }
+      });
+    });
+  });
 
 
 
