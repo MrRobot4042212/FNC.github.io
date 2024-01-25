@@ -41,6 +41,50 @@ body{
   font-style: italic; 
 }
 
+/* ------------------------FIN DE SECCION DE FUENTES-------------*/
+
+/*------------------------SECCION ANIMACIONES----------------------*/
+
+@keyframes desaparecer{
+  0%{
+    display: block;
+    opacity: 1;
+
+  }
+  50%{
+    display: block;
+    opacity: 0.5;
+
+  }
+  100%{
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes aparecer{
+  0%{
+    display: none;
+    opacity: 0;
+  }
+  50%{
+    display: none;
+    opacity: 0.5;
+  }
+  100%{
+    display: block;
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+
+
+/*------------------------FIN DE SECCION DE ANIMACIONES-------------*/
 
 /*----------------------- SECCION ESTILOS PAGINA PRINCIPAL--------------------------- */
 
@@ -85,7 +129,7 @@ body{
           left: 0;
           bottom: 0;
           background: url(../img/fondos/fondoOp2.jpeg) fixed;
-          filter: grayscale(100%) blur(4px);
+          filter: grayscale(100%) blur(3px);
           width: 100%;
           height: 100%;
           z-index: -10;
@@ -96,9 +140,7 @@ body{
         justify-content: center;
         flex-direction: row;
         align-items: center;
-
         color: rgb(228, 3, 61);
-        filter: blur(0px);
         font-size: 100px;
       }
 
@@ -120,14 +162,13 @@ body{
   .header h2{
       margin: 30px;
       font-size: 25px;
-      color:  rgb(255, 255, 255);
+      color: rgb(228, 3, 61);
       text-align: center;
       font-family:'montserrat';
       font-weight: 700;
       font-style: normal;
-      background: rgb(0, 0, 0, 0.4);
+      background: rgb(0, 0, 0,0.3) ;
     }
-
 
 
 /* FIN DE: ESTILOS PARA EL CONTENIDO DE HEADER */
@@ -187,7 +228,7 @@ body{
     font-weight: normal;
     font-style: normal;
     font-size: 25px;
-    padding: 20px;
+    padding: 15px;
     line-height: 5rem;
     color: white;
     text-decoration: none;
@@ -210,7 +251,7 @@ body{
     width: 100%;
   }
   .despegable:hover {
-    transform: scale(1.03);
+    transform: scale(1.02);
     z-index: 4;
     transition: all 0.2s;
     box-shadow: 2px 2px 2px 2px rgb(31, 31, 31, 0.6);
@@ -242,7 +283,6 @@ body{
       margin-top: 20px;
       margin-bottom: 20px;
       padding-bottom: 300px;
-      bottom: 0;
   }
   
   .cuerpo::before {
@@ -254,7 +294,8 @@ body{
     right: 0;
     bottom:0;
     z-index: -10;
-    filter: blur(4px) saturate(0.8);
+    filter: blur(4px) saturate(0.7);
+
     background: url(../img/fondos/fondoOp2.jpeg) fixed;
   }
   .espacioFondo{
@@ -274,7 +315,6 @@ body{
     padding: 5px;
     box-shadow: 3px 3px 3px 3px rgb(0, 0, 0,0.8);
   }
-
 
   .espacioCine{
     display: flex;
@@ -307,8 +347,10 @@ body{
     height: 100%;
     text-align: center;
     box-shadow: 10px 10px 10px 10px rgb(0, 0, 0,0.8);
-
-    
+  
+  }
+  li{
+    list-style: none;
   }
 
   @keyframes cambio {
@@ -406,7 +448,7 @@ body{
       display: flex;
       justify-content:center;
       width: 100%;
-
+      height: 100%;
   }
   .piePagina section{
     margin: 30px;
@@ -442,9 +484,6 @@ body{
   .iconosSocial{
     width: 50px;
   }
-  li{
-    list-style:none;
-  }
 
 /*FIN DE LOS ESTILOS PARA EL CONTENIDO DE FOOTER*/
 
@@ -461,7 +500,7 @@ body{
 
   .estructuraPDPA {
     display: grid;  
-    grid-template-rows:auto;
+    grid-template-rows:200px 100px ;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 0px;
     height: 100%;
@@ -546,33 +585,332 @@ body{
     height: 100%;
     display: grid;
     grid-template-rows: auto;
-    grid-template-columns: 1fr 4fr;
+    
+    grid-template-columns: 4fr;
     align-content: center;
     align-items: center;
     justify-items: center;
-    justify-content: center;
-    grid-auto-flow: row;  
+    justify-content: start;
+    grid-auto-flow: row; 
+    margin: auto;
   }
-
 .gridPeliculas{
     width: 100%;
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     gap: 50px;
-    margin: 100px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
   }
+  .filtros{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin: 5px;
+    align-content: flex-start;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .filtros *{
+    margin:5px ;
+  }
+  .masFiltros{
+    cursor: pointer;
+    transition: 2s;
+
+  }
+  .menosFiltros{
+    display: none;
+    cursor: pointer;
+    transition: 2s;
+  }
+  .filtrosBasicos{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    align-content: stretch;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    margin: 10px;
+  }
+  .filtrosBasicosRemove{
+    display: none;
+  }
+  .filtrosAvanzadosRemove{
+    display: none;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .filtros h5{
+    font-size: 30px;
+    font-family:'montserrat';
+    font-weight: 400;
+    font-style: italic;
+    text-align: center;
+  }
+  .filtrosAvanzados{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    align-content: stretch;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    margin: 10px;
+  }
+  .generoContainer{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    align-content: stretch;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    margin: 10px;
+  }
+  
+  .generoContainer li{
+    font-size: 15px;
+    font-family:'montserrat';
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    padding: 10px;
+    background: rgb(255, 255, 255,0.5) ;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  .listaGeneros{
+    display: none;
+    opacity: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .listaGenerosDesglose{
+    animation: 3s desglose linear forwards ;
+  }
+  .listaGenerosEnglosar{
+    animation: 3s englosar linear forwards ;
+
+  }
+
+  @keyframes desglose{
+    0%{
+      display: block;
+      transform: translateY(-1500px);
+      opacity: 0;
+    }
+    25%{
+      transform:translateY(-600px) ;
+      opacity: 0.1;
+    }
+    50%{
+      transform: translateY(-400px);
+      opacity: 0.3;
+    }
+    75%{
+      transform: translateY(-100px);
+      opacity: 0.6;
+    }
+    100%{
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+  @keyframes englosar{
+    0%{
+      display: block;
+      transform: translateY(0px);
+      opacity: 1;
+    }
+    25%{
+      transform:translateY(-300px) ;
+      opacity: 0.6;
+    }
+    50%{
+      transform: translateY(-600px);
+      opacity: 0.3;
+    }
+    75%{
+      transform: translateY(-800px);
+      opacity: 0.1;
+    }
+    100%{
+      transform: translateY(-1500px);
+      opacity: 0;
+    }
+  }
+    
+  .generoContainer h5{
+    padding: 20px;
+    background: rgb(255, 255, 255,0.5) ;
+    overflow: hidden;
+    cursor: pointer;
+
+  }
+  .nombrePelicula{
+    text-align: center;
+    width: 100%;
+    height: 30px;
+    font-size: 15px;
+    font-family:'montserrat';
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+  }
+ 
 .contenedorPeliculas {
     position: relative;
     width: 100%;
+    height: 100%;
     cursor: pointer;
+    overflow: hidden;
 }
-.animacion .peliculasActive {
+
+.contenedorPeliculas:hover::after{
+  transition: 2s;
+  opacity: 0;
+}
+
+.animacionFlip{
+  transition: 2s;
+  transform: rotateY(180deg);
+}
+.animacionDefault{
+  transition: 2s;
+  transform: rotateY(0deg);
+}
+.animacionDefault::after{
+  color: white;
+  content: "Ponga el raton sobre la tarjeta para ver la calificacion";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background: rgb(0, 0, 0,0.7);
+  bottom: 50px;
+  font-family: 'montserrat';
+  font-size: 400;
+  font-style: italic;
+  font-size: 30px;
+  text-align: center;
+  opacity: 1;
+}
+.animacionDefault:hover::after{
+  transition: 1s;
+  opacity: 0;
+}
+
+.animacionDefault .overlayFlip{
+  display: none;
+  opacity: 0;
+  transition: 2s;
+}
+.animacionDefault .imgPeliculaActive{
+  display: block;
+  animation: 2s aparecer linear normal ;
+}
+
+.animacionDefault .imgPeliculaDetras{
+  display: none;
+  opacity: 0;
+  transition: 2s;
+}
+.animacionFlip::after{
+  color: white;
+  content: "Ponga el raton sobre la tarjeta para ver información";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background: rgb(0, 0, 0,0.7);
+  bottom: 50px;
+  font-family: 'montserrat';
+  font-size: 400;
+  font-style: italic;
+  font-size: 30px;
+  text-align: center;
+  opacity: 1;
+  transform: rotateY(180deg);
+}
+
+.animacionFlip:hover::after{
+  transition: 1s;
+  opacity: 0;
+}
+
+
+.animacionFlip .overlayDefault{
+  display: none;
+  opacity: 0;
+  transition: 2s;
+}
+.animacionFlip .imgPeliculaActive{
+  display: none;
+  opacity: 0;
+}
+.animacionFlip .imgPeliculaDetras{
+  opacity: 1;
+  animation: 2s aparecer linear normal ;
+}
+
+@keyframes aparecer{
+  0%{
+    display: block;
+    opacity: 0;
+  }
+  50%{
+    display: block;
+    opacity: 0.5;
+  }
+  100%{
+    display: block;
+    opacity: 1;
+  }
+
+}
+@keyframes desaparecer{
+  0%{
+    display: block;
+    opacity: 1;
+  }
+  50%{
+    display: block;
+    opacity: 0.5;
+  }
+  100%{
+    display: block;
+    opacity: 0;
+  }
+}
+
+
+.imgPeliculaFrontal {
+  position: absolute;
+  display: block;
     object-fit: fill;
     width: 100%;
-    height: 100%;
     box-shadow: 10px 10px 10px 10px rgb(0, 0, 0,0.8);
     transition: opacity 0.3s ease-in-out;
+}
+
+.imgPeliculaDetras{
+  display: block;
+  object-fit: fill;
+  width: 100%;
+  box-shadow: 10px 10px 10px 10px rgb(0, 0, 0,0.8);
+  transition: opacity 0.3s ease-in-out;
+}
+.imgPelicula{
+  width: 100%;
+  height: 100%;
 }
 
 .overlay {
@@ -584,13 +922,43 @@ body{
     background-color: rgba(255, 0, 0, 0);
     transition: background-color 0.3s ease-in-out;
 }
-.overlay .overlayFrontal{
+
+.overlayDefault{
+  transition: 4s;
+  transform: rotateY(0deg);
+}
+
+.overlayFlip{
+  transition: 4s;
+  transform: rotateY(180deg);
+}
+
+.contenedorPeliculas:hover .overlay {
+  transition: 2s;
+  background-color: rgb(31, 31, 31,0.5);
+}
+
+.contenedorPeliculas:hover .overlay  *{
+  transition: 2s;
   opacity: 1;
 }
-.overlay .overlayDetras{
-  display: none;
+.contenedorPeliculas:hover .imgPeliculaActive {
+  transition: 2s;
+  opacity: 1;
+  filter: blur(5px) grayscale(90%);
+}
+.contenedorPeliculas:hover .imgPeliculaActive {
+  transition: 2s;
+  opacity: 1;
+}
+
+
+.overlayFlip{
+  position: absolute;
+  transition: 2s;
   opacity: 0;
 }
+
 .contenedorPeliculas h1{
   color: white;
   font-size: 35px;
@@ -634,13 +1002,13 @@ body{
   word-spacing: 2px;
 }
 .contenedorPeliculas h4{
-    text-align: center;
-    font-family:'montserrat';
-    font-weight: 400;
-    font-style: italic;
-    font-size: 20px;
-    color:white;
-    opacity: 0;
+  text-align: center;
+  font-family:'montserrat';
+  font-weight: 400;
+  font-style: italic;
+  font-size: 20px;
+  color:white;
+  opacity: 0;
 }
 .contenedorEstrellas{
   display: flex;
@@ -649,11 +1017,41 @@ body{
   width: 100%;
   height: 100%;
 }
-.contenidoFlip{
-  display: none;
-  transition: 2s;
+.rating {
+  display: flex;
+  font-size: 0;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+
+}
+.contenedorStars{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 100px;
   opacity: 0;
 }
+
+.star {
+  text-align: center;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-image: url('../img/iconos/starVacia.png');
+  background-size: cover;
+  cursor: pointer;
+}
+
+.star:hover,
+.star.active {
+  background-image: url('../img/iconos/starllena.png');
+}
+
+
 
 
 
