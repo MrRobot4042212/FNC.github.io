@@ -1,4 +1,15 @@
 var flipPeliculas = document.querySelectorAll(".contenedorPeliculas");
+var flipOverlay = document.querySelectorAll(".overlay")
+var contenidoFlipped = document.querySelectorAll(".contenidoFlip")
+var contenidoDefault = document.querySelectorAll(".contenidoDefault")
+var frontPeliculas = document.querySelectorAll(".peliculasActive");
+var backPeliculas = document.querySelectorAll(".peliculasBackInactive");
+var mostrarFiltros = document.querySelectorAll(".cuerpoPDPA");
+var botonFiltrar = document.querySelector(".masFiltros");
+var botonQuitarFiltros = document.querySelector(".menosFiltros");
+var advFilter = document.querySelector(".filtrosAvanzados");
+var basicFilter = document.querySelector(".filtrosBasicos");
+
 var goyaAccion = document.querySelector(".goya");
 var boton = document.querySelectorAll(".botonZoom");
 
@@ -106,8 +117,8 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
   });
+})
   
-
 
 
 boton.forEach(function(elemento2){
@@ -115,3 +126,4 @@ boton.forEach(function(elemento2){
     goyaAccion.classList.add("goyaZoom")
   });
 });
+
