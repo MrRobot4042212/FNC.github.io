@@ -1053,7 +1053,85 @@ body{
 
 
 
+/*ESTILOS PARA LA PAGINA DE PREMIOS */
+.cuerpoPremios {
+  grid-row-start: 3;
+  grid-column-start: 1;
+  grid-row-end: 6;
+  grid-column-end: 6;
+  row-gap: 10px;
+  /*------------------------*/
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  grid-template-rows: auto;
+  position: relative;
+  display: grid;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 300px;
+  bottom: 0;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+.cuerpoPremios::before {
+  position: absolute;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom:0;
+  z-index: -10;
+  filter: blur(4px) saturate(0.8);
+  background: url(../img/fondos/fondoOp2.jpeg) fixed;
+}
+.goyaZoom{
+  animation: zoom 3s linear ;
+}
+.goya{
+  width: 500px;
+  height: 100%;
+  grid-column-start: 1;
+}
 
+.oscar{
+  width: 563px;
+  grid-column-start: 2;
+  height: 100%;
+  }
 
+.oro{
+  width: 592px;
+  grid-column-start: 3;
+  height: 100%;
+}
+
+.cuerpoPremios div img{
+  width: 100%;
+  object-fit: fill;
+  position: relative;
+}
+.cuerpoPremios div h3 {
+text-align: center;
+font-family:"montserrat";
+color: #fff;
+}
+
+/*ANIMACIONES PREMIOS*/
+@keyframes zoom {
+  0%{
+    transform: scale(0);
+  }
+  25%{
+    transform: scale(2);
+  }
+  50%{
+    transform: scale(2.5);
+  }
+  100%{
+    transform: scale(4);
+  }
+}
 
 /*------------------ FIN DE LOS ESTILOS PAGINAS PELICULAS,DIRECTORES,PRODUCTORES,ACTORES-------------------- */
