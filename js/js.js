@@ -24,6 +24,9 @@ flipPeliculas.forEach(function (elemento) {
           elemento.classList.remove("animacionFlip");
           elemento.classList.add("animacionDefault");
         }
+        else{
+          elemento.classList.add("animacionDefault");
+        }
   });
 });
 
@@ -62,7 +65,6 @@ botonDesglose.forEach(function (botonDesglose) {
   });
     
 
-  
     document.addEventListener('DOMContentLoaded', function () {
       checkOverlayFlip.forEach(function (checkOverlayGenero) {
         if (checkOverlayGenero.children.length >= 11) {
@@ -103,6 +105,13 @@ botonDesglose.forEach(function (botonDesglose) {
   inputFiltroPelicula.forEach(function (inputF) {
     inputF.addEventListener('keydown', function () {
       let inputValue = inputF.value.toLowerCase();
+      
+      if (inputValue === ""){
+        contenidoTituloPelicula.forEach(function (filtrado) {
+          filtrado.style.display = "block";
+        });
+      }
+
       let flipPeliculas = document.querySelectorAll(".contenedorPeliculas");
       flipPeliculas.forEach(function (filtrado) {
         let peliculaTitulo = filtrado.querySelector(".tituloPelicula").innerHTML.toLowerCase();
@@ -123,6 +132,11 @@ botonDesglose.forEach(function (botonDesglose) {
   inputActorPelicula.forEach(function (inputActor) {
     inputActor.addEventListener('keydown', function () {
       let inputValue = inputActor.value.toLowerCase();
+      if (inputValue === ""){
+        contenidoActorPelicula.forEach(function (filtrado) {
+          filtrado.style.display = "block";
+        });
+      }
       let flipPeliculas = document.querySelectorAll(".contenedorPeliculas");
       flipPeliculas.forEach(function (filtrado) {
         let peliculaActor = filtrado.querySelector(".actorPelicula").innerHTML.toLowerCase();
@@ -160,7 +174,6 @@ mostrarFiltros.forEach(function (showFilter) {
       }
       else if(showFilter.style.gridTemplateColumns = "1fr 4fr"){
           showFilter.style.gridTemplateColumns = "4fr";
-      
       }
   });
 });
