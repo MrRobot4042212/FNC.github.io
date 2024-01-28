@@ -9,6 +9,9 @@ var botonFiltrar = document.querySelector(".masFiltros");
 var botonQuitarFiltros = document.querySelector(".menosFiltros");
 var advFilter = document.querySelector(".filtrosAvanzados");
 var basicFilter = document.querySelector(".filtrosBasicos");
+var botonDesglose = document.querySelectorAll('.botonGeneros');
+var listaGeneros = document.querySelector('.listaGeneros')
+let filtradoPorNombre = document.querySelectorAll('.nombrePelicula');
 
 var goyaAccion = document.querySelector(".goya");
 var boton = document.querySelectorAll(".botonZoom");
@@ -26,9 +29,6 @@ flipPeliculas.forEach(function (elemento) {
   });
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-  var botonDesglose = document.querySelectorAll('.botonGeneros');
-  var listaGeneros = document.querySelector('.listaGeneros');
 
 botonDesglose.forEach(function (botonDesglose) {
     botonDesglose.addEventListener('click', function () {
@@ -41,7 +41,16 @@ botonDesglose.forEach(function (botonDesglose) {
       }
     });
   });
-});
+
+
+  filtradoPorNombre.forEach(function filtracionNombre (seccionNombre){
+    seccionNombre.addEventListener('keyup', function(){
+        
+    });
+  });
+
+
+
 
 
 
