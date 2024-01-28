@@ -593,6 +593,7 @@ body{
     justify-content: start;
     grid-auto-flow: row; 
     margin: auto;
+    gap: 15px;
   }
 .gridPeliculas{
     width: 100%;
@@ -608,10 +609,12 @@ body{
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    margin: 5px;
+    margin: 35px 10px;
     align-content: flex-start;
     justify-content: center;
     flex-direction: column;
+    background-color: rgb(0, 0, 0,0.5);
+    width: 100%;
   }
 
   .filtros *{
@@ -636,6 +639,7 @@ body{
     flex-direction: column;
     margin: 10px;
   }
+
   .filtrosBasicosRemove{
     display: none;
   }
@@ -651,7 +655,27 @@ body{
     font-weight: 400;
     font-style: italic;
     text-align: center;
+    color: white;
   }
+  #botonGeneros{
+    color: black;
+  }
+  
+  .filtros h2{
+    font-size: 25px;
+    font-family:'montserrat';
+    font-weight: normal;
+    font-style: normal;
+    text-align: center;
+    background: rgb(255, 255, 255,0.5);
+    padding: 10px;
+    box-shadow: 2px 2px 2px 2px black;
+    margin-top: 27px;
+  }
+  .filtros h2:hover{
+    animation: 1s breath linear 1 normal none;
+  }
+
   .filtrosAvanzados{
     display: flex;
     align-items: center;
@@ -671,7 +695,8 @@ body{
     margin: 10px;
   }
   
-  .generoContainer li{
+  .listaGeneros li{
+    opacity: 1;
     font-size: 15px;
     font-family:'montserrat';
     font-weight: 400;
@@ -682,9 +707,37 @@ body{
     width: 100%;
     cursor: pointer;
   }
+  .listaGeneros li:hover{
+    animation: 1s breath linear 1  normal none ;
+  }
+
+  @keyframes breath {
+		0% {
+			transform:translateX(0%);
+			transform-origin:50% 50%;
+		}
+		15% {
+			transform:translateX(-30px) rotate(6deg);
+		}
+		30% {
+			transform:translateX(15px) rotate(-6deg);
+		}
+		45% {
+			transform:translateX(-15px) rotate(3.6deg);
+		}
+		60% {
+			transform:translateX(9px) rotate(-2.4deg);
+		}
+		75% {
+			transform:translateX(-6px) rotate(1.2deg);
+		}
+		100% {
+			transform:translateX(0%);
+			transform-origin:50% 50%;
+		}
+	}
 
   .listaGeneros{
-    display: none;
     opacity: 0;
     list-style: none;
     padding: 0;
@@ -695,17 +748,19 @@ body{
     justify-content: center;
     align-items: center;
   }
+
+ 
   .listaGenerosDesglose{
-    animation: 3s desglose linear forwards ;
+    animation: 3s desglose ease-in forwards ;
   }
   .listaGenerosEnglosar{
-    animation: 3s englosar linear forwards ;
+    animation: 3s englosar ease-out forwards ;
 
   }
 
   @keyframes desglose{
     0%{
-      display: block;
+      transform: translateX(0);
       transform: translateY(-1500px);
       opacity: 0;
     }
@@ -723,14 +778,14 @@ body{
     }
     100%{
       transform: translateY(0px);
-      opacity: 1;
+      opacity: 0.8;
     }
   }
   @keyframes englosar{
     0%{
-      display: block;
+      transform: translateX(0);
       transform: translateY(0px);
-      opacity: 1;
+      opacity: 0.8;
     }
     25%{
       transform:translateY(-300px) ;
@@ -757,7 +812,7 @@ body{
     cursor: pointer;
 
   }
-  .nombrePelicula{
+  input{
     text-align: center;
     width: 100%;
     height: 30px;
@@ -766,7 +821,9 @@ body{
     font-weight: 700;
     font-style: normal;
     text-align: center;
+    margin: 5px;
   }
+
  
 .contenedorPeliculas {
     position: relative;
@@ -774,6 +831,7 @@ body{
     height: 100%;
     cursor: pointer;
     overflow: hidden;
+    transition: 2s;
 }
 
 .contenedorPeliculas:hover::after{
@@ -782,13 +840,52 @@ body{
 }
 
 .animacionFlip{
-  transition: 2s;
   transform: rotateY(180deg);
+  transition: 2s;
+
 }
 .animacionDefault{
-  transition: 2s;
   transform: rotateY(0deg);
+  transition: 2s;
 }
+/*
+@keyframes posicionFlip {
+  0% {
+    display: block;
+    opacity: 0;
+    transform: rotateY(0deg);
+  }
+  50%{
+    display: block;
+    opacity: 0.5;
+    transform: rotateY(90deg);
+  }
+  100% {
+    display: block;
+    opacity: 1;
+    transform: rotateY(180deg);
+  }
+
+}
+@keyframes posicionDefault {
+  0%{
+    display: block;
+    opacity: 0;
+    transform: rotateY(180deg);
+  }
+  50%{
+    display: block;
+    opacity: 0.5;
+    transform: rotateY(90deg);
+  }
+  100%{
+    display: block;
+    opacity: 0;
+    transform: rotateY(0deg);
+  }
+  
+}
+*/
 .animacionDefault::after{
   color: white;
   content: "Ponga el raton sobre la tarjeta para ver la calificacion";
@@ -811,7 +908,6 @@ body{
 
 .animacionDefault .overlayFlip{
   display: none;
-  opacity: 0;
   transition: 2s;
 }
 .animacionDefault .imgPeliculaActive{
@@ -820,9 +916,8 @@ body{
 }
 
 .animacionDefault .imgPeliculaDetras{
-  display: none;
-  opacity: 0;
-  transition: 2s;
+  backface-visibility: hidden;
+  animation: 0.5s desaparecer linear forwards;
 }
 .animacionFlip::after{
   color: white;
@@ -853,13 +948,14 @@ body{
   transition: 2s;
 }
 .animacionFlip .imgPeliculaActive{
-  display: none;
-  opacity: 0;
+  backface-visibility: hidden;
+ animation: 0.5s desaparecer linear forwards;
 }
 .animacionFlip .imgPeliculaDetras{
   opacity: 1;
-  animation: 2s aparecer linear normal ;
+  animation: 1s aparecer linear normal ;
 }
+
 
 @keyframes aparecer{
   0%{
@@ -878,7 +974,7 @@ body{
 }
 @keyframes desaparecer{
   0%{
-    display: block;
+    display:block;
     opacity: 1;
   }
   50%{
@@ -886,7 +982,7 @@ body{
     opacity: 0.5;
   }
   100%{
-    display: block;
+    display: none;
     opacity: 0;
   }
 }
@@ -903,6 +999,7 @@ body{
 
 .imgPeliculaDetras{
   display: block;
+  position: absolute;
   object-fit: fill;
   width: 100%;
   box-shadow: 10px 10px 10px 10px rgb(0, 0, 0,0.8);
