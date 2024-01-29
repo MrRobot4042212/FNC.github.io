@@ -1156,10 +1156,26 @@ body{
 }
 .posicionFrontal{
   position: relative;
-
+  transition: 1s;
 }
-.posicionFrontal:hover{
-  filter: blur(5px) grayscale(70%);
+.posicionFrontal::before{
+  content: "Ponga el raton sobre la tarjeta para ver la informacion";
+  color: white;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background: rgb(0, 0, 0,0.7);
+  bottom: 50px;
+  font-family: 'montserrat';
+  font-size: 400;
+  font-style: italic;
+  font-size: 30px;
+  text-align: center;
+  transition: 1s;
+}
+.contenedorDirectores:hover .imagenFrontal{
+  transition: 1s;
+  filter: blur(10px) grayscale(70%);
 }
 /*----------------------------------------------------------------*/
 
@@ -1221,7 +1237,18 @@ body{
   font-style: italic;
   color: white;
 }
+.posicionCarta p{
+  color: white;
+  font-size: 15px;
+  font-family:'montserrat';
+  font-weight:400;
+  font-style: normal;
+  margin: 5px;
+  word-spacing: 2px;
+
+}
 .posicionCarta:hover{
+  background: rgb(0, 0, 0,0.5);
   opacity: 1;
   transition: 2s;
 }
