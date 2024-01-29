@@ -3,7 +3,6 @@ html{
     scroll-behavior: smooth;
     scrollbar-color: rgb(31, 31, 31) ;
 }
-
 body{
   background-color:rgb(31, 31, 31);
 }
@@ -162,12 +161,15 @@ body{
   .header h2{
       margin: 30px;
       font-size: 25px;
-      color: rgb(228, 3, 61);
+      width: 100%;
+      color: rgb(255, 255, 255);
       text-align: center;
       font-family:'montserrat';
       font-weight: 700;
       font-style: normal;
-      background: rgb(0, 0, 0,0.3) ;
+      background: rgb(0, 0, 0,0.8) ;
+      box-shadow: 5px 5px 5px 5px black;
+
     }
 
 
@@ -564,13 +566,16 @@ body{
     }
 
     .headerPDPA h2{
-    margin: 30px;
-    font-size: 25px;
-    color: rgb(228, 3, 61);
-    text-align: center;
-    font-family:'montserrat';
-    font-weight: 700;
-    font-style: normal;
+      margin: 30px;
+      font-size: 25px;
+      width: 100%;
+      color: rgb(255, 255, 255);;
+      text-align: center;
+      font-family:'montserrat';
+      font-weight: 700;
+      font-style: normal;
+      background: rgb(0,0,0,0.5) ;
+      box-shadow: 5px 5px 5px 5px black;
     }
 
   /*FIN DE LOS ESTILOS PARA EL CONTENIDO DE headerPDPA*/
@@ -593,6 +598,7 @@ body{
     justify-content: start;
     grid-auto-flow: row; 
     margin: auto;
+    gap: 15px;
   }
 .gridPeliculas{
     width: 100%;
@@ -602,16 +608,17 @@ body{
     gap: 50px;
     margin-top: 30px;
     margin-bottom: 30px;
-
   }
   .filtros{
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    margin: 5px;
+    margin: 35px 10px;
     align-content: flex-start;
     justify-content: center;
     flex-direction: column;
+    background-color: rgb(0, 0, 0,0.5);
+    width: 100%;
   }
 
   .filtros *{
@@ -620,7 +627,6 @@ body{
   .masFiltros{
     cursor: pointer;
     transition: 2s;
-
   }
   .menosFiltros{
     display: none;
@@ -635,6 +641,7 @@ body{
     flex-wrap: nowrap;
     flex-direction: column;
     margin: 10px;
+
   }
 
   .filtrosBasicosRemove{
@@ -652,7 +659,27 @@ body{
     font-weight: 400;
     font-style: italic;
     text-align: center;
+    color: white;
   }
+  #botonGeneros{
+    position: relative;
+    color: black;
+  }
+  #botonGeneros::after{
+    position: absolute;
+    content: "Click para mostrar / ocultar";
+    font-size: 10px;
+    color: black;
+    text-align: center;
+    right:0;
+    bottom: 0;
+    left: 0;
+  }
+  #botonGeneros:hover::after{
+    content: "";
+  }
+
+  
   .filtros h2{
     font-size: 25px;
     font-family:'montserrat';
@@ -688,6 +715,7 @@ body{
   }
   
   .listaGeneros li{
+    opacity: 1;
     font-size: 15px;
     font-family:'montserrat';
     font-weight: 400;
@@ -699,7 +727,6 @@ body{
     cursor: pointer;
   }
   .listaGeneros li:hover{
-    opacity: 1;
     animation: 1s breath linear 1  normal none ;
   }
 
@@ -730,7 +757,6 @@ body{
 	}
 
   .listaGeneros{
-    display: none;
     opacity: 0;
     list-style: none;
     padding: 0;
@@ -741,18 +767,19 @@ body{
     justify-content: center;
     align-items: center;
   }
+
  
   .listaGenerosDesglose{
-    animation: 3s desglose linear forwards ;
+    animation: 3s desglose ease-in forwards ;
   }
   .listaGenerosEnglosar{
-    animation: 3s englosar linear forwards ;
+    animation: 3s englosar ease-out forwards ;
 
   }
 
   @keyframes desglose{
     0%{
-      display: block;
+      transform: translateX(0);
       transform: translateY(-1500px);
       opacity: 0;
     }
@@ -775,7 +802,7 @@ body{
   }
   @keyframes englosar{
     0%{
-      display: block;
+      transform: translateX(0);
       transform: translateY(0px);
       opacity: 0.8;
     }
@@ -804,7 +831,7 @@ body{
     cursor: pointer;
 
   }
-  .inputNombrePelicula{
+  input{
     text-align: center;
     width: 100%;
     height: 30px;
@@ -813,7 +840,9 @@ body{
     font-weight: 700;
     font-style: normal;
     text-align: center;
+    margin: 5px;
   }
+
  
 .contenedorPeliculas {
     position: relative;
@@ -830,12 +859,13 @@ body{
 }
 
 .animacionFlip{
-  transition: 2s;
   transform: rotateY(180deg);
+  transition: 2s;
+
 }
 .animacionDefault{
-  transition: 2s;
   transform: rotateY(0deg);
+  transition: 2s;
 }
 .animacionDefault::after{
   color: white;
@@ -859,7 +889,6 @@ body{
 
 .animacionDefault .overlayFlip{
   display: none;
-  opacity: 0;
   transition: 2s;
 }
 .animacionDefault .imgPeliculaActive{
@@ -868,9 +897,8 @@ body{
 }
 
 .animacionDefault .imgPeliculaDetras{
-  display: none;
-  opacity: 0;
-  transition: 2s;
+  backface-visibility: hidden;
+  animation: 0.5s desaparecer linear forwards;
 }
 .animacionFlip::after{
   color: white;
@@ -894,20 +922,20 @@ body{
   opacity: 0;
 }
 
-
 .animacionFlip .overlayDefault{
   display: none;
   opacity: 0;
   transition: 2s;
 }
 .animacionFlip .imgPeliculaActive{
-  display: none;
-  opacity: 0;
+  backface-visibility: hidden;
+ animation: 0.5s desaparecer linear forwards;
 }
 .animacionFlip .imgPeliculaDetras{
   opacity: 1;
-  animation: 2s aparecer linear normal ;
+  animation: 1s aparecer linear normal ;
 }
+
 
 @keyframes aparecer{
   0%{
@@ -926,7 +954,7 @@ body{
 }
 @keyframes desaparecer{
   0%{
-    display: block;
+    display:block;
     opacity: 1;
   }
   50%{
@@ -934,7 +962,7 @@ body{
     opacity: 0.5;
   }
   100%{
-    display: block;
+    display: none;
     opacity: 0;
   }
 }
@@ -951,6 +979,7 @@ body{
 
 .imgPeliculaDetras{
   display: block;
+  position: absolute;
   object-fit: fill;
   width: 100%;
   box-shadow: 10px 10px 10px 10px rgb(0, 0, 0,0.8);
@@ -1098,6 +1127,118 @@ body{
 .star.active {
   background-image: url('../img/iconos/starllena.png');
 }
+
+/*------------------ SECCION ESTILOS DIRECTORES-------------------- */
+.gridDirectores{
+  width: 100%;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 50px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.contenedorDirectores {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transition: 2s;
+  box-shadow: 20px 20px 20px rgba(0,0,0,0.5);
+
+}
+
+
+/*POSICION FRONTAL */
+.contenedorDirectores img{
+  width: 100%;
+  height: 100%;
+}
+.posicionFrontal{
+  position: relative;
+
+}
+.posicionFrontal:hover{
+  filter: blur(5px) grayscale(70%);
+}
+/*----------------------------------------------------------------*/
+
+/*POSICION CARTA */
+.posicionCarta{
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr  ;
+  grid-template-columns: 1fr 1fr;
+  top: 0;
+  position: absolute;
+}
+.informacionDirector{
+  text-align: center;
+  grid-column-start:1;
+  grid-column-end:3;
+  grid-row-start:1;
+  grid-row-end:2;
+  display: grid;
+  grid-template-columns:auto;
+  grid-template-rows:100px 1fr;
+  width: 100%;
+  height: 100%;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+}
+.col2{
+  grid-column-start:1 ;
+  grid-column-end:2;
+  grid-row-start:2;
+  grid-row-end:2;
+}
+.col3{
+  grid-column-start:2 ;
+  grid-column-end:2;
+  grid-row-start:2;
+  grid-row-end:2;
+}
+.posicionCarta h1{
+  font-size: 30px;
+  font-family:'montserrat';
+  font-weight:bold;
+  font-style: bold;
+  color: white;
+  grid-column-start:1 ;
+  grid-column-end:3;
+  grid-row-start:1;
+  grid-row-end:1;
+  display: flex;
+  text-align: center;
+}
+.posicionCarta h2{
+  font-size: 25px;
+  font-family:'montserrat';
+  font-weight:400;
+  font-style: italic;
+  color: white;
+}
+.posicionCarta:hover{
+  opacity: 1;
+  transition: 2s;
+}
+
+/*----------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+/*------------------ FIN SECCION ESTILOS DIRECTORES-------------------- */
+
+/*------------------ FIN SECCION ESTILOS PAGINAS PELICULAS,DIRECTORES,PRODUCTORES,ACTORES-------------------- */
 
 
 

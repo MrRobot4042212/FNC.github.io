@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Películas</title>
+    <title>Películas</title>
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body >
@@ -27,7 +27,7 @@
                 <ul>
                     <li class="despegable"><a href="./index.html">Inicio</a></li>
                     <li class="despegable"><a href="./pelis.html">Películas</a></li>
-                    <li class="despegable"><a href="">Directores</a></li>
+                    <li class="despegable"><a href="./directores.html">Directores</a></li>
                     <li class="despegable"><a href="">Productores</a></li>
                     <li class="despegable"><a href="">Actores</a></li> 
                     <li class="despegable"><a href="./premios.html">Premios</a></li>
@@ -58,8 +58,10 @@
                 <section class=" filtrosAvanzadosRemove filtrosAvanzados ">
                     <h5> Filtra por el nombre de la película</h5>
                     <input type="text" name="nombrePelicula" class="inputNombrePelicula" placeholder="Nombre de la película">
+                    <h5> Filtra por Actor</h5>
+                    <input type="text" name="nombreActorPelicula" class="inputActorPelicula" placeholder="Nombre del actor">
                     <div class="generoContainer">
-                        <h5 class="botonGeneros">Géneros</h5>
+                        <h5 id="botonGeneros" class="botonGeneros">Géneros</h5>
                         <ul class="listaGeneros"> 
                             <li class="genero">Acción</li>
                             <li class="genero">Aventura</li>
@@ -98,7 +100,7 @@
                     <div class="overlay">
 
                         <div class="overlayDefault">
-                            <h1>El Padrino</h1>
+                            <h1 class="nombreTitulo">El Padrino</h1>
                             <br>
                             <span class="rating">
                                 <h2>RATING</h2>
@@ -166,7 +168,7 @@
                     <div class="overlay">
 
                         <div class="overlayDefault">
-                            <h1>Anabelle</h1>
+                            <h1 class="nombreTitulo">Anabelle</h1>
                             <br>
                             <span class="rating">
                                 <h2>RATING</h2>
@@ -227,7 +229,7 @@
                     <div class="overlay">
 
                         <div class="overlayDefault">
-                            <h1>Niños grandes 1</h1>
+                            <h1 class="nombreTitulo">Niños grandes 1</h1>
                             <br>
                             <span class="rating">
                                 <h2>RATING</h2>

@@ -15,13 +15,16 @@ var goyaAccion = document.querySelector(".goya");
 var boton = document.querySelectorAll(".botonZoom");
 
 flipPeliculas.forEach(function (elemento) {
-  elemento.addEventListener('click', function () {
+  elemento.addEventListener('click', function voltear () {
         if (elemento.classList.contains("animacionDefault")) {
             elemento.classList.remove("animacionDefault");
             elemento.classList.add("animacionFlip");
         }
         else if(elemento.classList.contains("animacionFlip")){
           elemento.classList.remove("animacionFlip");
+          elemento.classList.add("animacionDefault");
+        }
+        else{
           elemento.classList.add("animacionDefault");
         }
   });
@@ -59,6 +62,18 @@ botonDesglose.forEach(function (botonDesglose) {
         checkOverlayGenero.children[10].classList.add("generoPelicula");
       }
     });
+  });
+    
+
+    document.addEventListener('DOMContentLoaded', function () {
+      checkOverlayFlip.forEach(function (checkOverlayGenero) {
+        if (checkOverlayGenero.children.length >= 11) {
+          checkOverlayGenero.children[8].classList.add("actorPelicula");
+        }
+      });
+    });
+
+  
   
     let inputFiltroGenero = document.querySelectorAll(".genero");
   
@@ -66,17 +81,12 @@ botonDesglose.forEach(function (botonDesglose) {
       inputGen.addEventListener('click', function () {
         let inputGenValue = inputGen.innerHTML;
         let flipPeliculas = document.querySelectorAll(".contenedorPeliculas");
-  
+        inputGen
         flipPeliculas.forEach(function (filtradoGen) {
           let peliculaGenero = filtradoGen.querySelector(".generoPelicula");
-          
           if (peliculaGenero) {
             peliculaGenero = peliculaGenero.innerHTML;
-            console.log(inputGenValue);
-            console.log(peliculaGenero);
-  
             let belongsToGenre = peliculaGenero.includes(inputGenValue);
-  
             if (belongsToGenre) {
               filtradoGen.style.display = "block";
             } else {
@@ -86,7 +96,6 @@ botonDesglose.forEach(function (botonDesglose) {
         });
       });
     });
-  });
   
 
 
@@ -96,11 +105,43 @@ botonDesglose.forEach(function (botonDesglose) {
   inputFiltroPelicula.forEach(function (inputF) {
     inputF.addEventListener('keydown', function () {
       let inputValue = inputF.value.toLowerCase();
+      
+      if (inputValue === ""){
+        contenidoTituloPelicula.forEach(function (filtrado) {
+          filtrado.style.display = "block";
+        });
+      }
+
       let flipPeliculas = document.querySelectorAll(".contenedorPeliculas");
       flipPeliculas.forEach(function (filtrado) {
         let peliculaTitulo = filtrado.querySelector(".tituloPelicula").innerHTML.toLowerCase();
   
         if (peliculaTitulo.includes(inputValue)) {
+          filtrado.style.display = "block";
+        } else {
+          filtrado.style.display = "none";
+        }
+      });
+    });
+  });
+  
+
+  let inputActorPelicula = document.querySelectorAll(".inputActorPelicula");
+  let contenidoActorPelicula = document.querySelectorAll(".actorPelicula");
+
+  inputActorPelicula.forEach(function (inputActor) {
+    inputActor.addEventListener('keydown', function () {
+      let inputValue = inputActor.value.toLowerCase();
+      if (inputValue === ""){
+        contenidoActorPelicula.forEach(function (filtrado) {
+          filtrado.style.display = "block";
+        });
+      }
+      let flipPeliculas = document.querySelectorAll(".contenedorPeliculas");
+      flipPeliculas.forEach(function (filtrado) {
+        let peliculaActor = filtrado.querySelector(".actorPelicula").innerHTML.toLowerCase();
+        console.log(peliculaActor);
+        if (peliculaActor.includes(inputValue)) {
           filtrado.style.display = "block";
         } else {
           filtrado.style.display = "none";
@@ -133,7 +174,6 @@ mostrarFiltros.forEach(function (showFilter) {
       }
       else if(showFilter.style.gridTemplateColumns = "1fr 4fr"){
           showFilter.style.gridTemplateColumns = "4fr";
-      
       }
   });
 });
@@ -183,13 +223,4 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
   });
-})
-  
-
-
-boton.forEach(function(elemento2){
-  elemento2.addEventListener("click", function(){
-    goyaAccion.classList.add("goyaZoom")
-  });
 });
-
