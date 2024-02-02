@@ -182,14 +182,29 @@ document.addEventListener("DOMContentLoaded",function() {
     newFondo.addEventListener('click', function () {
       let elegirPremio = document.querySelector('.elegirPremio');
       let fondoPremios = document.querySelector('.background')
+      const aplausosPlay = document.querySelector('.aplausos')
       if (newFondo.classList.contains("fondo")) {
         newFondo.classList.remove("fondo");
         newFondo.classList.add("fondoActivado");
         elegirPremio.classList.add("fondoActivado");
         fondoPremios.classList.add("zoomFondo");
+        aplausosPlay.play();
+
         setTimeout(function(){
           fondoPremios.classList.add("zoomFondoDesaparecer");
-        },2500);
+          let eleccion = document.querySelector('.tituloPremio').innerHTML;
+          switch (eleccion) {
+            case 'Premios Goya':
+              const comentarista = document.querySelector('.comentaristaGoya')
+              comentarista.play();
+              
+              break;
+          
+            default:
+              break;
+          }
+        },4000);
+
       };
     });
   });
