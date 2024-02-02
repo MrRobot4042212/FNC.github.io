@@ -203,8 +203,8 @@ body{
       justify-content: center;
       align-items: center;
 
-
   }
+  
   .bNavegacion::before{
     content: "";
     position: absolute;
@@ -216,7 +216,7 @@ body{
   }
 
 
-  nav ul {
+ nav ul {
     display: flex;
     align-self:center;
   }
@@ -258,7 +258,7 @@ body{
     transition: all 0.2s;
     box-shadow: 2px 2px 2px 2px rgb(31, 31, 31, 0.6);
     background: rgb(0, 0, 0, 0.3);
-  }
+  } 
 
 
 /* FIN DE: ESTILOS PARA EL CONTENIDO DE bNavegacion */
@@ -406,22 +406,27 @@ body{
       bottom: 0;
       width: 100%;
       height: 100%;
+      position: relative;
   }
 
   .espacioTopPeliculas > :nth-child(odd){
+    width: 100%;
+    height: 100%;
     position: relative;
     top: 150px;
     left: 50px;
     z-index: 2;
   }
   .espacioTopPeliculas > :nth-child(even){
+    height: 100%;
+    width: 100%;
     padding: 40px;
   }
 
   .espacioTopPeliculas  div img{
       object-fit: fill;
       width: 100%;
-      height: 100%;
+      height: 85%;
       box-shadow: 10px 10px 10px 10px rgb(0, 0, 0,0.8);
   }
 
@@ -1261,8 +1266,6 @@ body{
 
 
 
-
-
 /*------------------ FIN SECCION ESTILOS DIRECTORES-------------------- */
 
 /*------------------ FIN SECCION ESTILOS PAGINAS PELICULAS,DIRECTORES,PRODUCTORES,ACTORES-------------------- */
@@ -1270,84 +1273,203 @@ body{
 
 
 /*ESTILOS PARA LA PAGINA DE PREMIOS */
-.cuerpoPremios {
-  grid-row-start: 3;
-  grid-column-start: 1;
-  grid-row-end: 6;
-  grid-column-end: 6;
-  row-gap: 10px;
-  /*------------------------*/
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 30px;
-  grid-template-rows: auto;
-  position: relative;
+.estructuraPremios{
   display: grid;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding-bottom: 300px;
-  bottom: 0;
-  align-content: center;
-  align-items: center;
-  justify-content: center;
+  position: relative;
+  overflow: hidden;
 }
-.cuerpoPremios::before {
+.bNavegacionPremios {
+  /* configuracion del grid */
+  grid-row-start: 1;
+  grid-column-start: 1;
+  grid-column-end: 1;
+  /*------------------------*/
+position: sticky;
+z-index: 10;
+box-shadow: 5px 5px 5px 5px;
+border: 2px solid black;
+align-content: center;
+display: none;
+}
+
+.bNavegacionPremios nav ul{
+  display: flex;
+  align-self:flex-start;
+  flex-direction: column;
+  padding: 0;
+  align-items: center;
+}
+.bNavegacionPremios ul li {
+  list-style: none;
+  position: relative;
+  padding: 5px;
+} 
+.bNavegacionPremios nav ul li a {
+  font-family: 'montserrat';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 25px;
+  padding: 15px;
+  line-height: 5rem;
+  color: white;
+  text-decoration: none;
+}
+.bNavegacionPremios .despegable ul {
+  display: none;
   position: absolute;
+  width: 100%;
+}
+.bNavegacionPremios .links ul li:hover ul {
+  display: block;
+}
+.bNavegacionPremios .despegable ul li {
+  width: 100%;
+}
+.bNavegacionPremios .despegable ul li a {
+  padding: 10px;
+  line-height: unset;
+  white-space: nowrap;
+  width: 100%;
+}
+.bNavegacionPremios .despegable:hover {
+  transform: scale(1.02);
+  z-index: 4;
+  transition: all 0.2s;
+  box-shadow: 2px 2px 2px 2px rgb(31, 31, 31, 0.6);
+  background: rgb(0, 0, 0, 0.3);
+}
+
+.contenedorPremios{
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.contenedorPremios::before{
   content: "";
   position: absolute;
   top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: -5;
+  filter: saturate(50%) blur(5px)}
+
+.contenedorPremios section{
+  display: flex;
+  margin: 50px;
+  width:1520px;
+  height: 950px;
+  overflow: hidden;
+}
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(5px);
+  overflow: hidden;
+}
+.fondo{
+  width: 0px;
+  flex-grow: 1;
+  object-fit: cover;
+  transition: 1s ease;
+  box-shadow: 20px 20px 20px black;
+  filter: grayscale(80%);
+  position: relative;
+  overflow: hidden;
+  
+}
+
+.contenedorPremios section .fondo:hover{
+  cursor: pointer;
+  width: 350px;
+  opacity: 1;
+  filter: contrast(120%) grayscale(0%) ;
+  scale: 1.2;
+}
+.tituloPremio{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  font-size: 50px;
+  color: white;
+  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
-  bottom:0;
-  z-index: -10;
-  filter: blur(4px) saturate(0.8);
-  background: url(../img/fondos/fondoOp2.jpeg) fixed;
+  text-align: center;
+  filter: drop-shadow(20px 10px 10px black);
 }
-.goyaZoom{
-  animation: zoom 3s linear ;
+.tituloPremio:hover{
+  opacity: 0;
+  transition: 0.5s linear;
+  transform:translateY(100px);
 }
-.goya{
-  width: 500px;
-  height: 100%;
-  grid-column-start: 1;
-}
-
-.oscar{
-  width: 563px;
-  grid-column-start: 2;
-  height: 100%;
-  }
-
-.oro{
-  width: 592px;
-  grid-column-start: 3;
-  height: 100%;
-}
-
-.cuerpoPremios div img{
+#fondoGoya{
   width: 100%;
-  object-fit: fill;
-  position: relative;
+  height: 100%;
 }
-.cuerpoPremios div h3 {
-text-align: center;
-font-family:"montserrat";
-color: #fff;
+#fondoOscars{
+  width: 100%;
+  height: 100%;
+}
+#fondoGlobos{
+  width: 100%;
+  height: 100%;
 }
 
-/*ANIMACIONES PREMIOS*/
-@keyframes zoom {
+.fondoActivado{
+  animation: 4s desaparecerfondo linear normal forwards;
+}
+.zoomFondo{
+  animation: 4s zoomFondo linear normal forwards;
+}
+.zoomFondoDesaparecer{
+  opacity: 0;
+  transition: 2s linear;
+}
+@keyframes zoomFondo {
   0%{
-    transform: scale(0);
+    transform: scale(1);
+}
+100%{
+    filter: blur(0px);
+    transform: scale(2.5);
+    object-position: bottom 100px;
+}
+  
+}
+@keyframes desaparecerfondo{
+  0%{
+    scale: 1;
+    opacity: 1;
   }
   25%{
-    transform: scale(2);
+    scale: 0.8;
+    opacity: 0.5;
+    transform: perspective(200px) rotateX(5deg) translateY(50px);
   }
   50%{
-    transform: scale(2.5);
+    scale: 0.5;
+    opacity: 0.3;
+    transform: perspective(400px) rotateX(10deg) translateY(100px);
   }
   100%{
-    transform: scale(4);
+    scale: 0;
+    opacity: 0.1;
   }
+
 }
+
+
+
 
 /*------------------ FIN DE LOS ESTILOS PAGINAS PELICULAS,DIRECTORES,PRODUCTORES,ACTORES-------------------- */

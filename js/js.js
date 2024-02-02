@@ -9,7 +9,6 @@ var advFilter = document.querySelector(".filtrosAvanzados");
 var basicFilter = document.querySelector(".filtrosBasicos");
 var botonDesglose = document.querySelectorAll('.botonGeneros');
 var listaGeneros = document.querySelector('.listaGeneros');
- 
 
 var goyaAccion = document.querySelector(".goya");
 var boton = document.querySelectorAll(".botonZoom");
@@ -105,13 +104,11 @@ botonDesglose.forEach(function (botonDesglose) {
   inputFiltroPelicula.forEach(function (inputF) {
     inputF.addEventListener('keydown', function () {
       let inputValue = inputF.value.toLowerCase();
-      
       if (inputValue === ""){
         contenidoTituloPelicula.forEach(function (filtrado) {
           filtrado.style.display = "block";
         });
       }
-
       let flipPeliculas = document.querySelectorAll(".contenedorPeliculas");
       flipPeliculas.forEach(function (filtrado) {
         let peliculaTitulo = filtrado.querySelector(".tituloPelicula").innerHTML.toLowerCase();
@@ -178,6 +175,26 @@ mostrarFiltros.forEach(function (showFilter) {
   });
 });
 
+
+document.addEventListener("DOMContentLoaded",function() {
+  var newFondo = document.querySelectorAll(".fondo");
+  newFondo.forEach(function (newFondo) {
+    newFondo.addEventListener('click', function () {
+      let elegirPremio = document.querySelector('.elegirPremio');
+      let fondoPremios = document.querySelector('.background')
+      if (newFondo.classList.contains("fondo")) {
+        newFondo.classList.remove("fondo");
+        newFondo.classList.add("fondoActivado");
+        elegirPremio.classList.add("fondoActivado");
+        fondoPremios.classList.add("zoomFondo");
+        setTimeout(function(){
+          fondoPremios.classList.add("zoomFondoDesaparecer");
+        },2500);
+      };
+    });
+  });
+  
+});
 
 
 document.addEventListener('DOMContentLoaded', function () {
