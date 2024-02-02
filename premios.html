@@ -9,11 +9,8 @@
 <body>
     <audio class="aplausos" src="./aud/aplausos.mp3"></audio>
     <audio class="comentaristaGoya" src="./aud/comentaristaGoya.mp3"></audio>
-    <audio class="comentaristaOscars" src=""></audio>
-    <audio class="comentaristaGlobos" src=""></audio>
-    <img class="background" src="./img/fondos/fondo.jpeg.png" alt="">
-    <video src="./img/"></video>
-
+    <audio class="comentaristaOscars" src="./aud/comentaristaOscars.mp3"></audio>
+    <audio class="comentaristaGlobos" src="./aud/comentaristaGlobos.mp3"></audio>
     <main>
         
     </main>
@@ -38,28 +35,46 @@
         <!--INICIO SECCION DE PREMIOS-->
 
         <div class="contenedorPremios">
+            <img class="background" src="./img/fondos/fondo.jpeg.png" alt="">
 
             <section class="elegirPremio">
-                <div class="fondo">
-                    <img id="fondoGoya" class="fondo" src="./img/premios/goya.jpeg" alt="">
-                    <h1 class="tituloPremio">Premios Goya</h1>
-                 </div>
-                <div class="fondo">
-                    <img id="fondoOscars" class="fondo" src="./img/premios/oscars.jpeg" alt="">
-                    <h1 class="tituloPremio">Premios Oscar</h1>
-
+                <div class="fondo" data-image="./img/premios/goya.jpeg">
+                  <img id="fondoGoya" class="fondo" src="./img/premios/goya.jpeg" alt="">
+                  <h1 class="tituloPremio">Premios Goya</h1>
                 </div>
-                <div class="fondo">
-                    <img id="fondoGlobos" class="fondo" src="./img/premios/globos de oro.jpeg" alt="">
-                    <h1 class="tituloPremio">Premios Globos de oro</h1>
+                <div class="fondo" data-image="./img/premios/oscars.jpeg">
+                  <img id="fondoOscars" class="fondo" src="./img/premios/oscars.jpeg" alt="">
+                  <h1 class="tituloPremio">Premios Oscar</h1>
                 </div>
-            </section>
-        
+                <div class="fondo" data-image="./img/premios/globos de oro.jpeg">
+                  <img id="fondoGlobos" class="fondo" src="./img/premios/globos de oro.jpeg" alt="">
+                  <h1 class="tituloPremio">Premios Globos de oro</h1>
+                </div>
+              </section>
+        </div>
+        <div class="contenedorGoya">
+            <h1>Traducción</h1>
 
+            
+        </div>
+        <div class="contenedorOscars">
+            <div class="contenedorTraduccion">
+                <h1>Traducción</h1>
+                <p></p>
+            
+            </div>
+
+        </div>
+        <div class="contenedorGlobos">
+            <div class="contenedorTraduccion">
+                <h1>Traducción</h1>
+                <p></p>
 
         </div>
         
         <!--FIN SECCION PREMIOS-->
+
+
 
     </main>
     <script src="./js/js.js"></script>

@@ -176,41 +176,71 @@ mostrarFiltros.forEach(function (showFilter) {
 });
 
 
-document.addEventListener("DOMContentLoaded",function() {
-  var newFondo = document.querySelectorAll(".fondo");
-  newFondo.forEach(function (newFondo) {
-    newFondo.addEventListener('click', function () {
-      let elegirPremio = document.querySelector('.elegirPremio');
-      let fondoPremios = document.querySelector('.background')
-      const aplausosPlay = document.querySelector('.aplausos')
-      if (newFondo.classList.contains("fondo")) {
-        newFondo.classList.remove("fondo");
-        newFondo.classList.add("fondoActivado");
+document.addEventListener("DOMContentLoaded", function () {
+  var elegirPremio = document.querySelector('.elegirPremio');
+  elegirPremio.addEventListener('click', function (event) {
+    var clickedElement = event.target.closest('.fondo');
+    if (clickedElement) {
+      let fondoPremios = document.querySelector('.background');
+      const aplausosPlay = document.querySelector('.aplausos');
+
+      if (clickedElement.classList.contains("fondo")) {
+        clickedElement.classList.remove("fondo");
+        clickedElement.classList.add("fondoActivado");
         elegirPremio.classList.add("fondoActivado");
         fondoPremios.classList.add("zoomFondo");
         aplausosPlay.play();
 
-        setTimeout(function(){
+        setTimeout(function () {
           fondoPremios.classList.add("zoomFondoDesaparecer");
-          let eleccion = document.querySelector('.tituloPremio').innerHTML;
+          let eleccion = clickedElement.querySelector('.tituloPremio').innerHTML;
+          let contenidoPremios = document.querySelector('.contenedorPremio');
+          console.log(eleccion);
+
           switch (eleccion) {
+
             case 'Premios Goya':
-              const comentarista = document.querySelector('.comentaristaGoya')
-              comentarista.play();
-              
+              const comentaristaGoya = document.querySelector('.comentaristaGoya');
+              let contenedorGoya = document.querySelector('.contenedorGoya');
+              contenedorGoya.style.display = 'grid';
+              fondoPremios.classList.add("aparicionEscenario");
+              fondoPremios.src="../img/premios/escenarioGoya.jpeg";
+              comentaristaGoya.play();
+
               break;
+
+            case 'Premios Oscar':
+
+              const comentaristaOscar= document.querySelector('.comentaristaOscars');
+              let contenedorOscars = document.querySelector('.contenedorOscars');
+              fondoPremios.classList.add("aparicionEscenario");
+              fondoPremios.src="../img/premios/escenarioOscars.jpeg";
+              comentaristaOscar.play();
+
+            break;
+
+            case 'Premios Globos de oro':
+
+              const comentaristaGlobos= document.querySelector('.comentaristaGlobos');
+              let contenedorGlobos = document.querySelector('.contenedorGlobos');
+              fondoPremios.classList.add("aparicionEscenario");
+              fondoPremios.src="../img/premios/escenarioGlobos.jpeg";
+              comentaristaGlobos.play();
+
+            break;
           
             default:
               break;
           }
-        },4000);
-
-      };
-    });
+        }, 4000);
+      }
+    }
   });
-  
 });
 
+
+
+  
 
 document.addEventListener('DOMContentLoaded', function () {
     const ratingContainer = document.querySelector('.contenedorStars');
