@@ -72,8 +72,7 @@ botonDesglose.forEach(function (botonDesglose) {
       });
     });
 
-  
-  
+
     let inputFiltroGenero = document.querySelectorAll(".genero");
   
     inputFiltroGenero.forEach(function (inputGen) {
@@ -200,6 +199,7 @@ document.addEventListener("DOMContentLoaded", function () {
           switch (eleccion) {
 
             case 'Premios Goya':
+
               const comentaristaGoya = document.querySelector('.comentaristaGoya');
               let contenedorGoya = document.querySelector('.contenedorGoya');
               contenedorGoya.style.display = 'grid';
@@ -210,9 +210,44 @@ document.addEventListener("DOMContentLoaded", function () {
               break;
 
             case 'Premios Oscar':
+              const parrafo = document.querySelector('.traduccion');
+              var contenedorTraduccion = document.querySelector('.contenedorTraduccion');
+              var nuevoTextoCompleto = "";
+
+              setTimeout(function() {
+                index = 0;
+                escribirTexto(nuevoTextoCompleto);
+            }, 30);
+
+            function escribirTexto() {
+              nuevoTextoCompleto=`Damas y caballeros, bienvenidos al escenario más grandioso del mundo del cine: ¡Los Oscar!
+              Esta noche nos reunimos para rendir homenaje a la cima del séptimo arte, para celebrar el
+              poder de la narración y aplaudir los talentos extraordinarios que han iluminado nuestras 
+             pantallas. Desde deslumbrantes interpretaciones hasta realizaciones cinematográficas visionarias, 
+             estamos aquí para reconocer la brillantez que ha dejado una marca indeleble en el paisaje cinematográfico global.
+             Prepárense para una noche de glamour inigualable, donde los sueños no solo se realizan,
+              sino que también son premiados. Mientras nos embarcamos en este viaje cinematográfico, permitamos que la magia de la pantalla plateada nos una a todos. 
+             Brindemos por los Oscar, donde la excelencia no solo se reconoce, sino que también se inmortaliza. Luces, cámara, ¡acción! ¡Que comiencen los Oscar! `;
+              
+             parrafo.innerHTML += nuevoTextoCompleto.charAt(index);
+              index++;
+          
+              if (index < nuevoTextoCompleto.length) {
+                  setTimeout(function() {
+                      escribirTexto(nuevoTextoCompleto);
+                  }, 46);
+                }
+              else{
+                setTimeout(() => {
+                  contenedorTraduccion.style.display='none';
+                }, 1000);
+              }
+
+            }
 
               const comentaristaOscar= document.querySelector('.comentaristaOscars');
               let contenedorOscars = document.querySelector('.contenedorOscars');
+              contenedorOscars.style.display = 'grid';
               fondoPremios.classList.add("aparicionEscenario");
               fondoPremios.src="../img/premios/escenarioOscars.jpeg";
               comentaristaOscar.play();
@@ -238,9 +273,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-
-
-  
 
 document.addEventListener('DOMContentLoaded', function () {
     const ratingContainer = document.querySelector('.contenedorStars');

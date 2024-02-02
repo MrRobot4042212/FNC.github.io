@@ -1454,7 +1454,33 @@ display: none;
 .contenedorOscars{
   display: none;
   position: absolute;
-
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: auto;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.contenedorTraduccion{
+  position: relative;
+  background-color: rgb(0, 0, 0,0.5);
+  text-align: center;
+  top:6em;
+  width: 900px;
+  overflow:auto;
+}
+.tituloTraduccion{
+  font-family: 'montserrat';
+  font-style:normal;
+  font-weight: bold;
+  font-size:40px;
+  text-align: center;
+}
+.traduccion{
+  font-family: 'montserrat';
+  font-style: normal;
+  font-size: 20px;
+  color: white;
 }
 .contenedorGlobos{
   display: none;
