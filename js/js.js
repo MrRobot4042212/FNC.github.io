@@ -231,6 +231,53 @@ document.addEventListener("DOMContentLoaded", function () {
               
              parrafo.innerHTML += nuevoTextoCompleto.charAt(index);
               index++;
+              if (index < nuevoTextoCompleto.length) {
+                  setTimeout(function() {
+                      escribirTexto(nuevoTextoCompleto);
+                  }, 46);
+                }
+              else{
+                setTimeout(() => {
+                  contenedorTraduccion.style.display='none';
+                }, 1000);
+                index = 0;
+              }
+
+            }
+            
+
+              const comentaristaOscar= document.querySelector('.comentaristaOscars');
+              let contenedorOscars = document.querySelector('.contenedorOscars');
+              contenedorOscars.style.display = 'grid';
+              fondoPremios.classList.add("aparicionEscenario");
+              fondoPremios.src="../img/premios/escenarioOscars.jpeg";
+              comentaristaOscar.play();
+
+            break;
+
+            case 'Premios Globos de oro':
+              
+              parrafo = document.querySelector('.traduccion');
+              var contenedorTraduccion = document.querySelector('.contenedorTraduccion');
+              var nuevoTextoCompleto = "";
+
+              setTimeout(function() {
+                index = 0;
+                escribirTexto(nuevoTextoCompleto);
+            }, 30);
+
+            function escribirTexto() {
+
+              nuevoTextoCompleto=`Damas y caballeros, bienvenidos a una noche de glamour y reconocimiento extraordinario:
+              ¡Los Globos de Oro! Nos reunimos para celebrar la excelencia en el cine y la televisión,
+              donde las estrellas brillan con intensidad y las historias más cautivadoras son honradas.
+             
+             Prepárense para un festín de talento y creatividad, donde la distinción se encuentra con 
+             la diversidad, y cada nominado nos recuerda la riqueza de la industria del entretenimiento.
+              Sin más preámbulos, ¡comencemos esta mágica travesía de los Globos de Oro, donde la brillantez artística toma el centro del escenario! ¡Que empiece la celebración!`;
+              
+             parrafo.innerHTML += nuevoTextoCompleto.charAt(index);
+              index++;
           
               if (index < nuevoTextoCompleto.length) {
                   setTimeout(function() {
@@ -243,24 +290,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 }, 1000);
               }
 
-            }
-
-              const comentaristaOscar= document.querySelector('.comentaristaOscars');
-              let contenedorOscars = document.querySelector('.contenedorOscars');
-              contenedorOscars.style.display = 'grid';
-              fondoPremios.classList.add("aparicionEscenario");
-              fondoPremios.src="../img/premios/escenarioOscars.jpeg";
-              comentaristaOscar.play();
-
-            break;
-
-            case 'Premios Globos de oro':
-
               const comentaristaGlobos= document.querySelector('.comentaristaGlobos');
               let contenedorGlobos = document.querySelector('.contenedorGlobos');
+              contenedorGlobos.style.display="grid";
               fondoPremios.classList.add("aparicionEscenario");
               fondoPremios.src="../img/premios/escenarioGlobos.jpeg";
               comentaristaGlobos.play();
+            };
 
             break;
           
