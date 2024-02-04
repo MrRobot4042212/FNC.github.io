@@ -1539,3 +1539,73 @@ display: none;
 
 
 /*------------------ FIN DE LOS ESTILOS PAGINAS PELICULAS,DIRECTORES,PRODUCTORES,ACTORES-------------------- */
+
+
+/*------------------ COMIENZO DE CONTACTO --------------------*/
+
+.quienesSomos {
+  display: contents;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  gap:  5px;
+  padding: 6px ;
+}
+.quienesSomos .contenedorIntro{
+  background: var(--grisClaro);
+  border-radius: 10px;
+  box-shadow: rgba(255, 255, 255, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px  0px 0px;
+  transition: all .3s ease-in-out;
+  padding: 8px; 
+}
+.quienesSomos .contenedorIntro h1{
+  color: rgb(4, 68, 245);
+}
+.quienesSomos .contenedorIntro p{
+  color: rgb(255, 255, 255);
+}
+.quienesSomos .contenedorEmpleado{
+  background: var(--grisClaro);
+  border-radius: 10px;
+  box-shadow: rgba(255, 255, 255, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px  0px 0px;
+  transition: all .3s ease-in-out;
+  padding: 8px;
+}
+.quienesSomos .contenedorEmpleado img{
+  height: 20vw;
+}
+.quienesSomos .contenedorEmpleado h2{
+  text-align: left;
+  color: purple;
+}
+.quienesSomos .contenedorEmpleado p{
+  text-align: left;
+  color: white;
+}
+
+.seccioOpiniones{
+  display: contents;
+  justify-content: center;
+  align-items:center;
+  width: 25%;
+  gap:  5px;
+  padding: 6px ;
+}
+
+
+.seccioOpiniones .opinionesContenedor{
+  background: var(--grisClaro);
+  border-radius: 10px;
+  box-shadow: rgba(255, 255, 255, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px  0px 0px;
+  transition: all .3s ease-in-out;
+  padding: 8px;
+}
+
+.seccioOpiniones .opinionesContenedor .opinion1 {
+  background: var(--grisClaro);
+  border-radius: 10px;
+  box-shadow: rgba(255, 255, 255, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px  0px 0px;
+  transition: all .3s ease-in-out;
+  padding: 8px;
+
+}
