@@ -1472,7 +1472,25 @@ display: none;
   width: 100%;
   height: 100%;
 }
+.contenedorGlobos{
+  display: none;
+  position: absolute;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: auto;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
 .contenedorTraduccion{
+  position: relative;
+  background-color: rgb(0, 0, 0,0.5);
+  text-align: center;
+  top:6em;
+  width: 900px;
+  overflow:auto;
+}
+.contenedorTraduccion2{
   position: relative;
   background-color: rgb(0, 0, 0,0.5);
   text-align: center;
@@ -1493,11 +1511,25 @@ display: none;
   font-size: 20px;
   color: white;
 }
-.contenedorGlobos{
-  display: none;
-  position: absolute;
+.traduccionGlobos{
+  font-family: 'montserrat';
+  font-style: normal;
+  font-size: 20px;
+  color: white;
+}
+.sliderPremios{
+  width: 900px;
+  height: 300px;
+}
+.contenidoSlider{
+  width: 100%;
+  height: 100%;
+}
+.contenidoSlider img{
+  object-fit: cover;
 
 }
+
 @keyframes zoomFondo {
   0%{
     transform: scale(1);

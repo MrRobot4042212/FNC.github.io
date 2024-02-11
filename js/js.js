@@ -239,7 +239,7 @@ document.addEventListener("DOMContentLoaded", function () {
               else{
                 setTimeout(() => {
                   contenedorTraduccion.style.display='none';
-                }, 1000);
+                }, 2000);
                 index = 0;
               }
 
@@ -257,37 +257,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
             case 'Premios Globos de oro':
               
-              parrafo = document.querySelector('.traduccion');
-              var contenedorTraduccion = document.querySelector('.contenedorTraduccion');
-              var nuevoTextoCompleto = "";
+               const parrafo2 = document.querySelector('.traduccionGlobos');
+              var contenedorTraduccion2 = document.querySelector('.contenedorTraduccion2');
+              var nuevoTextoCompleto2 = "";
 
               setTimeout(function() {
-                index = 0;
-                escribirTexto(nuevoTextoCompleto);
+                index2 = 0;
+                escribirTexto2(nuevoTextoCompleto2);
             }, 30);
 
-            function escribirTexto() {
+            function escribirTexto2() {
 
-              nuevoTextoCompleto=`Damas y caballeros, bienvenidos a una noche de glamour y reconocimiento extraordinario:
+              nuevoTextoCompleto2=`Damas y caballeros, bienvenidos a una noche de glamour y reconocimiento extraordinario:
               ¡Los Globos de Oro! Nos reunimos para celebrar la excelencia en el cine y la televisión,
               donde las estrellas brillan con intensidad y las historias más cautivadoras son honradas.
-             
              Prepárense para un festín de talento y creatividad, donde la distinción se encuentra con 
              la diversidad, y cada nominado nos recuerda la riqueza de la industria del entretenimiento.
               Sin más preámbulos, ¡comencemos esta mágica travesía de los Globos de Oro, donde la brillantez artística toma el centro del escenario! ¡Que empiece la celebración!`;
               
-             parrafo.innerHTML += nuevoTextoCompleto.charAt(index);
-              index++;
+             parrafo2.innerHTML += nuevoTextoCompleto2.charAt(index2);
+              index2++;
           
-              if (index < nuevoTextoCompleto.length) {
+              if (index2 < nuevoTextoCompleto2.length) {
                   setTimeout(function() {
-                      escribirTexto(nuevoTextoCompleto);
-                  }, 46);
+                      escribirTexto2(nuevoTextoCompleto2);
+                  }, 47);
                 }
               else{
                 setTimeout(() => {
-                  contenedorTraduccion.style.display='none';
-                }, 1000);
+                  contenedorTraduccion2.style.display='none';
+                }, 2000);
+                
               }
 
               const comentaristaGlobos= document.querySelector('.comentaristaGlobos');
