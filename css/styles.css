@@ -1561,6 +1561,7 @@ display: none;
   width: 25%;
   gap:  5px;
   padding: 6px ;
+  font-family: "montserrat";
 }
 .quienesSomos .contenedorIntro{
   background: var(--grisClaro);
@@ -1595,9 +1596,9 @@ display: none;
 }
 
 .seccionOpiniones {
-  display: contents;
-  justify-content: center;
-  align-items: center; /* Centrar las opiniones horizontalmente */
+  display: grid;
+  place-items: center;
+  text-align: right;
   
 }
 
@@ -1605,20 +1606,20 @@ display: none;
   margin: 20px; /* Espacio entre los contenedores */
   width: 90%;
   display: block; /* Cambiar a flex para poder utilizar flex-direction */
-  flex-direction: row; /* Establecer la dirección en fila */
+  flex-direction: column; /* Establecer la dirección en fila */
   justify-content: center; /* Centrar los contenedores horizontalmente */
   gap: 20px; /* Espacio entre los contenedores */
   font-size: 1.2em;
 }
 
 
-.opinion1 {
+.opinion {
   border: 1px solid #ccc;
   padding: 10px;
   width: 100%; /* Ancho completo para adaptarse al contenedor */
   box-shadow: rgba(35, 245, 7, 0.16) 0px 10px 36px 0px, rgba(194, 72, 72, 0.06) 0px 0px  0px 0px;
   border-radius: 10px;
-  
+  font-family: "montserrat";
 }
 
 
