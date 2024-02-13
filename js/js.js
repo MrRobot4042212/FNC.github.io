@@ -466,30 +466,25 @@ function info(event) {
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
-
+        // datos de la tabla y tipos
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Usuario');
         data.addColumn('number', 'Edad');
-        data.addColumn('number', 'Cantidad de Comentarios');
+        data.addColumn('number', 'Comentarios');
         data.addRows([
         ['Ana García', 25, 102],
         ['Juan Pérez', 30, 78],
         ['María López', 22, 45],
         ['Carlos Martínez', 28, 120]
       ]);
-       
-
-
+       //opciones de la tabla, caracteristicas
         var piechart_options = {title: 'Usuarios con mayor actividad en la pagina',
                        width:400,
                        height:300};
-        var piechart = new google.visualization.PieChart(document.getElementById('chart_div'));
+
+        var piechart = new google.visualization.BarChart(document.getElementById('chart_div'));
         piechart.draw(data, piechart_options);
 
-        var barchart_options = {title:'Usuarios con mayor actividad en la pagina ',
-                       width:400,
-                       height:300,
-                       legend: 'none'};
-        var barchart = new google.visualization.BarChart(document.getElementById('barchart_div'));
-        barchart.draw(data, barchart_options);
+        var barchart = new google.visualization.PieChart(document.getElementById('barchart_div'));
+        barchart.draw(data, piechart_options);
       }

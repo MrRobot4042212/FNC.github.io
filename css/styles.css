@@ -1693,6 +1693,7 @@ display: none;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 0.5fr); 
   grid-auto-flow: dense;
+  
 
 }
 
@@ -1703,20 +1704,29 @@ display: none;
 }
 
 .empleado > img {
-  width: 100%; 
-   
+  width: 100%;   
+}
+
+.empleado > img:hover{
+  cursor: crosshair;
+  filter: contrast(120%);
+  opacity: 1;
+  width: 300px;
+  
 }
 
 
 .empleado p {
   font-family: "montserrat";
   color: white;
+  text-align: justify;
 }
 .empleado h1 {
   color: blue;
   font-family: "montserrat";
   text-align: center;
 }
+
 
 .opinionesSeccion {
   grid-column: 1 / -1; /* Ocupa todas las columnas disponibles */
