@@ -1,5 +1,4 @@
-/*D3 para la grafica*/
-
+/*google charts para los graficos en contacto*/
 var flipPeliculas = document.querySelectorAll(".contenedorPeliculas");
 var flipOverlay = document.querySelectorAll(".overlay")
 var frontPeliculas = document.querySelectorAll(".peliculasActive");
@@ -460,17 +459,37 @@ function info(event) {
 
 
 /*Seccion estadisticas*/ 
-let canvas = document.getElementById("#grafica")
-var chart = new chart(canvas, {
-  type:"bar",
-  data:{
-    labels:["Visitas","Suscriptores","Comentarios"],
-    dataset:[
-      {
-        label:"Films&Critics",
-        backgroundcolor:"rgb(0,0,0)",
-        data:[3900,400,1245]
+
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Draw the pie chart and bar chart when Charts is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Usuario');
+        data.addColumn('number', 'Edad');
+        data.addColumn('number', 'Cantidad de Comentarios');
+        data.addRows([
+        ['Ana García', 25, 102],
+        ['Juan Pérez', 30, 78],
+        ['María López', 22, 45],
+        ['Carlos Martínez', 28, 120]
+      ]);
+       
+
+
+        var piechart_options = {title: 'Usuarios con mayor actividad en la pagina',
+                       width:400,
+                       height:300};
+        var piechart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        piechart.draw(data, piechart_options);
+
+        var barchart_options = {title:'Usuarios con mayor actividad en la pagina ',
+                       width:400,
+                       height:300,
+                       legend: 'none'};
+        var barchart = new google.visualization.BarChart(document.getElementById('barchart_div'));
+        barchart.draw(data, barchart_options);
       }
-    ]
-  }
-})

@@ -1730,7 +1730,7 @@ display: none;
   font-family: "montserrat";
 }
 .opinionesSeccion p {
-  border: 2px solid aqua; 
+  border: 2px solid white; 
   border-radius: 10px; 
   padding: 10px; 
   text-align: center;
@@ -1741,19 +1741,20 @@ display: none;
 
 
 /*SECCION ESTADISTICAS DE CONTACTO
-Utilizando la librería D3 https://youtu.be/GlokNJepshc?si=ET4RBcZ5vwLOYMpP
-DATA DRIVEN DOCUMENT*/
-.estadisticas h1{
-  text-align: center;
-  color: brown;
-}
-.estadisticas h3 {
-  text-align: center;
-  color: rgba(255, 94, 0, 0.705);
+Utilizando la librería charts de google*/
+.graficaSeccion{
+  position: relative;
+  
 }
 
-.estadisticas p {
-  text-align: center;
-  color: rgb(255, 255, 255);
+#chart_div{
+  position: absolute;
+  top: 0%;
+  left: 50%;
+}
+#barchart_div{
+  position: absolute;
+  top: 0%;
+  left: 25%;
 }
 
