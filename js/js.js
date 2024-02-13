@@ -10,6 +10,12 @@ var basicFilter = document.querySelector(".filtrosBasicos");
 var botonDesglose = document.querySelectorAll('.botonGeneros');
 var listaGeneros = document.querySelector('.listaGeneros');
 
+let incognita = document.querySelector('.incognita')
+const sonidoCorrecto = document.querySelector('.sonidoCorrecto');
+const sonidoIncorrecto = document.querySelector('.sonidoIncorrecto');
+let botonOmitir= document.querySelector('.omitir');
+
+
 var goyaAccion = document.querySelector(".goya");
 var boton = document.querySelectorAll(".botonZoom");
 
@@ -200,7 +206,303 @@ document.addEventListener("DOMContentLoaded", function () {
 
             case 'Premios Goya':
 
-              const comentaristaGoya = document.querySelector('.comentaristaGoya');
+              const parrafo0 = document.querySelector('.traduccion0');
+              var contenedorTraduccion0 = document.querySelector('.contenedorTraduccion0');
+              var nuevoTextoCompleto0 = "";
+
+              botonOmitir=document.querySelector('.contenedorTraduccion0 .omitir');
+              botonOmitir.style.display="none";
+              setTimeout( function () {
+                botonOmitir.style.display="block";
+              },1000)
+
+
+
+              setTimeout(function() {
+                index0 = 0;
+                escribirTexto0(nuevoTextoCompleto0);
+            }, 30);
+
+            botonOmitir=document.querySelector('.contenedorTraduccion0 .omitir');
+            botonOmitir.style.display="none";
+
+            function escribirTexto0() {
+              nuevoTextoCompleto0=`Ladies and gentlemen, welcome to the most glamorous
+               and distinguished night of Spanish cinema: The Goya Awards! We are gathered
+                here to pay tribute to cinematic excellence, celebrate creativity, and 
+                applaud the talented artists who have brought to life stories that have 
+                moved and captivated us. Get ready for an evening filled with excitement,
+                elegance, and well-deserved recognition for the best of our seventh art! 
+                Let the Goya Awards ceremony begin!`;
+              
+             parrafo0.innerHTML += nuevoTextoCompleto0.charAt(index0);
+              index0++;
+              if (index0 < nuevoTextoCompleto0.length) {
+                  const delaytexto = setTimeout(function() {
+                      escribirTexto0(nuevoTextoCompleto0);
+                  }, 47);
+                  
+ 
+
+                }
+
+              else{
+                setTimeout(() => {
+                  let musicaAmbiental = document.querySelector('.sonidoAmbiente');
+                  let sliderPremiosGoya = document.querySelector('.contenedorGoya .sliderPremiosOf');
+                  let opcionesGoya = document.querySelector('.contenedorGoya .opcionesOf');
+
+                  if (sliderPremiosGoya.classList.contains('sliderPremiosOf')) {
+                    sliderPremiosGoya.classList.remove('sliderPremiosOf');
+                    sliderPremiosGoya.classList.add('sliderPremiosOn');
+                    opcionesGoya.classList.remove('opcionesOf');
+                    opcionesGoya.classList.add('opcionesOn');
+                  }
+                  else{
+                    sliderPremiosGoya.classList.remove('sliderPremiosOn');
+                    sliderPremiosGoya.classList.add('sliderPremiosOf');
+                    opcionesGoya.classList.remove('opcionesOn');
+                    opcionesGoya.classList.add('opcionesOf');
+                  }
+                  
+                  musicaAmbiental.play();
+                  contenedorTraduccion0.style.display='none';
+                  comentaristaGoya.remove();
+                  var contadorBueno = 0;
+                  var contadorMalo = 0;
+                  let peliculasGoya = document.getElementsByClassName('opcionPeliculaGoya');
+                  let peliculaSeleccionadaGoya = '';
+                  let revelacionImagenGoya = document.getElementById('revelacionMejorPeliculaGoya');
+                  let cambioMejorPeliculaGoya = document.getElementById('tituloMejorPeliculaGoya');
+
+                  Array.from(peliculasGoya).forEach(peliculaGoya => {
+                      peliculaGoya.addEventListener('click', function seleccionMejorPeliculaGoya() {
+                          peliculaSeleccionadaGoya = this.innerText;
+                          if (peliculaSeleccionadaGoya === 'As Bestas') {
+                            contadorBueno++
+                            incognita.src = "../img/premios/correcto.png"
+                            sonidoCorrecto.play(); 
+                            setTimeout(function(){
+                              incognita.style.opacity = '0';
+                              revelacionImagenGoya.style.opacity = '1';
+                              cambioMejorPeliculaGoya.textContent = 'As Bestas';
+                            },2000)
+                          }
+                          else{
+                            contadorMalo++
+                            incognita.src = "../img/premios/incorrecto.png"
+                            sonidoIncorrecto.play();
+                            setTimeout(function(){
+                              incognita.style.opacity = '0';
+                              revelacionImagenGoya.style.opacity = '1';
+                              cambioMejorPeliculaGoya.textContent = 'As Bestas';
+
+                            },2000)
+                          }
+                          console.log(peliculaSeleccionadaGoya);
+                          
+                          setTimeout(function(){
+                            revelacionImagenGoya.style.opacity = '0';
+                            let mejorPeliculaGoya = document.getElementById('mejorPeliculaGoya');
+                            mejorPeliculaGoya.style.display = 'none';
+                            seleccionMejorActorGoya();
+                          },4000)
+                      });
+                  });
+
+                  function seleccionMejorActorGoya() {
+                    let incognita = document.querySelector('.mejorActorGoya .incognita');
+                    let opcionesGoya = document.querySelector('.contenedorGoya .opcionesOf');
+                    if (opcionesGoya.classList.contains('opcionesOf')) {
+                      opcionesGoya.classList.remove('opcionesOf');
+                      opcionesGoya.classList.add('opcionesOn');
+                    }
+                    else{
+                      opcionesGoya.classList.remove('opcionesOn');
+                      opcionesGoya.classList.add('opcionesOf');
+                    }
+                    let mejorActorGoya = document.getElementById('mejorActorGoya');
+                    mejorActorGoya.style.display = 'grid';
+                    let revelacionImagenGoya = document.getElementById('revelacionMejorActorGoya');
+                    let actoresGoya = document.getElementsByClassName('opcionActorGoya');
+                    let actorSeleccionadoGoya = '';
+                    let cambioMejorActorGoya = document.getElementById('tituloMejorActorGoya')
+
+                    Array.from(actoresGoya).forEach(actorGoya => {
+                      actorGoya.addEventListener('click', function() {
+                          actorSeleccionadoGoya = this.innerText;
+
+                          if (actorSeleccionadoGoya === 'Denis Menochet') {
+                            contadorBueno++
+                            incognita.src = "../img/premios/correcto.png"
+                            sonidoCorrecto.play();
+                            setTimeout(function() {
+                              incognita.style.opacity = '0';
+                              revelacionImagenGoya.style.opacity = '1';
+                              cambioMejorActorGoya.textContent = 'Denis Menochet';
+                            },2000)
+
+                          }
+                          else{
+                            contadorMalo++
+                            incognita.src = "../img/premios/incorrecto.png"
+                            sonidoIncorrecto.play();
+                            setTimeout(function(){
+                              incognita.style.opacity = '0';
+                              revelacionImagenGoya.style.opacity = '1';
+                              cambioMejorActorGoya.textContent = 'Denis Menochet';
+                            },2000)
+                          }
+                          console.log(actorSeleccionadoGoya);
+                          setTimeout(function(){
+                            revelacionImagenGoya.style.opacity = '0';
+                            mejorActorGoya.style.display = 'none';
+                            seleccionMejorActrizGoya();
+                          },4000)
+                      });
+                  });
+
+                  function seleccionMejorActrizGoya() {
+                    let incognita = document.querySelector('.mejorActrizGoya .incognita');
+                    let opcionesGoya = document.querySelector('.contenedorGoya .opcionesOf');
+                    if (opcionesGoya.classList.contains('opcionesOf')) {
+                      opcionesGoya.classList.remove('opcionesOf');
+                      opcionesGoya.classList.add('opcionesOn');
+                    }
+                    else{
+                      opcionesGoya.classList.remove('opcionesOn');
+                      opcionesGoya.classList.add('opcionesOf');
+                    }
+
+                    let mejorActrizGoya = document.getElementById('mejorActrizGoya');
+                    mejorActrizGoya.style.display = 'grid';
+                    let revelacionImagenGoya = document.getElementById('revelacionMejorActrizGoya');
+                    let actricesGoya = document.getElementsByClassName('opcionActrizGoya');
+                    let actricesSeleccionadoGoya = '';
+                    let cambioMejorActrizGoya = document.getElementById('tituloMejorActrizGoya')
+
+                    Array.from(actricesGoya).forEach(actrizGoya => {
+                      actrizGoya.addEventListener('click', function() {
+                          actricesSeleccionadoGoya = this.innerText;
+
+                          if (actricesSeleccionadoGoya === 'Laia Costa') {
+                            contadorBueno++
+                            incognita.src = "../img/premios/correcto.png"
+                            sonidoCorrecto.play();
+                            setTimeout(function() {
+                              incognita.style.opacity = '0';
+                              revelacionImagenGoya.style.opacity = '1';
+                              cambioMejorActrizGoya.textContent = 'Laia Costa';
+                            },2000)
+
+                          }
+                          else{
+                            contadorMalo++
+                            incognita.src = "../img/premios/incorrecto.png"
+                            sonidoIncorrecto.play();
+                            setTimeout(function(){
+                              incognita.style.opacity = '0';
+                              revelacionImagenGoya.style.opacity = '1';
+                              cambioMejorActrizGoya.textContent = 'Laia Costa';
+                            },2000)
+                          }
+                          console.log(actricesSeleccionadoGoya);
+                          setTimeout(function(){
+                            revelacionImagenGoya.style.opacity = '0';
+                            mejorActrizGoya.style.display = 'none';
+                            seleccionMejorDirectorGoya();
+                          },4000)
+                      });
+                   });
+                  };
+
+                  function seleccionMejorDirectorGoya() {
+                    let incognita = document.querySelector('.mejorDirectorGoya .incognita');
+                    let opcionesGoya = document.querySelector('.contenedorGoya .opcionesOf');
+                    if (opcionesGoya.classList.contains('opcionesOf')) {
+                      opcionesGoya.classList.remove('opcionesOf');
+                      opcionesGoya.classList.add('opcionesOn');
+                    }
+                    else{
+                      opcionesGoya.classList.remove('opcionesOn');
+                      opcionesGoya.classList.add('opcionesOf');
+                    }
+                    let mejorDirectorGoya = document.getElementById('mejorDirectorGoya');
+                    mejorDirectorGoya.style.display = 'grid';
+                    let revelacionImagenGoya = document.getElementById('revelacionMejorDirectorGoya');
+                    let directoresGoya = document.getElementsByClassName('opcionDirectorGoya');
+                    let directoresSeleccionadoGoya = '';
+                    let cambioMejorDirectorGoya = document.getElementById('tituloMejorDirectorGoya')
+
+                    Array.from(directoresGoya).forEach(directorGoya => {
+                      directorGoya.addEventListener('click', function() {
+                          directoresSeleccionadoGoya = this.innerText;
+
+                          if (directoresSeleccionadoGoya === 'Rodrigo Sorogoyen') {
+                            contadorBueno++
+                            incognita.src = "../img/premios/correcto.png"
+                            sonidoCorrecto.play();
+                            setTimeout(function() {
+                              incognita.style.opacity = '0';
+                              revelacionImagenGoya.style.opacity = '1';
+                              cambioMejorDirectorGoya.textContent = 'Rodrigo Sorogoyen';
+                            },2000)
+
+                          }
+                          else{
+                            contadorMalo++
+                            incognita.src = "../img/premios/incorrecto.png"
+                            sonidoIncorrecto.play();
+                            setTimeout(function(){
+                              incognita.style.opacity = '0';
+                              revelacionImagenGoya.style.opacity = '1';
+                              cambioMejorDirectorGoya.textContent = 'Rodrigo Sorogoyen';
+                            },2000)
+                          }
+                          console.log(directoresSeleccionadoGoya);
+                          setTimeout(function(){
+                            revelacionImagenGoya.style.opacity = '0';
+                            mejorDirectorGoya.style.display = 'none';
+                            resultadosGoya();
+                          },4000)
+                      });
+                   });
+                  };
+
+                  function resultadosGoya(){
+                    var contenidoResultadoGoya = document.querySelector(".goya .resultados");
+                    var tipoPremioGoya = document.querySelector(".goya .resultados .tipoPremio");
+                    var tituloPorPuntosGoya = document.querySelector(" .goya .resultados .tituloDePuntuacion");
+                    contenidoResultadoGoya.style.display = 'grid';
+                    var totalContadorGoya = contadorBueno + contadorMalo;
+                    var puntuacionGoya = document.querySelector('.puntuacion')
+                    puntuacionGoya.textContent = contadorBueno + "/" + totalContadorGoya;
+                    tipoPremioGoya.textContent = eleccion;
+                    fondoPremios.src = "../img/premios/resultados.png"
+                    switch (true) {
+                      case (contadorBueno ===0):
+                        tituloPorPuntosGoya.textContent = "El cineasta por postureo";
+                        break;
+                      case (contadorBueno <=2):
+                        tipoPremioGoya.textContent = "Buen cineasta pero intentalo un poco mejor";
+                        break;
+                      case (contadorBueno <=4):
+                        tituloPorPuntosGoya.textContent = "El cineasta estrella";
+                        break;
+                      default:
+                        tituloPorPuntosGoya.textContent = "ERROR";
+                        break;
+                    }
+                  }
+
+                    
+                }
+
+                }, 2000);
+                index0 = 0;
+              }
+            }
+              const comentaristaGoya= document.querySelector('.comentaristaGoya');
               let contenedorGoya = document.querySelector('.contenedorGoya');
               contenedorGoya.style.display = 'grid';
               fondoPremios.classList.add("aparicionEscenario");
@@ -210,6 +512,7 @@ document.addEventListener("DOMContentLoaded", function () {
               break;
 
             case 'Premios Oscar':
+
               const parrafo = document.querySelector('.traduccion');
               var contenedorTraduccion = document.querySelector('.contenedorTraduccion');
               var nuevoTextoCompleto = "";
@@ -240,91 +543,279 @@ document.addEventListener("DOMContentLoaded", function () {
               else{
                 setTimeout(() => {
                   let musicaAmbiental = document.querySelector('.sonidoAmbiente');
-                  let sliderPremios = document.querySelector('.sliderPremiosOf');
-                  let opciones = document.querySelector('.opcionesOf');
+                  let sliderPremiosOscars = document.querySelector('.contenedorOscars .sliderPremiosOf');
+                  let opcionesOscars = document.querySelector('.contenedorOscars .opcionesOf');
 
-                  if (sliderPremios.classList.contains('sliderPremiosOf')) {
-                    sliderPremios.classList.remove('sliderPremiosOf');
-                    sliderPremios.classList.add('sliderPremiosOn');
-                    opciones.classList.remove('opcionesOf');
-                    opciones.classList.add('opcionesOn');
+                  if (sliderPremiosOscars.classList.contains('sliderPremiosOf')) {
+                    sliderPremiosOscars.classList.remove('sliderPremiosOf');
+                    sliderPremiosOscars.classList.add('sliderPremiosOn');
+                    opcionesOscars.classList.remove('opcionesOf');
+                    opcionesOscars.classList.add('opcionesOn');
                   }
                   else{
-                    sliderPremios.classList.remove('sliderPremiosOn');
-                    sliderPremios.classList.add('sliderPremiosOf');
-                    opciones.classList.remove('opcionesOn');
-                    opciones.classList.add('opcionesOf');
+                    sliderPremiosOscars.classList.remove('sliderPremiosOn');
+                    sliderPremiosOscars.classList.add('sliderPremiosOf');
+                    opcionesOscars.classList.remove('opcionesOn');
+                    opcionesOscars.classList.add('opcionesOf');
                   }
                   
                   musicaAmbiental.play();
                   contenedorTraduccion.style.display='none';
                   comentaristaOscar.remove();
-                  
-                  let contadorBueno = 0;
-                  let contadorMalo = 0;
-                  let peliculas = document.getElementsByClassName('opcionPelicula');
-                  let peliculaSeleccionada = '';
-          
-                  Array.from(peliculas).forEach(pelicula => {
-                      pelicula.addEventListener('click', function seleccionMejorPelicula() {
-                          peliculaSeleccionada = this.innerText;
-                          if (peliculaSeleccionada === 'Todo a la vez en todas partes') {
+                  var contadorBueno = 0;
+                  var contadorMalo = 0;
+                  let peliculasOscars = document.getElementsByClassName('opcionPeliculaOscars');
+                  let peliculaSeleccionadaOscars = '';
+                  let revelacionImagenOscars = document.getElementById('revelacionMejorPeliculaOscars');
+                  let cambioMejorPeliculaOscars = document.getElementById('tituloMejorPeliculaOscars')
+                  incognita = document.querySelector('.mejorPeliculaOscars .incognita')
+                  Array.from(peliculasOscars).forEach(peliculaOscars => {
+                      peliculaOscars.addEventListener('click', function seleccionMejorPeliculaOscars() {
+                          peliculaSeleccionadaOscars = this.innerText;
+                          if (peliculaSeleccionadaOscars === 'Todo a la vez en todas partes') {
                             contadorBueno++
+                            incognita.src = "../img/premios/correcto.png"
+                            sonidoCorrecto.play(); 
+                            opcionesOscars.classList.remove('opcionesOn')
+                            opcionesOscars.classList.add('opcionesOf')
+                            setTimeout(function(){
+                              incognita.style.opacity = '0';
+                              revelacionImagenOscars.style.opacity = '1';
+                              cambioMejorPeliculaOscars.textContent = 'Todo a la vez en todas partes';
+                            },2000)
                           }
                           else{
                             contadorMalo++
+                            incognita.src = "../img/premios/incorrecto.png"
+                            sonidoIncorrecto.play();
+                            opcionesOscars.classList.remove('opcionesOn')
+                            opcionesOscars.classList.add('opcionesOf')
+                            setTimeout(function(){
+                              incognita.style.opacity = '0';
+                              revelacionImagenOscars.style.opacity = '1';
+                              cambioMejorPeliculaOscars.textContent = 'Todo a la vez en todas partes';
+
+                            },2000)
                           }
-                          console.log(peliculaSeleccionada);
-                          let revelacionImagen = document.getElementById('revelacionMejorPelicula');
-                          revelacionImagen.style.opacity = '1';
-                          setTimeout( function(){
-                            revelacionImagen.style.opacity = '0';
-                            let mejorPelicula = document.getElementById('mejorPelicula');
-                            mejorPelicula.style.display = 'none';
-                            seleccionMejorActor();
-                          },2000)
+                          console.log(peliculaSeleccionadaOscars);
+                          
+                          setTimeout(function(){
+                            opcionesOscars.classList.remove('opcionesOf')
+                            opcionesOscars.classList.add('opcionesOn')
+                            revelacionImagenOscars.style.opacity = '0';
+                            let mejorPeliculaOscars = document.getElementById('mejorPeliculaOscars');
+                            mejorPeliculaOscars.style.display = 'none';
+                            seleccionMejorActorOscars();
+                          },4000)
                       });
                   });
 
-                  function seleccionMejorActor() {
-                    let opciones = document.querySelector('.opcionesOf');
-                    if (opciones.classList.contains('opcionesOf')) {
-                      opciones.classList.remove('opcionesOf');
-                      opciones.classList.add('opcionesOn');
+                  function seleccionMejorActorOscars() {
+                    let incognita = document.querySelector('.mejorActorOscars .incognita');
+                    let opcionesOscars = document.querySelector('.contenedorOscars .opcionesOf');
+                    if (opcionesOscars.classList.contains('opcionesOf')) {
+                      opcionesOscars.classList.remove('opcionesOf');
+                      opcionesOscars.classList.add('opcionesOn');
                     }
                     else{
-                      opciones.classList.remove('opcionesOn');
-                      opciones.classList.add('opcionesOf');
+                      opcionesOscars.classList.remove('opcionesOn');
+                      opcionesOscars.classList.add('opcionesOf');
                     }
-                    let mejorActor = document.getElementById('mejorActor');
-                    mejorActor.style.display = 'grid';
+                    let mejorActorOscars = document.getElementById('mejorActorOscars');
+                    mejorActorOscars.style.display = 'grid';
+                    let revelacionImagenOscars = document.getElementById('revelacionMejorActorOscars');
+                    let actoresOscars = document.getElementsByClassName('opcionActorOscars');
+                    let actorSeleccionadoOscars = '';
+                    let cambioMejorActorOscars = document.getElementById('tituloMejorActorOscars')
 
-                    let actores = document.getElementsByClassName('opcionActor');
-                    let actorSeleccionado = '';
-                    Array.from(actores).forEach(actor => {
-                      actor.addEventListener('click', function() {
-                          actorSeleccionado = this.innerText;
-                          if (actorSeleccionado === 'Brendan Fraser') {
+                    Array.from(actoresOscars).forEach(actorOscars => {
+                      actorOscars.addEventListener('click', function() {
+                          actorSeleccionadoOscars = this.innerText;
+
+                          if (actorSeleccionadoOscars === 'Brendan Fraser') {
                             contadorBueno++
+                            incognita.src = "../img/premios/correcto.png"
+                            sonidoCorrecto.play();
+                            opcionesOscars.classList.remove('opcionesOn')
+                            opcionesOscars.classList.add('opcionesOf')
+                            setTimeout(function() {
+                              incognita.style.opacity = '0';
+                              revelacionImagenOscars.style.opacity = '1';
+                              cambioMejorActorOscars.textContent = 'Brendan Fraser';
+                            },2000)
+
                           }
                           else{
                             contadorMalo++
+                            incognita.src = "../img/premios/incorrecto.png"
+                            sonidoIncorrecto.play();
+                            opcionesOscars.classList.remove('opcionesOn')
+                            opcionesOscars.classList.add('opcionesOf')
+                            setTimeout(function(){
+                              incognita.style.opacity = '0';
+                              revelacionImagenOscars.style.opacity = '1';
+                              cambioMejorActorOscars.textContent = 'Brendan Fraser';
+                            },2000)
                           }
-                          console.log(actorSeleccionado);
-                          let revelacionImagen = document.getElementById('revelacionMejorActor');
-                          revelacionImagen.style.opacity = '1';
+                          console.log(actorSeleccionadoOscars);
                           setTimeout(function(){
-                            revelacionImagen.style.opacity = '0';
-                            mejorActor.style.display = 'none';
-                            seleccionMejorActriz
-                          },2000)
+                            opcionesOscars.classList.remove('opcionesOf')
+                            opcionesOscars.classList.add('opcionesOn')
+                            revelacionImagenOscars.style.opacity = '0';
+                            mejorActorOscars.style.display = 'none';
+                            seleccionMejorActrizOscars();
+                          },4000)
                       });
                   });
 
-                    
-                  }
-                  
+                  function seleccionMejorActrizOscars() {
+                    let incognita = document.querySelector('.mejorActrizOscars .incognita');
+                    let opcionesOscars = document.querySelector('.contenedorOscars .opcionesOf');
+                    if (opcionesOscars.classList.contains('opcionesOf')) {
+                      opcionesOscars.classList.remove('opcionesOf');
+                      opcionesOscars.classList.add('opcionesOn');
+                    }
+                    else{
+                      opcionesOscars.classList.remove('opcionesOn');
+                      opcionesOscars.classList.add('opcionesOf');
+                    }
+                    let mejorActrizOscars = document.getElementById('mejorActrizOscars');
+                    mejorActrizOscars.style.display = 'grid';
+                    let revelacionImagenOscars = document.getElementById('revelacionMejorActrizOscars');
+                    let actricesOscars = document.getElementsByClassName('opcionActrizOscars');
+                    let actricesSeleccionadoOscars = '';
+                    let cambioMejorActrizOscars = document.getElementById('tituloMejorActrizOscars')
 
+                    Array.from(actricesOscars).forEach(actrizOscars => {
+                      actrizOscars.addEventListener('click', function() {
+                          actricesSeleccionadoOscars = this.innerText;
+
+                          if (actricesSeleccionadoOscars === 'Michelle Yeoh') {
+                            contadorBueno++
+                            incognita.src = "../img/premios/correcto.png"
+                            sonidoCorrecto.play();
+                            opcionesOscars.classList.remove('opcionesOn')
+                            opcionesOscars.classList.add('opcionesOf')
+                            setTimeout(function() {
+                              incognita.style.opacity = '0';
+                              revelacionImagenOscars.style.opacity = '1';
+                              cambioMejorActrizOscars.textContent = 'Michelle Yeoh';
+                            },2000)
+
+                          }
+                          else{
+                            contadorMalo++
+                            incognita.src = "../img/premios/incorrecto.png"
+                            sonidoIncorrecto.play();
+                            opcionesOscars.classList.remove('opcionesOn')
+                            opcionesOscars.classList.add('opcionesOf')
+                            setTimeout(function(){
+                              incognita.style.opacity = '0';
+                              revelacionImagenOscars.style.opacity = '1';
+                              cambioMejorActrizOscars.textContent = 'Michelle Yeoh';
+                            },2000)
+                          }
+                          console.log(actricesSeleccionadoOscars);
+                          setTimeout(function(){
+                            opcionesOscars.classList.remove('opcionesOf')
+                            opcionesOscars.classList.add('opcionesOn')
+                            revelacionImagenOscars.style.opacity = '0';
+                            mejorActrizOscars.style.display = 'none';
+                            seleccionMejorDirectorOscars();
+                          },4000)
+                      });
+                   });
+                  };
+
+                  function seleccionMejorDirectorOscars() {
+                    let incognita = document.querySelector('.mejorDirectorOscars .incognita');
+                    let opcionesOscars = document.querySelector('.contenedorOscars .opcionesOf');
+                    if (opcionesOscars.classList.contains('opcionesOf')) {
+                      opcionesOscars.classList.remove('opcionesOf');
+                      opcionesOscars.classList.add('opcionesOn');
+                    }
+                    else{
+                      opcionesOscars.classList.remove('opcionesOn');
+                      opcionesOscars.classList.add('opcionesOf');
+                    }
+                    let mejorDirectorOscars = document.getElementById('mejorDirectorOscars');
+                    mejorDirectorOscars.style.display = 'grid';
+                    let revelacionImagenOscars = document.getElementById('revelacionMejorDirectorOscars');
+                    let directoresOscars = document.getElementsByClassName('opcionDirectorOscars');
+                    let directoresSeleccionadoOscars = '';
+                    let cambioMejorDirectorOscars = document.getElementById('tituloMejorDirectorOscars')
+
+                    Array.from(directoresOscars).forEach(directorOscars => {
+                      directorOscars.addEventListener('click', function() {
+                          directoresSeleccionadoOscars = this.innerText;
+
+                          if (directoresSeleccionadoOscars === 'Daniel Kwan y Daniel Scheinert') {
+                            contadorBueno++
+                            incognita.src = "../img/premios/correcto.png"
+                            sonidoCorrecto.play();
+                            opcionesOscars.classList.remove('opcionesOn')
+                            opcionesOscars.classList.add('opcionesOf')
+                            setTimeout(function() {
+                              incognita.style.opacity = '0';
+                              revelacionImagenOscars.style.opacity = '1';
+                              cambioMejorDirectorOscars.textContent = 'Daniel Kwan y Daniel Scheinert';
+                            },2000)
+
+                          }
+                          else{
+                            contadorMalo++
+                            incognita.src = "../img/premios/incorrecto.png"
+                            sonidoIncorrecto.play();
+                            opcionesOscars.classList.remove('opcionesOn')
+                            opcionesOscars.classList.add('opcionesOf')
+                            setTimeout(function(){
+                              incognita.style.opacity = '0';
+                              revelacionImagenOscars.style.opacity = '1';
+                              cambioMejorDirectorOscars.textContent = 'Daniel Kwan y Daniel Scheinert';
+                            },2000)
+                          }
+                          console.log(directoresSeleccionadoOscars);
+                          setTimeout(function(){
+                            opcionesOscars.classList.remove('opcionesOf')
+                            opcionesOscars.classList.add('opcionesOn')
+                            revelacionImagenOscars.style.opacity = '0';
+                            mejorDirectorOscars.style.display = 'none';
+                            resultadosOscars();
+                          },4000)
+                      });
+                   });
+                  };
+
+                  function resultadosOscars(){
+                    var contenidoResultadoOscars = document.querySelector(".oscars .resultados");
+                    var tipoPremioOscars = document.querySelector(".oscars .resultados .tipoPremio");
+                    var tituloPorPuntosOscars = document.querySelector(".oscars .resultados .tituloDePuntuacion");
+                    contenidoResultadoOscars.style.display = 'grid';
+                    var totalContadorOscars = contadorBueno + contadorMalo;
+                    var puntuacionOscars = document.querySelector('.oscars .puntuacion')
+                    puntuacionOscars.textContent = contadorBueno + "/" + totalContadorOscars;
+                    tipoPremioOscars.textContent = eleccion;
+                    fondoPremios.src = "../img/premios/resultados.png"
+                    switch (true) {
+                      case (contadorBueno ===0):
+                        tituloPorPuntosOscars.textContent = "El cineasta por postureo";
+                        break;
+                      case (contadorBueno <=2):
+                        tipoPremioOscars.textContent = "Buen cineasta pero intentalo un poco mejor";
+                        break;
+                      case (contadorBueno <=4):
+                        tituloPorPuntosOscars.textContent = "El cineasta estrella";
+                        break;
+                      default:
+                        tituloPorPuntosOscars.textContent = "ERROR";
+                        break;
+                    }
+                  }
+
+            
+
+                    
+                }
 
                 }, 2000);
                 index = 0;
@@ -332,7 +823,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             }
             
-
               const comentaristaOscar= document.querySelector('.comentaristaOscars');
               let contenedorOscars = document.querySelector('.contenedorOscars');
               contenedorOscars.style.display = 'grid';
@@ -368,27 +858,297 @@ document.addEventListener("DOMContentLoaded", function () {
               if (index2 < nuevoTextoCompleto2.length) {
                   setTimeout(function() {
                       escribirTexto2(nuevoTextoCompleto2);
-                  }, 47);
+                  }, 1);
                 }
-              else{
-                setTimeout(() => {
-
-                  contenedorTraduccion2.style.display='none';
-
-                }, 2000);
-                
+                else{
+                  setTimeout(() => {
+                    let musicaAmbiental = document.querySelector('.sonidoAmbiente');
+                    let sliderPremiosGlobos = document.querySelector('.contenedorGlobos .sliderPremiosOf');
+                    let opcionesGlobos = document.querySelector('.contenedorGlobos .opcionesOf');
+  
+                    if (sliderPremiosGlobos.classList.contains('sliderPremiosOf')) {
+                      sliderPremiosGlobos.classList.remove('sliderPremiosOf');
+                      sliderPremiosGlobos.classList.add('sliderPremiosOn');
+                      opcionesGlobos.classList.remove('opcionesOf');
+                      opcionesGlobos.classList.add('opcionesOn');
+                    }
+                    else{
+                      sliderPremiosGlobos.classList.remove('sliderPremiosOn');
+                      sliderPremiosGlobos.classList.add('sliderPremiosOf');
+                      opcionesGlobos.classList.remove('opcionesOn');
+                      opcionesGlobos.classList.add('opcionesOf');
+                    }
+                    
+                    musicaAmbiental.play();
+                    contenedorTraduccion2.style.display='none';
+                    comentaristaGlobos.remove();
+                    var contadorBueno = 0;
+                    var contadorMalo = 0;
+                    let peliculasGlobos = document.getElementsByClassName('opcionPeliculaGlobos');
+                    let peliculaSeleccionadaGlobos = '';
+                    let revelacionImagenGlobos = document.getElementById('revelacionMejorPeliculaGlobos');
+                    let cambioMejorPeliculaGlobos = document.getElementById('tituloMejorPeliculaGlobos')
+                    incognita = document.querySelector('.mejorPeliculaGlobos .incognita')
+                    Array.from(peliculasGlobos).forEach(peliculaGlobos => {
+                        peliculaGlobos.addEventListener('click', function seleccionMejorPeliculaGlobosDrama() {
+                            peliculaSeleccionadaGlobos = this.innerText;
+                            if (peliculaSeleccionadaGlobos === 'Oppenheimer') {
+                              contadorBueno++
+                              incognita.src = "../img/premios/correcto.png"
+                              sonidoCorrecto.play(); 
+                              opcionesGlobos.classList.remove('opcionesOn')
+                              opcionesGlobos.classList.add('opcionesOf')
+                              setTimeout(function(){
+                                incognita.style.opacity = '0';
+                                revelacionImagenGlobos.style.opacity = '1';
+                                cambioMejorPeliculaGlobos.textContent = 'Oppenheimer';
+                              },2000)
+                            }
+                            else{
+                              contadorMalo++
+                              incognita.src = "../img/premios/incorrecto.png"
+                              sonidoIncorrecto.play();
+                              opcionesGlobos.classList.remove('opcionesOn')
+                              opcionesGlobos.classList.add('opcionesOf')
+                              setTimeout(function(){
+                                incognita.style.opacity = '0';
+                                revelacionImagenGlobos.style.opacity = '1';
+                                cambioMejorPeliculaGlobos.textContent = 'Oppenheimer';
+  
+                              },2000)
+                            }
+                            console.log(peliculaSeleccionadaGlobos);
+                            
+                            setTimeout(function(){
+                              opcionesGlobos.classList.remove('opcionesOf')
+                              opcionesGlobos.classList.add('opcionesOn')
+                              revelacionImagenGlobos.style.opacity = '0';
+                              let mejorPeliculasGlobos = document.getElementById('mejorPeliculaGlobos');
+                              mejorPeliculasGlobos.style.display = 'none';
+                              seleccionMejorPeliculaAnimadaGlobos();
+                            },4000)
+                        });
+                    });
+  
+                    function seleccionMejorPeliculaAnimadaGlobos() {
+                      let incognita = document.querySelector('.mejorAnimadaGlobos .incognita');
+                      let opcionesGlobos = document.querySelector('.contenedorGlobos .opcionesOf');
+                      if (opcionesGlobos.classList.contains('opcionesOf')) {
+                        opcionesGlobos.classList.remove('opcionesOf');
+                        opcionesGlobos.classList.add('opcionesOn');
+                      }
+                      else{
+                        opcionesGlobos.classList.remove('opcionesOn');
+                        opcionesGlobos.classList.add('opcionesOf');
+                      }
+                      let mejorAnimadaGlobos = document.getElementById('mejorAnimadaGlobos');
+                      mejorAnimadaGlobos.style.display = 'grid';
+                      let revelacionImagenGlobos = document.getElementById('revelacionMejorAnimadaGlobos');
+                      let animacionesGlobos = document.getElementsByClassName('opcionAnimacionGlobos');
+                      let animacionSeleccionadoGlobos = '';
+                      let cambioMejorAnimacionGlobos = document.getElementById('tituloMejorAnimadaGlobos')
+  
+                      Array.from(animacionesGlobos).forEach(animacionGlobos => {
+                        animacionGlobos.addEventListener('click', function() {
+                           animacionSeleccionadoGlobos = this.innerText;
+  
+                            if (animacionSeleccionadoGlobos === 'Kimitachi wa Dō Ikiru ka') {
+                              contadorBueno++
+                              incognita.src = "../img/premios/correcto.png"
+                              sonidoCorrecto.play();
+                              opcionesGlobos.classList.remove('opcionesOn')
+                              opcionesGlobos.classList.add('opcionesOf')
+                              setTimeout(function() {
+                                incognita.style.opacity = '0';
+                                revelacionImagenGlobos.style.opacity = '1';
+                                cambioMejorAnimacionGlobos.textContent = 'Kimitachi wa Dō Ikiru ka';
+                              },2000)
+  
+                            }
+                            else{
+                              contadorMalo++
+                              incognita.src = "../img/premios/incorrecto.png"
+                              sonidoIncorrecto.play();
+                              opcionesGlobos.classList.remove('opcionesOn')
+                              opcionesGlobos.classList.add('opcionesOf')
+                              setTimeout(function(){
+                                incognita.style.opacity = '0';
+                                revelacionImagenGlobos.style.opacity = '1';
+                                cambioMejorAnimacionGlobos.textContent = 'Kimitachi wa Dō Ikiru ka';
+                              },2000)
+                            }
+                            console.log(animacionSeleccionadoGlobos);
+                            setTimeout(function(){
+                              opcionesGlobos.classList.remove('opcionesOf')
+                              opcionesGlobos.classList.add('opcionesOn')
+                              revelacionImagenGlobos.style.opacity = '0';
+                              mejorAnimadaGlobos.style.display = 'none';
+                              seleccionMejorActrizComediaGlobos();
+                            },4000)
+                        });
+                    });
+  
+                    function seleccionMejorActrizComediaGlobos() {
+                      let incognita = document.querySelector('.mejorActrizGlobos .incognita');
+                      let opcionesGlobos = document.querySelector('.contenedorGlobos .opcionesOf');
+                      if (opcionesGlobos.classList.contains('opcionesOf')) {
+                        opcionesGlobos.classList.remove('opcionesOf');
+                        opcionesGlobos.classList.add('opcionesOn');
+                      }
+                      else{
+                        opcionesOscars.classList.remove('opcionesOn');
+                        opcionesOscars.classList.add('opcionesOf');
+                      }
+                      let mejorActrizGlobos = document.getElementById('mejorActrizGlobos');
+                      mejorActrizGlobos.style.display = 'grid';
+                      let revelacionImagenGlobos = document.getElementById('revelacionMejorActrizGlobos');
+                      let actricesGlobos = document.getElementsByClassName('opcionActrizGlobos');
+                      let actricesSeleccionadoGlobos = '';
+                      let cambioMejorActrizGlobos = document.getElementById('tituloMejorActrizGlobos')
+  
+                      Array.from(actricesGlobos).forEach(actrizGlobos => {
+                        actrizGlobos.addEventListener('click', function() {
+                            actricesSeleccionadoGlobos = this.innerText;
+  
+                            if (actricesSeleccionadoGlobos === 'Emma Stone') {
+                              contadorBueno++
+                              incognita.src = "../img/premios/correcto.png"
+                              sonidoCorrecto.play();
+                              opcionesGlobos.classList.remove('opcionesOn')
+                              opcionesGlobos.classList.add('opcionesOf')
+                              setTimeout(function() {
+                                incognita.style.opacity = '0';
+                                revelacionImagenGlobos.style.opacity = '1';
+                                cambioMejorActrizGlobos.textContent = 'Emma Stone';
+                              },2000)
+  
+                            }
+                            else{
+                              contadorMalo++
+                              incognita.src = "../img/premios/incorrecto.png"
+                              sonidoIncorrecto.play();
+                              opcionesGlobos.classList.remove('opcionesOn')
+                              opcionesGlobos.classList.add('opcionesOf')
+                              setTimeout(function(){
+                                incognita.style.opacity = '0';
+                                revelacionImagenGlobos.style.opacity = '1';
+                                cambioMejorActrizGlobos.textContent = 'Emma Stone';
+                              },2000)
+                            }
+                            console.log(actricesSeleccionadoGlobos);
+                            setTimeout(function(){
+                              opcionesGlobos.classList.remove('opcionesOf')
+                              opcionesGlobos.classList.add('opcionesOn')
+                              revelacionImagenGlobos.style.opacity = '0';
+                              mejorActrizGlobos.style.display = 'none';
+                              seleccionMejorDirectorGlobos();
+                            },4000)
+                        });
+                     });
+                    };
+  
+                    function seleccionMejorDirectorGlobos() {
+                      let incognita = document.querySelector('.mejorDirectorGlobos .incognita');
+                      let opcionesGlobos = document.querySelector('.contenedorGlobos .opcionesOf');
+                      if (opcionesGlobos.classList.contains('opcionesOf')) {
+                        opcionesGlobos.classList.remove('opcionesOf');
+                        opcionesGlobos.classList.add('opcionesOn');
+                      }
+                      else{
+                        opcionesGlobos.classList.remove('opcionesOn');
+                        opcionesGlobos.classList.add('opcionesOf');
+                      }
+                      let mejorDirectorGlobos = document.getElementById('mejorDirectorGlobos');
+                      mejorDirectorGlobos.style.display = 'grid';
+                      let revelacionImagenGlobos = document.getElementById('revelacionMejorDirectorGlobos');
+                      let directoresGlobos = document.getElementsByClassName('opcionDirectorGlobos');
+                      let directoresSeleccionadoGlobos = '';
+                      let cambioMejorDirectorGlobos = document.getElementById('tituloMejorDirectorGlobos')
+  
+                      Array.from(directoresGlobos).forEach(directorGlobos => {
+                        directorGlobos.addEventListener('click', function() {
+                            directoresSeleccionadoGlobos = this.innerText;
+  
+                            if (directoresSeleccionadoGlobos === 'Christopher Nolan') {
+                              contadorBueno++
+                              incognita.src = "../img/premios/correcto.png"
+                              sonidoCorrecto.play();
+                              opcionesGlobos.classList.remove('opcionesOn')
+                              opcionesGlobos.classList.add('opcionesOf')
+                              setTimeout(function() {
+                                incognita.style.opacity = '0';
+                                revelacionImagenGlobos.style.opacity = '1';
+                                cambioMejorDirectorGlobos.textContent = 'Christopher Nolan';
+                              },2000)
+  
+                            }
+                            else{
+                              contadorMalo++
+                              incognita.src = "../img/premios/incorrecto.png"
+                              sonidoIncorrecto.play();
+                              opcionesGlobos.classList.remove('opcionesOn')
+                              opcionesGlobos.classList.add('opcionesOf')
+                              setTimeout(function(){
+                                incognita.style.opacity = '0';
+                                revelacionImagenGlobos.style.opacity = '1';
+                                cambioMejorDirectorGlobos.textContent = 'Christopher Nolan';
+                              },2000)
+                            }
+                            console.log(directoresSeleccionadoGlobos);
+                            setTimeout(function(){
+                              opcionesGlobos.classList.remove('opcionesOf')
+                              opcionesGlobos.classList.add('opcionesOn')
+                              revelacionImagenGlobos.style.opacity = '0';
+                              mejorDirectorGlobos.style.display = 'none';
+                              resultadosOscars();
+                            },4000)
+                        });
+                     });
+                    };
+  
+                    function resultadosOscars(){
+                      var contenidoResultadoGlobos = document.querySelector(".globos .resultados");
+                      var tipoPremioGlobos = document.querySelector(".globos .resultados .tipoPremio");
+                      var tituloPorPuntosGlobos = document.querySelector(".globos .resultados .tituloDePuntuacion");
+                      contenidoResultadoGlobos.style.display = 'grid';
+                      var totalContadorGlobos = contadorBueno + contadorMalo;
+                      var puntuacionGlobos = document.querySelector('.globos .puntuacion')
+                      puntuacionGlobos.textContent = contadorBueno + "/" + totalContadorGlobos;
+                      tipoPremioGlobos.textContent = eleccion;
+                      fondoPremios.src = "../img/premios/resultados.png"
+                      switch (true) {
+                        case (contadorBueno ===0):
+                          tituloPorPuntosGlobos.textContent = "El cineasta por postureo";
+                          break;
+                        case (contadorBueno <=2):
+                          tipoPremioGlobos.textContent = "Buen cineasta pero intentalo un poco mejor";
+                          break;
+                        case (contadorBueno <=4):
+                          tituloPorPuntosGlobos.textContent = "El cineasta estrella";
+                          break;
+                        default:
+                          tituloPorPuntosGlobos.textContent = "ERROR";
+                          break;
+                      }
+                    }
+             
+                  }
+  
+                  }, 2000);
+                  index = 0;
+                }
+  
               }
-
               const comentaristaGlobos= document.querySelector('.comentaristaGlobos');
               let contenedorGlobos = document.querySelector('.contenedorGlobos');
-              contenedorGlobos.style.display="grid";
+              contenedorGlobos.style.display = 'grid';
               fondoPremios.classList.add("aparicionEscenario");
               fondoPremios.src="../img/premios/escenarioGlobos.jpeg";
               comentaristaGlobos.play();
-            };
+                
 
             break;
-          
+            
             default:
               break;
           }
@@ -443,7 +1203,5 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
-
-
 /*SOBRE NOSOTROS*/
 
