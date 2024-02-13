@@ -213,10 +213,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
               botonOmitir=document.querySelector('.contenedorTraduccion0 .omitir');
               botonOmitir.style.display="none";
-              setTimeout( function () {
-                botonOmitir.style.display="block";
-              },1000)
-
 
 
               setTimeout(function() {
@@ -225,7 +221,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 30);
 
             botonOmitir=document.querySelector('.contenedorTraduccion0 .omitir');
-            botonOmitir.style.display="none";
 
             function escribirTexto0() {
               nuevoTextoCompleto0=`Ladies and gentlemen, welcome to the most glamorous
@@ -236,8 +231,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 elegance, and well-deserved recognition for the best of our seventh art! 
                 Let the Goya Awards ceremony begin!`;
               
-             parrafo0.innerHTML += nuevoTextoCompleto0.charAt(index0);
+              parrafo0.innerHTML += nuevoTextoCompleto0.charAt(index0);
               index0++;
+              botonOmitir.style.display="none";
+              setTimeout( function () {
+                botonOmitir.style.display="block";
+              },1000)
               if (index0 < nuevoTextoCompleto0.length) {
                   const delaytexto = setTimeout(function() {
                       escribirTexto0(nuevoTextoCompleto0);
