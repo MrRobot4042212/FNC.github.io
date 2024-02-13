@@ -1940,7 +1940,6 @@ body{
 
 /*------------------ COMIENZO DE CONTACTO --------------------*/
 
-
 .intro {
   grid-column: 1 / -1; /* Ocupa todas las columnas disponibles */
   grid-row: 1 ; /* Intro en la primera fila */
@@ -1960,10 +1959,8 @@ body{
   display: grid;
   grid-auto-rows: 2rem;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 0.5fr); 
+  grid-template-rows: repeat(2, 0.7fr); 
   grid-auto-flow: dense;
-  
-
 }
 
 .empleado {
@@ -2036,4 +2033,3 @@ Utilizando la librería charts de google*/
   top: 0%;
   left: 25%;
 }
-
