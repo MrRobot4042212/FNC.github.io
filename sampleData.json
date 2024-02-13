@@ -1,0 +1,37 @@
+{
+    "usuarios": [
+      {
+        "nombre": "Ana García",
+        "edad": 25,
+        "fecha_de_nacimiento": "1999-03-15",
+        "sexo": "Femenino",
+        "nickname": "anag95",
+        "cantidad_de_comentarios": 102
+      },
+      {
+        "nombre": "Juan Pérez",
+        "edad": 30,
+        "fecha_de_nacimiento": "1994-08-20",
+        "sexo": "Masculino",
+        "nickname": "juapz",
+        "cantidad_de_comentarios": 78
+      },
+      {
+        "nombre": "María López",
+        "edad": 22,
+        "fecha_de_nacimiento": "2002-01-10",
+        "sexo": "Femenino",
+        "nickname": "marylo",
+        "cantidad_de_comentarios": 45
+      },
+      {
+        "nombre": "Carlos Martínez",
+        "edad": 28,
+        "fecha_de_nacimiento": "1996-11-05",
+        "sexo": "Masculino",
+        "nickname": "carlitos88",
+        "cantidad_de_comentarios": 120
+      }
+    ]
+  }
+  

@@ -94,9 +94,9 @@ body{
 
     .estructuraPrincipal {
         display: grid;  
-        grid-template-rows: 300px 100px 2fr 2fr 200px;
+        grid-template-rows: 300px 100px 2fr 2fr 0px;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        gap: 0px;
+        gap: 20px;
         height: 100%;
     }
 
@@ -1809,72 +1809,118 @@ display: none;
 
 /*------------------ COMIENZO DE CONTACTO --------------------*/
 
-.quienesSomos {
-  display: contents;
-  justify-content: center;
-  align-items: center;
-  width: 25%;
-  gap:  5px;
-  padding: 6px ;
+
+.intro {
+  grid-column: 1 / -1; /* Ocupa todas las columnas disponibles */
+  grid-row: 1 ; /* Intro en la primera fila */
+  font-family: "montserrat"
+
 }
-.quienesSomos .contenedorIntro{
-  background: var(--grisClaro);
-  border-radius: 10px;
-  box-shadow: rgba(255, 255, 255, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px  0px 0px;
-  transition: all .3s ease-in-out;
-  padding: 8px; 
-}
-.quienesSomos .contenedorIntro h1{
-  color: rgb(4, 68, 245);
-}
-.quienesSomos .contenedorIntro p{
-  color: rgb(255, 255, 255);
-}
-.quienesSomos .contenedorEmpleado{
-  background: var(--grisClaro);
-  border-radius: 10px;
-  box-shadow: rgba(255, 255, 255, 0.16) 0px 10px 36px 0px, rgba(125, 0, 241, 0.06) 0px 0px  0px 0px;
-  transition: all .3s ease-in-out;
-  padding: 8px;
-}
-.quienesSomos .contenedorEmpleado img{
-  height: 20vw;
-}
-.quienesSomos .contenedorEmpleado h2{
-  text-align: left;
-  color: purple;
-}
-.quienesSomos .contenedorEmpleado p{
-  text-align: left;
+.intro p {
   color: white;
+  text-align: center;
+}
+.intro h1{
+  color: rgb(247, 102, 6);
+  text-align: center;
+}
+.slider{
+  display: flex;
+  width: 600px;
+  height: 430px;
+}
+.slider img {
+  width: 0px;
+  flex-grow: 1;
+  object-fit: cover;
+  opacity: .8;
+  transition: .5s ease;
+}
+.slider img:hover{
+  cursor: crosshair;
+  width: 300px;
+  opacity: 1;
+  filter: contrast(120%);
 }
 
-.seccionOpiniones {
-  display: contents;
-  justify-content: center;
-  align-items: center; /* Centrar las opiniones horizontalmente */
+.empleadosSeccion {
+  display: grid;
+  grid-auto-rows: 2rem;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 0.5fr); 
+  grid-auto-flow: dense;
+  
+
+}
+
+.empleado {
+  margin: 50px;
+  grid-column: auto; 
+  grid-row: 2 / 3; 
+}
+
+.empleado > img {
+  width: 100%;   
+}
+
+.empleado > img:hover{
+  cursor: crosshair;
+  filter: contrast(120%);
+  opacity: 1;
+  width: 300px;
   
 }
 
-.opinionesContenedor {
-  margin: 20px; /* Espacio entre los contenedores */
-  width: 90%;
-  display: block; /* Cambiar a flex para poder utilizar flex-direction */
-  flex-direction: row; /* Establecer la dirección en fila */
-  justify-content: center; /* Centrar los contenedores horizontalmente */
-  gap: 20px; /* Espacio entre los contenedores */
-  font-size: 1.2em;
+
+.empleado p {
+  font-family: "montserrat";
+  color: white;
+  text-align: justify;
+}
+.empleado h1 {
+  color: blue;
+  font-family: "montserrat";
+  text-align: center;
 }
 
 
-.opinion1 {
-  border: 1px solid #ccc;
-  padding: 10px;
-  width: 100%; /* Ancho completo para adaptarse al contenedor */
-  box-shadow: rgba(35, 245, 7, 0.16) 0px 10px 36px 0px, rgba(194, 72, 72, 0.06) 0px 0px  0px 0px;
-  border-radius: 10px;
+.opinionesSeccion {
+  grid-column: 1 / -1; /* Ocupa todas las columnas disponibles */
+}
+.opinionesSeccion h3{
+  text-align: center;
+  color: chartreuse;
+}
+.opinionesSeccion h4{
+  color: rgb(240, 12, 209);
+  font-family: "montserrat";
+}
+.opinionesSeccion p {
+  border: 2px solid white; 
+  border-radius: 10px; 
+  padding: 10px; 
+  text-align: center;
+  color: rgb(0, 0, 0);
+  background-color: rgba(129, 14, 14, 0.705);
+  font-family: "montserrat";
+}
+
+
+/*SECCION ESTADISTICAS DE CONTACTO
+Utilizando la librería charts de google*/
+.graficaSeccion{
+  position: relative;
   
 }
 
-
+#chart_div{
+  position: absolute;
+  top: 0%;
+  left: 50%;
+}
+#barchart_div{
+  position: absolute;
+  top: 0%;
+  left: 25%;
+}
 
