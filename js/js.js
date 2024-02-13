@@ -1,3 +1,5 @@
+/*D3 para la grafica*/
+
 var flipPeliculas = document.querySelectorAll(".contenedorPeliculas");
 var flipOverlay = document.querySelectorAll(".overlay")
 var frontPeliculas = document.querySelectorAll(".peliculasActive");
@@ -356,5 +358,30 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-/*SOBRE NOSOTROS*/
+/*CONTACTO*/
+const imagenesNosotros = document.getElementsByClassName("imagenNosotros");
 
+for (let imagen of imagenesNosotros) {
+    imagen.addEventListener("click", info());
+}
+
+function info(event) {
+    alert("Has hecho clic en: " + event.target.alt);
+}
+
+
+/*Seccion estadisticas*/ 
+let canvas = document.getElementById("#grafica")
+var chart = new chart(canvas, {
+  type:"bar",
+  data:{
+    labels:["Visitas","Suscriptores","Comentarios"],
+    dataset:[
+      {
+        label:"Films&Critics",
+        backgroundcolor:"rgb(0,0,0)",
+        data:[3900,400,1245]
+      }
+    ]
+  }
+})
