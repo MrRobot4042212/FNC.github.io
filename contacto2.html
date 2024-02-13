@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>contacto2</title>
     <link rel="stylesheet" href="./css/styles.css">
-    <script src="./js/js.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script><!--cargar libreria de google para gráficas-->
+    <script src="../FNC/js/js.js"></script>
+
 </head>
-    <header>
+<header>
         <main class="estructuraPrincipalContacto">
 
         <!-- HEADER DE LA PAGINA, aqui mostraremos el nombre de la empresa y el logo -->
@@ -38,16 +40,22 @@
 
             </div>
         </main>
-    </header>
+        
+</header>
         <!--FIN DE LA BARRA DE NAVEGACIÓN -->
         <!--COMIENZA CUERPO-->
         <body class="contenedorContacto">
+                
             <section class="empleadosSeccion">
             <div class="intro">
                 <h1>Quienes somos</h1>
                 <p>Somos unos estudiantes de informática apasionados por el mundo del cine, las novelas, esas historias que te hacen ir a lugares de ensueño. Nuestro grupo está formado por 4 participantes:</p>
-                
+                <section class="graficaSeccion">
+                    <div id="chart_div" style="width:400; height:300"></div>
+                    <div id="barchart_div" style="width:400; height:300"></div>
+                </section>
             </div>
+            
             
             <div class="empleado">
                 <h1>Alfonso</h1>
@@ -70,6 +78,7 @@
                 <p>Josias, un misterioso integrante de nuestro equipo, aporta una perspectiva única y enigmática al mundo del cine. Su contribución es tan diversa que, al igual que sus películas favoritas, sigue siendo un enigma para todos nosotros.</p>
             </div>
         </section>
+        
         <section class="opinionesSeccion">
             <h3>¿Qué dicen nuestros usuarios?</h3>
             <div class="opinion">
@@ -85,10 +94,10 @@
                 <p>Let's face it, you can't really trust the critics or the people when it comes to reviewing shows fairly and without bias. However, filtering between the aggregated critic rating and polarising viewer reviews is easy and transparent, the list of recommendations is great and the trivia section is exceptional.</p>
             </div>
         </section>
-        <section class="estadisticas">
-            <canvas id="grafica" width="400" height="300"></canvas>
-
-        </section>
+         <!--ALMACEN DE LA GRAFICA-->
+        
+        
+        
 </body>
 
 
