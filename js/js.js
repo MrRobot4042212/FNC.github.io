@@ -1,3 +1,7 @@
+              
+              /* VARIABLES GLOBALES UTILIZADAS PARA DIFERENTES FUNCIONES */
+
+
 var flipPeliculas = document.querySelectorAll(".contenedorPeliculas");
 var flipOverlay = document.querySelectorAll(".overlay")
 var frontPeliculas = document.querySelectorAll(".peliculasActive");
@@ -19,6 +23,11 @@ let botonOmitir= document.querySelector('.omitir');
 var goyaAccion = document.querySelector(".goya");
 var boton = document.querySelectorAll(".botonZoom");
 
+
+  /*------------------------------------------------------------------------------------------------------------------- */
+
+                      /* EFECTO FLIP PARA peliculas.html */
+
 flipPeliculas.forEach(function (elemento) {
   elemento.addEventListener('click', function voltear () {
         if (elemento.classList.contains("animacionDefault")) {
@@ -35,8 +44,11 @@ flipPeliculas.forEach(function (elemento) {
   });
 });
 
+/*   /*------------------------------------------------------------------------------------------------------------------- */
 
 
+
+            /*EFECTO DESGLOSE PARA LOS FILTROS DE "GENERO" EN pelis.html*/
 
 botonDesglose.forEach(function (botonDesglose) {
     botonDesglose.addEventListener('click', function () {
@@ -49,6 +61,13 @@ botonDesglose.forEach(function (botonDesglose) {
       }
     });
   });
+
+  /*------------------------------------------------------------------------------------------------------------------- */
+
+
+      /*AÑADIR LA CLASE tituloPelicula, generoPelicula, actorPelicula A LOS HIJOS DE overlayFLip, overlayDefault PARA SU POSTERIOR FILTRADO EN Productores.html */
+
+
 
   let checkOverlayDefault = document.querySelectorAll(".overlayDefault");
   let checkOverlayFlip = document.querySelectorAll(".overlayFlip"); 
@@ -79,7 +98,12 @@ botonDesglose.forEach(function (botonDesglose) {
       });
     });
 
+    /*------------------------------------------------------------------------------------------------------------------- */
+
+
    
+
+                  /* FILTRADO POR GENERO DE pelis.html */
 
 
     let inputFiltroGenero = document.querySelectorAll(".genero");
@@ -104,8 +128,10 @@ botonDesglose.forEach(function (botonDesglose) {
       });
     });
   
+  /*------------------------------------------------------------------------------------------------------------------- */
 
-
+  
+              /* FILTRADO POR NOMBRE DE PELICULA DE pelis.html */	
   let contenidoTituloPelicula = document.querySelectorAll(".tituloPelicula");
   let inputFiltroPelicula = document.querySelectorAll(".inputNombrePelicula");
   
@@ -130,101 +156,9 @@ botonDesglose.forEach(function (botonDesglose) {
     });
   });
 
-  document.addEventListener('DOMContentLoaded', function () {
-    let contenedorDirectores = document.querySelectorAll('.informacionDirector');
-        contenedorDirectores.forEach(function (directorclase) {
-      directorclase.children[0].classList.add('nombreDirector');       
-    });
-  });
+  /*------------------------------------------------------------------------------------------------------------------- */
 
-  let contenidoTituloDirector = document.querySelectorAll('.nombreDirector')
-  let inputFiltroDirector = document.querySelectorAll(".inputDirector");
-
-  inputFiltroDirector.forEach(function (inputD) {
-    inputD.addEventListener('keydown', function () {
-      let inputValueDirector = inputD.value.toLowerCase();
-      if (inputValueDirector === ""){
-        contenidoTituloDirector.forEach(function (filtradoD) {
-          filtradoD.style.display = "block";
-        });
-      }
-      let contenedorDirectores = document.querySelectorAll(".contenedorDirectores");
-      contenedorDirectores.forEach(function (filtrar) {
-        let directorTitulo = filtrar.querySelector(".nombreDirector").innerHTML.toLowerCase();
-        if (directorTitulo.includes(inputValueDirector)) {
-          filtrar.style.display = "block";
-        } else {
-          filtrar.style.display = "none";
-        }
-      });
-    });
-  });
-
-  document.addEventListener('DOMContentLoaded', function () {
-    let contenedorProductor = document.querySelectorAll('.informacionProductor');
-        contenedorProductor.forEach(function (productorClase) {
-      productorClase.children[0].classList.add('nombreProductor');       
-    });
-  });
-
-  let contenidoTituloProductor = document.querySelectorAll('.nombreProductor')
-  let inputFiltroProductor = document.querySelectorAll(".inputProductor");
-
-  inputFiltroProductor.forEach(function (inputPr) {
-    inputPr.addEventListener('keydown', function () {
-      let inputValueProductor = inputPr.value.toLowerCase();
-      if (inputValueProductor === ""){
-        contenidoTituloProductor.forEach(function (filtradoPr) {
-          filtradoPr.style.display = "block";
-        });
-      }
-      let contenedorProductor = document.querySelectorAll(".contenedorProductores");
-      contenedorProductor.forEach(function (filtrarPr) {
-        let productorTitulo = filtrarPr.querySelector(".nombreProductor").innerHTML.toLowerCase();
-        if (productorTitulo.includes(inputValueProductor)) {
-          filtrarPr.style.display = "block";
-        } else {
-          filtrarPr.style.display = "none";
-        }
-      });
-    });
-  });
-
-  document.addEventListener('DOMContentLoaded', function () {
-    let contenedorActor = document.querySelectorAll('.informacionActor');
-        contenedorActor.forEach(function (actorClase) {
-      actorClase.children[0].classList.add('nombreActor');       
-    });
-  });
-
-  let contenidoTituloActor = document.querySelectorAll('.nombreActor')
-  let inputFiltroActor = document.querySelectorAll(".inputActor");
-
-  inputFiltroActor.forEach(function (inputAc) {
-    inputAc.addEventListener('keydown', function () {
-      let inputValueActor = inputAc.value.toLowerCase();
-      if (inputValueActor === ""){
-        contenidoTituloActor.forEach(function (filtradoAc) {
-          filtradoAc.style.display = "block";
-        });
-      }
-      let contenedorActor = document.querySelectorAll(".contenedorActor");
-      contenedorActor.forEach(function (filtrarAc) {
-        let actorTitulo = filtrarAc.querySelector(".nombreActor").innerHTML.toLowerCase();
-        if (actorTitulo.includes(inputValueActor)) {
-          filtrarAc.style.display = "block";
-        } else {
-          filtrarAc.style.display = "none";
-        }
-      });
-    });
-  });
-
-  
-
-
-
-
+                      /*FILTRADO POR NOMBRE DE ACTOR EN pelis.html */
 
   let inputActorPelicula = document.querySelectorAll(".inputActorPelicula");
   let contenidoActorPelicula = document.querySelectorAll(".actorPelicula");
@@ -250,6 +184,136 @@ botonDesglose.forEach(function (botonDesglose) {
     });
   });
 
+  /*------------------------------------------------------------------------------------------------------------------- */
+
+      /*AÑADIR LA CLASE nombreDirector A LOS HIJOS DE informacionDirector PARA SU POSTERIOR FILTRADO EN directores.html */
+
+  document.addEventListener('DOMContentLoaded', function () {
+    let contenedorDirectores = document.querySelectorAll('.informacionDirector');
+        contenedorDirectores.forEach(function (directorclase) {
+      directorclase.children[0].classList.add('nombreDirector');       
+    });
+  });
+
+  /*------------------------------------------------------------------------------------------------------------------- */
+
+
+                /*FILTRADO POR NOMBRE DE DIRECTOR EN directores.html */
+
+
+  let contenidoTituloDirector = document.querySelectorAll('.nombreDirector')
+  let inputFiltroDirector = document.querySelectorAll(".inputDirector");
+
+  inputFiltroDirector.forEach(function (inputD) {
+    inputD.addEventListener('keydown', function () {
+      let inputValueDirector = inputD.value.toLowerCase();
+      if (inputValueDirector === ""){
+        contenidoTituloDirector.forEach(function (filtradoD) {
+          filtradoD.style.display = "block";
+        });
+      }
+      let contenedorDirectores = document.querySelectorAll(".contenedorDirectores");
+      contenedorDirectores.forEach(function (filtrar) {
+        let directorTitulo = filtrar.querySelector(".nombreDirector").innerHTML.toLowerCase();
+        if (directorTitulo.includes(inputValueDirector)) {
+          filtrar.style.display = "block";
+        } else {
+          filtrar.style.display = "none";
+        }
+      });
+    });
+  });
+
+  /*------------------------------------------------------------------------------------------------------------------- */
+
+
+      /*AÑADIR LA CLASE nombreProductor A LOS HIJOS DE informacionProductor PARA SU POSTERIOR FILTRADO EN Productores.html */
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+    let contenedorProductor = document.querySelectorAll('.informacionProductor');
+        contenedorProductor.forEach(function (productorClase) {
+      productorClase.children[0].classList.add('nombreProductor');       
+    });
+  });
+
+  /*------------------------------------------------------------------------------------------------------------------- */
+
+                   
+                      /* FILTRADO POR NOMRE DE PRODUCTOR EN productores.html */
+
+
+  let contenidoTituloProductor = document.querySelectorAll('.nombreProductor')
+  let inputFiltroProductor = document.querySelectorAll(".inputProductor");
+
+  inputFiltroProductor.forEach(function (inputPr) {
+    inputPr.addEventListener('keydown', function () {
+      let inputValueProductor = inputPr.value.toLowerCase();
+      if (inputValueProductor === ""){
+        contenidoTituloProductor.forEach(function (filtradoPr) {
+          filtradoPr.style.display = "block";
+        });
+      }
+      let contenedorProductor = document.querySelectorAll(".contenedorProductores");
+      contenedorProductor.forEach(function (filtrarPr) {
+        let productorTitulo = filtrarPr.querySelector(".nombreProductor").innerHTML.toLowerCase();
+        if (productorTitulo.includes(inputValueProductor)) {
+          filtrarPr.style.display = "block";
+        } else {
+          filtrarPr.style.display = "none";
+        }
+      });
+    });
+  });
+
+/*------------------------------------------------------------------------------------------------------------------- */
+
+
+
+/*AÑADIR LA CLASE nombreActor A LOS HIJOS DE informacionActor PARA SU POSTERIOR FILTRADO EN actores.html */
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+    let contenedorActor = document.querySelectorAll('.informacionActor');
+        contenedorActor.forEach(function (actorClase) {
+      actorClase.children[0].classList.add('nombreActor');       
+    });
+  });
+
+/*------------------------------------------------------------------------------------------------------------------- */
+
+
+
+                    /* FILTRADO POR NOMBRE DE ACTOR EN actores.html */
+
+
+  let contenidoTituloActor = document.querySelectorAll('.nombreActor')
+  let inputFiltroActor = document.querySelectorAll(".inputActor");
+
+  inputFiltroActor.forEach(function (inputAc) {
+    inputAc.addEventListener('keydown', function () {
+      let inputValueActor = inputAc.value.toLowerCase();
+      if (inputValueActor === ""){
+        contenidoTituloActor.forEach(function (filtradoAc) {
+          filtradoAc.style.display = "block";
+        });
+      }
+      let contenedorActor = document.querySelectorAll(".contenedorActor");
+      contenedorActor.forEach(function (filtrarAc) {
+        let actorTitulo = filtrarAc.querySelector(".nombreActor").innerHTML.toLowerCase();
+        if (actorTitulo.includes(inputValueActor)) {
+          filtrarAc.style.display = "block";
+        } else {
+          filtrarAc.style.display = "none";
+        }
+      });
+    });
+  });
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+
+  
+      /*FUNCION QUE NOS PERMITE CAMBIAR EL ESTILO DEL GRID, PARA AÑADIR MAS OPCIONES DE FILTRADO */
 
 
 mostrarFiltros.forEach(function (showFilter) {
@@ -278,6 +342,10 @@ mostrarFiltros.forEach(function (showFilter) {
   });
 });
 
+/*-------------------------------------------------------------------------------------------------------------------*/
+
+
+/* ANIMACIONES DE ZOOM PARA premios.html Y AÑADIR UN SONIDO DE TRANSICIÓN */
 
 document.addEventListener("DOMContentLoaded", function () {
   var elegirPremio = document.querySelector('.elegirPremio');
@@ -294,13 +362,24 @@ document.addEventListener("DOMContentLoaded", function () {
         fondoPremios.classList.add("zoomFondo");
         aplausosPlay.play();
 
+/*-------------------------------------------------------------------------------------------------------------------*/
+
+
+
+    /*AGREGAR UN TIMEOUT UNA VEZ ELEGIDA LA "ELECCION" NOS MUESTRE EN EL TIPO DE PREMIO QUE ESTAMOS */
+
+
         setTimeout(function () {
           fondoPremios.classList.add("zoomFondoDesaparecer");
           let eleccion = clickedElement.querySelector('.tituloPremio').innerHTML;
           let contenidoPremios = document.querySelector('.contenedorPremio');
           console.log(eleccion);
 
+/*-------------------------------------------------------------------------------------------------------------------*/
+
           switch (eleccion) {
+
+                                /* ELECCION DE LOS PREMIOS GOYA */
 
             case 'Premios Goya':
 
@@ -318,6 +397,8 @@ document.addEventListener("DOMContentLoaded", function () {
             setTimeout( function () {
               botonOmitir.style.display="block";
             },1000)
+
+                        /* EL TEXTO SE ESCRIBE A MEDIDA DEL COMENTARISTA */
 
 
             function escribirTexto0() {
@@ -337,6 +418,8 @@ document.addEventListener("DOMContentLoaded", function () {
                       escribirTexto0(nuevoTextoCompleto0);
                   }, 47);
 
+                               /*BOTON DE OMITIR EL TEXTO Y COMENTARISTA */
+
                   botonOmitir.addEventListener("click",function(){
                     comentaristaGoya.remove();
                     contenedorTraduccion0.style.display="none";
@@ -349,6 +432,8 @@ document.addEventListener("DOMContentLoaded", function () {
                   });
                 }
               else{
+                                    /*EMPIECE DEL MINIJUEGO DE LOS GOYA */
+
                   setTimeout(() => {
                     pantallaCarga.classList.remove('pantallaCargaOn')
                     pantallaCarga.classList.add('pantallaCargaOf')
@@ -377,6 +462,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     let peliculaSeleccionadaGoya = '';
                     let revelacionImagenGoya = document.getElementById('revelacionMejorPeliculaGoya');
                     let cambioMejorPeliculaGoya = document.getElementById('tituloMejorPeliculaGoya');
+
+                                            /* PREGUNTA 1 GOYA*/
+
 
                     Array.from(peliculasGoya).forEach(peliculaGoya => {
                         peliculaGoya.addEventListener('click', function seleccionMejorPeliculaGoya() {
@@ -418,6 +506,11 @@ document.addEventListener("DOMContentLoaded", function () {
                             },4000)
                         });
                     });
+
+                    
+                                            /* PREGUNTA 2 GOYA*/
+
+
 
                     function seleccionMejorActorGoya() {
                       let incognita = document.querySelector('.mejorActorGoya .incognita');
@@ -476,6 +569,10 @@ document.addEventListener("DOMContentLoaded", function () {
                             },4000)
                         });
                     });
+
+                    
+                                            /* PREGUNTA 3 GOYA*/
+
 
                     function seleccionMejorActrizGoya() {
                       let incognita = document.querySelector('.mejorActrizGoya .incognita');
@@ -537,6 +634,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
                     };
 
+                                            /* PREGUNTA 4 GOYA*/
+
+
+
                     function seleccionMejorDirectorGoya() {
                       let incognita = document.querySelector('.mejorDirectorGoya .incognita');
                       let opcionesGoya = document.querySelector('.contenedorGoya .opcionesOf');
@@ -596,6 +697,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
                     };
 
+                                        /* RESULTADOS DE LOS GOYA */
+
                     function resultadosGoya(){
                       fondoPremios.src = "";
                       musicaAmbiental.remove();
@@ -641,7 +744,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
               break;
 
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+
+
             case 'Premios Oscar':
+
+                                    /* ELECCION DE LOS PREMIOS OSCARS */
 
               const parrafo = document.querySelector('.traduccion');
               var contenedorTraduccion = document.querySelector('.contenedorTraduccion');
@@ -688,6 +797,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
               else{
+
+                                    /*EMPIECE DEL MINIJUEGO DE LOS OSCARS */
+
+
                 setTimeout(() => {
                   pantallaCarga.classList.remove('pantallaCargaOn')
                   pantallaCarga.classList.add('pantallaCargaOf')
@@ -719,6 +832,11 @@ document.addEventListener("DOMContentLoaded", function () {
                   let revelacionImagenOscars = document.getElementById('revelacionMejorPeliculaOscars');
                   let cambioMejorPeliculaOscars = document.getElementById('tituloMejorPeliculaOscars')
                   incognita = document.querySelector('.mejorPeliculaOscars .incognita')
+
+
+                                            /* PREGUNTA 1 OSCARS*/
+
+
                   Array.from(peliculasOscars).forEach(peliculaOscars => {
                       peliculaOscars.addEventListener('click', function seleccionMejorPeliculaOscars() {
                           peliculaSeleccionadaOscars = this.innerText;
@@ -759,6 +877,9 @@ document.addEventListener("DOMContentLoaded", function () {
                           },4000)
                       });
                   });
+
+                                          /* PREGUNTA 2 OSCARS*/
+
 
                   function seleccionMejorActorOscars() {
                     let incognita = document.querySelector('.mejorActorOscars .incognita');
@@ -817,6 +938,9 @@ document.addEventListener("DOMContentLoaded", function () {
                           },4000)
                       });
                   });
+
+                                          /* PREGUNTA 3 OSCARS*/
+
 
                   function seleccionMejorActrizOscars() {
                     let incognita = document.querySelector('.mejorActrizOscars .incognita');
@@ -877,6 +1001,9 @@ document.addEventListener("DOMContentLoaded", function () {
                    });
                   };
 
+                                          /* PREGUNTA 4 OSCARS*/
+
+
                   function seleccionMejorDirectorOscars() {
                     let incognita = document.querySelector('.mejorDirectorOscars .incognita');
                     let opcionesOscars = document.querySelector('.contenedorOscars .opcionesOf');
@@ -936,6 +1063,9 @@ document.addEventListener("DOMContentLoaded", function () {
                    });
                   };
 
+                                          /* RESULTADOS OSCARS*/
+
+
                   function resultadosOscars(){
                     fondoPremios.src = "";
                     musicaAmbiental.remove();
@@ -988,6 +1118,9 @@ document.addEventListener("DOMContentLoaded", function () {
             break;
 
             case 'Premios Globos de oro':
+
+                                  /* ELECCION DE LOS PREMIOS GLOBOS DE ORO */
+
               
                const parrafo2 = document.querySelector('.traduccionGlobos');
               var contenedorTraduccion2 = document.querySelector('.contenedorTraduccion2');
@@ -1034,6 +1167,10 @@ document.addEventListener("DOMContentLoaded", function () {
                   });
                 }
                 else{
+
+                                  /* MINIJUEGO GLOBOS DE ORO */
+
+
                   setTimeout(() => {
                     pantallaCarga.classList.remove('pantallaCargaOn')
                     pantallaCarga.classList.add('pantallaCargaOf')
@@ -1064,6 +1201,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     let revelacionImagenGlobos = document.getElementById('revelacionMejorPeliculaGlobos');
                     let cambioMejorPeliculaGlobos = document.getElementById('tituloMejorPeliculaGlobos')
                     incognita = document.querySelector('.mejorPeliculaGlobos .incognita')
+
+                                  /* PREGUNTA 1 GLOBOS DE ORO*/
+
+
                     Array.from(peliculasGlobos).forEach(peliculaGlobos => {
                         peliculaGlobos.addEventListener('click', function seleccionMejorPeliculaGlobosDrama() {
                             peliculaSeleccionadaGlobos = this.innerText;
@@ -1104,6 +1245,10 @@ document.addEventListener("DOMContentLoaded", function () {
                             },4000)
                         });
                     });
+                    
+                                  /* PREGUNTA 2 GLOBOS DE ORO*/
+
+
   
                     function seleccionMejorPeliculaAnimadaGlobos() {
                       let incognita = document.querySelector('.mejorAnimadaGlobos .incognita');
@@ -1162,6 +1307,11 @@ document.addEventListener("DOMContentLoaded", function () {
                             },4000)
                         });
                     });
+
+                    
+                                  /* PREGUNTA 3 GLOBOS DE ORO*/
+
+
   
                     function seleccionMejorActrizComediaGlobos() {
                       let incognita = document.querySelector('.mejorActrizGlobos .incognita');
@@ -1221,6 +1371,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         });
                      });
                     };
+                    
+                                  /* PREGUNTA 4 GLOBOS DE ORO*/
+
+
   
                     function seleccionMejorDirectorGlobos() {
                       let incognita = document.querySelector('.mejorDirectorGlobos .incognita');
@@ -1280,6 +1434,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         });
                      });
                     };
+                    
+                                  /* RESULTADOS DE GLOBOS DE ORO*/
+
+
   
                     function resultadosGlobos(){
                       fondoPremios.src = "";
@@ -1339,6 +1497,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+          /* FUNCION PARA ESTRABLECER LA VALORACION (ESTRELLAS) EN LA PAGINA pelis.html */
+
 
 document.addEventListener('DOMContentLoaded', function () {
     const ratingContainer = document.querySelector('.contenedorStars');
@@ -1384,6 +1544,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+/*-------------------------------------------------------------------------------------------------------------------- */
+
+
+
+
 /*CONTACTO*/
 const imagenesNosotros = document.getElementsByClassName("imagenNosotros");
 
@@ -1396,33 +1562,73 @@ function info(event) {
 }
 
 
-/*Seccion estadisticas*/ 
+/*CONTACTO*/
+google.charts.load('current', {'packages':['corechart']});
 
-      google.charts.load('current', {'packages':['corechart']});
+// Draw the pie chart and bar chart when Charts is loaded.
+google.charts.setOnLoadCallback(drawChart);
 
-      // Draw the pie chart and bar chart when Charts is loaded.
-      google.charts.setOnLoadCallback(drawChart);
+function drawChart() {
+  // Datos de la tabla y tipos
+  var data = new google.visualization.DataTable();
+  data.addColumn('string', 'Usuario');
+  data.addColumn('number', 'Edad');
+  data.addColumn('number', 'Comentarios');
 
-      function drawChart() {
-        // datos de la tabla y tipos
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Usuario');
-        data.addColumn('number', 'Edad');
-        data.addColumn('number', 'Comentarios');
-        data.addRows([
-        ['Ana García', 25, 102],
-        ['Juan Pérez', 30, 78],
-        ['María López', 22, 45],
-        ['Carlos Martínez', 28, 120]
-      ]);
-       //opciones de la tabla, caracteristicas
-        var piechart_options = {title: 'Usuarios con mayor actividad en la pagina',
-                       width:400,
-                       height:300};
+  let users = [
+    {
+      "nombre": "Ana García",
+      "edad": 25,
+      "fecha_de_nacimiento": "1999-03-15",
+      "sexo": "Femenino",
+      "nickname": "anag95",
+      "cantidad_de_comentarios": 92
+    },
+    {
+      "nombre": "Juan Pérez",
+      "edad": 30,
+      "fecha_de_nacimiento": "1994-08-20",
+      "sexo": "Masculino",
+      "nickname": "juapz",
+      "cantidad_de_comentarios": 45
+    },
+    {
+      "nombre": "María López",
+      "edad": 22,
+      "fecha_de_nacimiento": "2002-01-10",
+      "sexo": "Femenino",
+      "nickname": "marylo",
+      "cantidad_de_comentarios": 56
+    },
+    {
+      "nombre": "Carlos Martínez",
+      "edad": 28,
+      "fecha_de_nacimiento": "1996-11-05",
+      "sexo": "Masculino",
+      "nickname": "carlitos88",
+      "cantidad_de_comentarios": 120
+    }
+  ]; 
 
-        var piechart = new google.visualization.BarChart(document.getElementById('chart_div'));
-        piechart.draw(data, piechart_options);
+  users.forEach(users => {
+    data.addRow([users.nickname, users.edad, users.cantidad_de_comentarios]);
+    
+  });
 
-        var barchart = new google.visualization.PieChart(document.getElementById('barchart_div'));
-        barchart.draw(data, piechart_options);
-      }
+  // Opciones de la tabla, características
+  var chart_options = {
+    title: 'Usuarios con mayor actividad en la página',
+    width: 400,
+    height: 300
+  };
+
+  var piechart = new google.visualization.BarChart(document.getElementById('chart_div'));
+  piechart.draw(data, chart_options);
+
+  var barchart = new google.visualization.PieChart(document.getElementById('barchart_div'));
+  barchart.draw(data, chart_options);
+}
+
+
+
+
