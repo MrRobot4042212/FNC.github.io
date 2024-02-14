@@ -1,5 +1,3 @@
-/*google charts para los graficos en contacto*/
-
 var flipPeliculas = document.querySelectorAll(".contenedorPeliculas");
 var flipOverlay = document.querySelectorAll(".overlay")
 var frontPeliculas = document.querySelectorAll(".peliculasActive");
@@ -17,7 +15,6 @@ let incognita = document.querySelector('.incognita')
 const sonidoCorrecto = document.querySelector('.sonidoCorrecto');
 const sonidoIncorrecto = document.querySelector('.sonidoIncorrecto');
 let botonOmitir= document.querySelector('.omitir');
-
 
 var goyaAccion = document.querySelector(".goya");
 var boton = document.querySelectorAll(".botonZoom");
@@ -37,6 +34,7 @@ flipPeliculas.forEach(function (elemento) {
         }
   });
 });
+
 
 
 
@@ -80,6 +78,8 @@ botonDesglose.forEach(function (botonDesglose) {
         }
       });
     });
+
+   
 
 
     let inputFiltroGenero = document.querySelectorAll(".genero");
@@ -129,7 +129,102 @@ botonDesglose.forEach(function (botonDesglose) {
       });
     });
   });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    let contenedorDirectores = document.querySelectorAll('.informacionDirector');
+        contenedorDirectores.forEach(function (directorclase) {
+      directorclase.children[0].classList.add('nombreDirector');       
+    });
+  });
+
+  let contenidoTituloDirector = document.querySelectorAll('.nombreDirector')
+  let inputFiltroDirector = document.querySelectorAll(".inputDirector");
+
+  inputFiltroDirector.forEach(function (inputD) {
+    inputD.addEventListener('keydown', function () {
+      let inputValueDirector = inputD.value.toLowerCase();
+      if (inputValueDirector === ""){
+        contenidoTituloDirector.forEach(function (filtradoD) {
+          filtradoD.style.display = "block";
+        });
+      }
+      let contenedorDirectores = document.querySelectorAll(".contenedorDirectores");
+      contenedorDirectores.forEach(function (filtrar) {
+        let directorTitulo = filtrar.querySelector(".nombreDirector").innerHTML.toLowerCase();
+        if (directorTitulo.includes(inputValueDirector)) {
+          filtrar.style.display = "block";
+        } else {
+          filtrar.style.display = "none";
+        }
+      });
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    let contenedorProductor = document.querySelectorAll('.informacionProductor');
+        contenedorProductor.forEach(function (productorClase) {
+      productorClase.children[0].classList.add('nombreProductor');       
+    });
+  });
+
+  let contenidoTituloProductor = document.querySelectorAll('.nombreProductor')
+  let inputFiltroProductor = document.querySelectorAll(".inputProductor");
+
+  inputFiltroProductor.forEach(function (inputPr) {
+    inputPr.addEventListener('keydown', function () {
+      let inputValueProductor = inputPr.value.toLowerCase();
+      if (inputValueProductor === ""){
+        contenidoTituloProductor.forEach(function (filtradoPr) {
+          filtradoPr.style.display = "block";
+        });
+      }
+      let contenedorProductor = document.querySelectorAll(".contenedorProductores");
+      contenedorProductor.forEach(function (filtrarPr) {
+        let productorTitulo = filtrarPr.querySelector(".nombreProductor").innerHTML.toLowerCase();
+        if (productorTitulo.includes(inputValueProductor)) {
+          filtrarPr.style.display = "block";
+        } else {
+          filtrarPr.style.display = "none";
+        }
+      });
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    let contenedorActor = document.querySelectorAll('.informacionActor');
+        contenedorActor.forEach(function (actorClase) {
+      actorClase.children[0].classList.add('nombreActor');       
+    });
+  });
+
+  let contenidoTituloActor = document.querySelectorAll('.nombreActor')
+  let inputFiltroActor = document.querySelectorAll(".inputActor");
+
+  inputFiltroActor.forEach(function (inputAc) {
+    inputAc.addEventListener('keydown', function () {
+      let inputValueActor = inputAc.value.toLowerCase();
+      if (inputValueActor === ""){
+        contenidoTituloActor.forEach(function (filtradoAc) {
+          filtradoAc.style.display = "block";
+        });
+      }
+      let contenedorActor = document.querySelectorAll(".contenedorActor");
+      contenedorActor.forEach(function (filtrarAc) {
+        let actorTitulo = filtrarAc.querySelector(".nombreActor").innerHTML.toLowerCase();
+        if (actorTitulo.includes(inputValueActor)) {
+          filtrarAc.style.display = "block";
+        } else {
+          filtrarAc.style.display = "none";
+        }
+      });
+    });
+  });
+
   
+
+
+
+
 
   let inputActorPelicula = document.querySelectorAll(".inputActorPelicula");
   let contenidoActorPelicula = document.querySelectorAll(".actorPelicula");
@@ -1290,46 +1385,20 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 /*CONTACTO*/
+const imagenesNosotros = document.getElementsByClassName("imagenNosotros");
+
+for (let imagen of imagenesNosotros) {
+    imagen.addEventListener("click", info());
+}
+
+function info(event) {
+    alert("Has hecho clic en: " + event.target.alt);
+}
 
 
 /*Seccion estadisticas*/ 
 
       google.charts.load('current', {'packages':['corechart']});
-
-      // Draw the pie chart and bar chart when Charts is loaded.
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-        // datos de la tabla y tipos
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Usuario');
-        data.addColumn('number', 'Edad');
-        data.addColumn('number', 'Comentarios');
-        data.addRows([
-        ['Ana García', 25, 102],
-        ['Juan Pérez', 30, 78],
-        ['María López', 22, 45],
-        ['Carlos Martínez', 28, 120]
-      ]);
-       //opciones de la tabla, caracteristicas
-        var piechart_options = {title: 'Usuarios con mayor actividad en la pagina',
-                       width:400,
-                       height:300};
-
-        var piechart = new google.visualization.BarChart(document.getElementById('chart_div'));
-        piechart.draw(data, piechart_options);
-
-        var barchart = new google.visualization.PieChart(document.getElementById('barchart_div'));
-        barchart.draw(data, piechart_options);
-      }
-
-
-
-/*CONTACTO*/
-
-
-/*Seccion estadisticas*/ 
-google.charts.load('current', {'packages':['corechart']});
 
       // Draw the pie chart and bar chart when Charts is loaded.
       google.charts.setOnLoadCallback(drawChart);
