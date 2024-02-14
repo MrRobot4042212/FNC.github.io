@@ -1,14 +1,38 @@
 
 html{
     scroll-behavior: smooth;
-    scrollbar-color: rgb(31, 31, 31) ;
+/* Codigo encontrado en W3SCHOOLS (por que la barra lateral es super antistetic) url:https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp  */
+
+/* width */
+::-webkit-scrollbar {
+  width: 13px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(128, 128, 128,0.3); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+}
+/*------------------------------------------------------------------------------------------------------------ */
+
+
 }
 body{
   background-color:rgb(31, 31, 31);
 }
 
 /*----------------------- SECCION FUENTES--------------------------- */
-
 @font-face {
   font-family: 'montserrat';
   src: url(../fonts/montserrat/Montserrat-Bold.ttf);
@@ -39,7 +63,6 @@ body{
   font-weight:400;
   font-style: italic; 
 }
-
 /* ------------------------FIN DE SECCION DE FUENTES-------------*/
 
 /*------------------------SECCION ANIMACIONES----------------------*/
@@ -76,18 +99,187 @@ body{
   }
 }
 
+@keyframes cambio {
+  0% { margin-left: 0;}
+  20% {margin-left: 0;}
 
+  25% {margin-left: -100%;}
+  45% {margin-left: -100%;}
 
+  50% {margin-left: -100%;}
+  70% {margin-left: -200%;}
 
+  75% {margin-left: -200%;}
+  100% {margin-left: -200%;}
+}
 
+@keyframes breath {
+  0% {
+    transform:translate(0);
+  }
+  10% {
+    transform:translate(-2px,-2px);
+  }
+  20% {
+    transform:translate(2px,-2px);
+  }
+  30% {
+    transform:translate(-2px,2px);
+  }
+  40% {
+    transform:translate(2px,2px);
+  }
+  50% {
+    transform:translate(-2px,-2px);
+  }
+  60% {
+    transform:translate(2px,-2px);
+  }
+  70% {
+    transform:translate(-2px,2px);
+  }
+  80% {
+    transform:translate(-2px,-2px);
+  }
+  90% {
+    transform:translate(2px,-2px);
+  }
+  100% {
+    transform:translate(0);
+  }
+}
+@keyframes desglose{
+  0%{
+    transform: translateX(0);
+    transform: translateY(-1500px);
+    opacity: 0;
+  }
+  25%{
+    transform:translateY(-600px) ;
+    opacity: 0.1;
+  }
+  50%{
+    transform: translateY(-400px);
+    opacity: 0.3;
+  }
+  75%{
+    transform: translateY(-100px);
+    opacity: 0.6;
+  }
+  100%{
+    transform: translateY(0px);
+    opacity: 0.8;
+  }
+}
+@keyframes englosar{
+  0%{
+    transform: translateX(0);
+    transform: translateY(0px);
+    opacity: 0.8;
+  }
+  25%{
+    transform:translateY(-300px) ;
+    opacity: 0.6;
+  }
+  50%{
+    transform: translateY(-600px);
+    opacity: 0.3;
+  }
+  75%{
+    transform: translateY(-800px);
+    opacity: 0.1;
+  }
+  100%{
+    transform: translateY(-1500px);
+    opacity: 0;
+  }
+}
+@keyframes aparecer{
+  0%{
+    display: block;
+    opacity: 0;
+  }
+  50%{
+    display: block;
+    opacity: 0.5;
+  }
+  100%{
+    display: block;
+    opacity: 1;
+  }
 
+}
+@keyframes desaparecer{
+  0%{
+    display:block;
+    opacity: 1;
+  }
+  50%{
+    display: block;
+    opacity: 0.5;
+  }
+  100%{
+    display: none;
+    opacity: 0;
+  }
+}
+@keyframes l24 {
+  100% {
+    background-position: left
+  }
+}
+@keyframes zoomFondo {
+  0%{
+    transform: scale(1);
+}
+100%{
+    filter: blur(0px);
+    transform: scale(2.5);
+    object-position: bottom 100px;
+} 
+}
 
+@keyframes escenario {
+  0%{
+    opacity: 0;
+
+  }
+  50%{
+    opacity: 0.5;
+    transform: perspective(200px)
+  }
+  100%{
+    opacity: 1;
+    transform: perspective(0px)
+  }
+  
+}
+@keyframes desaparecerfondo{
+  0%{
+    display: none;
+    scale: 1;
+    opacity: 1;
+  }
+  25%{
+    scale: 0.8;
+    opacity: 0.5;
+    transform: perspective(200px) rotateX(5deg) translateY(50px);
+  }
+  50%{
+    scale: 0.5;
+    opacity: 0.3;
+    transform: perspective(400px) rotateX(10deg) translateY(100px);
+  }
+  100%{
+    scale: 0;
+    opacity: 0.1;
+  }
+
+}
 
 /*------------------------FIN DE SECCION DE ANIMACIONES-------------*/
 
-/*----------------------- SECCION ESTILOS PAGINA PRINCIPAL--------------------------- */
-
-
+/*----------------------- SECCION ESTILOS index.html--------------------------- */
     a{
       text-decoration: none;
     }
@@ -100,9 +292,7 @@ body{
         height: 100%;
     }
 
-
  /* ESTILOS PARA EL CONTENIDO DE HEADER */
-
 
   .header {
 
@@ -197,6 +387,7 @@ body{
       z-index: 10;
       box-shadow: 5px 5px 5px 5px;
       background: url(../img/fondos/fondoOp2.jpeg) fixed;
+      backdrop-filter:blur(10px);
       border: 2px solid black;
       align-content: center;
       display: flex;
@@ -212,7 +403,7 @@ body{
     left: 0;
     right: 0;
     bottom:0;
-    background: rgb(255, 0, 67,0.3) ;
+    background: rgb(100, 0, 67,0.5) ;
   }
 
 
@@ -296,12 +487,12 @@ body{
     right: 0;
     bottom:0;
     z-index: -10;
-    filter: blur(4px) saturate(0.7);
+    filter: blur(5px) saturate(0.5);
 
     background: url(../img/fondos/fondoOp2.jpeg) fixed;
   }
   .espacioFondo{
-    background-color: rgb(0, 0, 0,0.5);
+    background-color: rgb(0, 0, 0,0.8);
     margin: 5px;
 
   }
@@ -359,29 +550,11 @@ body{
   li{
     list-style: none;
   }
-
-  @keyframes cambio {
-    0% { margin-left: 0;}
-    20% {margin-left: 0;}
-
-    25% {margin-left: -100%;}
-    45% {margin-left: -100%;}
-
-    50% {margin-left: -100%;}
-    70% {margin-left: -200%;}
-
-    75% {margin-left: -200%;}
-    100% {margin-left: -200%;}
-
-  }
-
   .textoDescriptivo{
-      background-color: rgb(0, 0, 0,0.5);
+      background-color: rgb(0, 0, 0,0.8);
       width: 100%;
 
   }
-
-
   .cuerpo .espacioTopPeliculas{
       display: flex;
       justify-content:center; 
@@ -443,7 +616,6 @@ body{
       font-weight: 800;
       font-style: normal;
   }
-
 /* FIN DE: ESTILOS PARA EL CONTENIDO DE bNavegacion */
 
 
@@ -507,7 +679,6 @@ body{
 
 
 
-
 /*------------------ SECCION ESTILOS PAGINAS PELICULAS,DIRECTORES,PRODUCTORES,ACTORES-------------------- */
 
   .estructuraPDPA {
@@ -519,9 +690,7 @@ body{
   }
 
   /*ESTILOS PARA EL CONTENIDO DE headerPDPA*/
-
     .headerPDPA {
-
       /* configuracion del grid */
       grid-row-start: 1;
       grid-column-start: 1;
@@ -554,7 +723,7 @@ body{
     justify-content: left;
     flex-direction: row; 
     color: rgb(228, 3, 61);
-    filter: blur(1px);
+    filter: blur(0);
     font-size: 100px;
     }
 
@@ -590,6 +759,8 @@ body{
 
   /*FIN DE LOS ESTILOS PARA EL CONTENIDO DE headerPDPA*/
 
+  /*ESTILOS PARA EL CUERPO PDPA */
+
   .cuerpoPDPA{
     grid-row-start: 3;
     grid-column-start: 1;
@@ -610,6 +781,10 @@ body{
     margin: auto;
     gap: 15px;
   }
+
+  /* FIN ESTILOS PARA CUERPO PDPA */
+
+/* ESTILOS PARA EL CONTENIDO PDPA */
 .gridPeliculas{
     width: 100%;
     display:grid;
@@ -651,7 +826,6 @@ body{
     flex-wrap: nowrap;
     flex-direction: column;
     margin: 10px;
-
   }
 
   .filtrosBasicosRemove{
@@ -689,7 +863,6 @@ body{
     content: "";
   }
 
-  
   .filtros h2{
     font-size: 25px;
     font-family:'montserrat';
@@ -739,43 +912,6 @@ body{
   .listaGeneros li:hover{
     animation: 1s breath linear 1  normal none ;
   }
-
-  @keyframes breath {
-		0% {
-			transform:translate(0);
-		}
-		10% {
-			transform:translate(-2px,-2px);
-		}
-		20% {
-			transform:translate(2px,-2px);
-		}
-		30% {
-			transform:translate(-2px,2px);
-		}
-		40% {
-			transform:translate(2px,2px);
-		}
-		50% {
-			transform:translate(-2px,-2px);
-		}
-		60% {
-			transform:translate(2px,-2px);
-		}
-		70% {
-			transform:translate(-2px,2px);
-		}
-		80% {
-			transform:translate(-2px,-2px);
-		}
-		90% {
-			transform:translate(2px,-2px);
-		}
-		100% {
-			transform:translate(0);
-		}
-	}
-
   .listaGeneros{
     opacity: 0;
     list-style: none;
@@ -788,7 +924,6 @@ body{
     align-items: center;
   }
 
- 
   .listaGenerosDesglose{
     animation: 3s desglose ease-in forwards ;
   }
@@ -796,54 +931,6 @@ body{
     animation: 3s englosar ease-out forwards ;
 
   }
-
-  @keyframes desglose{
-    0%{
-      transform: translateX(0);
-      transform: translateY(-1500px);
-      opacity: 0;
-    }
-    25%{
-      transform:translateY(-600px) ;
-      opacity: 0.1;
-    }
-    50%{
-      transform: translateY(-400px);
-      opacity: 0.3;
-    }
-    75%{
-      transform: translateY(-100px);
-      opacity: 0.6;
-    }
-    100%{
-      transform: translateY(0px);
-      opacity: 0.8;
-    }
-  }
-  @keyframes englosar{
-    0%{
-      transform: translateX(0);
-      transform: translateY(0px);
-      opacity: 0.8;
-    }
-    25%{
-      transform:translateY(-300px) ;
-      opacity: 0.6;
-    }
-    50%{
-      transform: translateY(-600px);
-      opacity: 0.3;
-    }
-    75%{
-      transform: translateY(-800px);
-      opacity: 0.1;
-    }
-    100%{
-      transform: translateY(-1500px);
-      opacity: 0;
-    }
-  }
-    
   .generoContainer h5{
     padding: 20px;
     background: rgb(255, 255, 255,0.5) ;
@@ -955,39 +1042,6 @@ body{
   opacity: 1;
   animation: 1s aparecer linear normal ;
 }
-
-
-@keyframes aparecer{
-  0%{
-    display: block;
-    opacity: 0;
-  }
-  50%{
-    display: block;
-    opacity: 0.5;
-  }
-  100%{
-    display: block;
-    opacity: 1;
-  }
-
-}
-@keyframes desaparecer{
-  0%{
-    display:block;
-    opacity: 1;
-  }
-  50%{
-    display: block;
-    opacity: 0.5;
-  }
-  100%{
-    display: none;
-    opacity: 0;
-  }
-}
-
-
 .imgPeliculaFrontal {
   position: absolute;
   display: block;
@@ -1009,7 +1063,6 @@ body{
   width: 100%;
   height: 100%;
 }
-
 .overlay {
     position: absolute;
     top: 0;
@@ -1110,6 +1163,9 @@ body{
 .contenedorEstrellas{
   display: flex;
 }
+/* FIN ESTILOS PARA EL CONTENIDO PDPA */
+
+/* ESTILOS PARA EL RATING */
 .estrellas{
   width: 100%;
   height: 100%;
@@ -1147,6 +1203,8 @@ body{
 .star.active {
   background-image: url('../img/iconos/starllena.png');
 }
+/* FIN ESTILOS PARA EL RATING */
+
 
 /*------------------ SECCION ESTILOS DIRECTORES-------------------- */
 .gridDirectores{
@@ -1165,11 +1223,11 @@ body{
   cursor: pointer;
   transition: 2s;
   box-shadow: 20px 20px 20px rgba(0,0,0,0.5);
-
 }
 
 
 /*POSICION FRONTAL */
+
 .contenedorDirectores img{
   width: 100%;
   height: 100%;
@@ -1277,14 +1335,98 @@ body{
 
 
 
-
-
-
-
 /*------------------ FIN SECCION ESTILOS DIRECTORES-------------------- */
 
-/*------------------ FIN SECCION ESTILOS PAGINAS PELICULAS,DIRECTORES,PRODUCTORES,ACTORES-------------------- */
+.informacionProductor{
+  text-align: center;
+  grid-column-start:1;
+  grid-column-end:3;
+  grid-row-start:1;
+  grid-row-end:2;
+  display: grid;
+  grid-template-columns:auto;
+  grid-template-rows:100px 1fr;
+  width: 100%;
+  height: 100%;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+}
 
+.contenedorProductores:hover .imagenFrontal{
+  transition: 1s;
+  filter: blur(10px) grayscale(70%);
+}
+.contenedorProductores img{
+  width: 100%;
+  height: 100%;
+}
+.contenedorProductores {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transition: 2s;
+  box-shadow: 20px 20px 20px rgba(0,0,0,0.5);
+}
+.gridProductores{
+  width: 100%;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 50px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+
+.informacionActor{
+  text-align: center;
+  grid-column-start:1;
+  grid-column-end:3;
+  grid-row-start:1;
+  grid-row-end:2;
+  display: grid;
+  grid-template-columns:auto;
+  grid-template-rows:100px 1fr;
+  width: 100%;
+  height: 100%;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+}
+
+.contenedorActor:hover .imagenFrontal{
+  transition: 1s;
+  filter: blur(10px) grayscale(70%);
+}
+.contenedorActor img{
+  width: 100%;
+  height: 100%;
+}
+.contenedorActor {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transition: 2s;
+  box-shadow: 20px 20px 20px rgba(0,0,0,0.5);
+}
+.gridActor{
+  width: 100%;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 50px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+
+
+
+
+/*------------------ FIN SECCION ESTILOS PAGINAS PELICULAS,DIRECTORES,PRODUCTORES,ACTORES-------------------- */
 
 
 /*ESTILOS PARA LA PAGINA DE PREMIOS */
@@ -1293,66 +1435,125 @@ body{
   position: relative;
   overflow: hidden;
 }
-.bNavegacionPremios {
-  /* configuracion del grid */
-  grid-row-start: 1;
-  grid-column-start: 1;
-  grid-column-end: 1;
-  /*------------------------*/
-position: sticky;
-z-index: 10;
-box-shadow: 5px 5px 5px 5px;
-border: 2px solid black;
-align-content: center;
-display: none;
-}
-
-.bNavegacionPremios nav ul{
-  display: flex;
-  align-self:flex-start;
-  flex-direction: column;
-  padding: 0;
-  align-items: center;
-}
-.bNavegacionPremios ul li {
-  list-style: none;
-  position: relative;
-  padding: 5px;
-} 
-.bNavegacionPremios nav ul li a {
-  font-family: 'montserrat';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 25px;
-  padding: 15px;
-  line-height: 5rem;
-  color: white;
-  text-decoration: none;
-}
-.bNavegacionPremios .despegable ul {
-  display: none;
+.navHamburger{
   position: absolute;
-  width: 100%;
+  margin: 30px;
 }
-.bNavegacionPremios .links ul li:hover ul {
-  display: block;
-}
-.bNavegacionPremios .despegable ul li {
-  width: 100%;
-}
-.bNavegacionPremios .despegable ul li a {
-  padding: 10px;
-  line-height: unset;
-  white-space: nowrap;
-  width: 100%;
-}
-.bNavegacionPremios .despegable:hover {
-  transform: scale(1.02);
-  z-index: 4;
-  transition: all 0.2s;
-  box-shadow: 2px 2px 2px 2px rgb(31, 31, 31, 0.6);
-  background: rgb(0, 0, 0, 0.3);
-}
+ #menuToggle
+ {
+   display: block;
+   position: relative;
+   z-index: 10; 
+   -webkit-user-select: none;
+   user-select: none;
+   bottom: 0;
+   top: 0;
+ }
+ #menuToggle a
+ {
+   text-decoration: none;
+   color: rgb(255, 255, 255,0.7);
+   transition: color 0.3s ease;
+ }
+ 
+ #menuToggle a:hover
+ {
+   color: rgb(242, 102, 41);
+   text-decoration:line-through;
+   scale: 1.05;
+   transition: all 0.5s ease;
+   
+
+ }
+ 
+ #menuToggle input
+ {
+   display: block;
+   width: 40px;
+   height: 32px;
+   position: absolute;
+   top: -7px;
+   left: -5px;
+   cursor: pointer;
+   opacity: 0;
+   z-index: 2; 
+   -webkit-touch-callout: none;
+ }
+ #menuToggle span
+ {
+   display: block;
+   width: 33px;
+   height: 4px;
+   margin-bottom: 5px;
+   position: relative;
+   background: #cdcdcd;
+   border-radius: 3px;
+   z-index: 1;
+   transform-origin: 4px 0px;
+   
+   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+               background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+               opacity 0.55s ease;
+ }
+ 
+ #menuToggle span:first-child
+ {
+   transform-origin: 0% 0%;
+ }
+ 
+ #menuToggle span:nth-last-child(2)
+ {
+   transform-origin: 0% 100%;
+ }
+ #menuToggle input:checked ~ span
+ {
+   opacity: 1;
+   transform: rotate(45deg) translate(-2px, -1px);
+   background: #cdcdcd;
+ }
+ #menuToggle input:checked ~ span:nth-last-child(3)
+ {
+   opacity: 0;
+   transform: rotate(0deg) scale(0.2, 0.2);
+ }
+ 
+ #menuToggle input:checked ~ span:nth-last-child(2)
+ {
+   transform: rotate(-45deg) translate(0, -1px);
+ }
+ #menu
+ {
+  display: flex;
+  flex-direction: column;
+   position: absolute;
+   height: 100%;
+   margin: -100px 0 0 -50px;
+   padding: 50px;
+   padding-top: 125px;
+   padding-bottom:450px ;
+   background: transparent;
+   backdrop-filter:blur(10px);
+   border-radius: 8px;
+   list-style-type: none;
+   -webkit-font-smoothing: antialiased;   
+   transform-origin: 0% 0%;
+   transform: translate(-100%, 0);
+   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+   border: 2px rgb(128, 128, 128,0.6) solid;
+ }
+ 
+ #menu li
+ {
+   padding: 10px;
+   font-size: 30px;
+ }
+ 
+ #menuToggle input:checked ~ ul
+ {
+   transform: none;
+ }
+
+/*---------------------------------------------------------------------------------*/
 
 .contenedorPremios{
   grid-column-start: 1;
@@ -1463,8 +1664,11 @@ display: none;
   position: absolute;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: auto;
-  align-items: center;
+
+  align-content: center;
   justify-content: center;
+  align-items: center;
+  justify-items: center;
   width: 100%;
   height: 100%;
 }
@@ -1473,8 +1677,10 @@ display: none;
   position: absolute;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: auto;
-  align-items: center;
+  align-content: center;
   justify-content: center;
+  align-items: center;
+  justify-items: center;
   width: 100%;
   height: 100%;
 }
@@ -1483,8 +1689,10 @@ display: none;
   position: absolute;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: auto;
-  align-items: center;
+  align-content: center;
   justify-content: center;
+  align-items: center;
+  justify-items: center;
   width: 100%;
   height: 100%;
 }
@@ -1510,6 +1718,7 @@ display: none;
   overflow:auto;
 }
 .tituloTraduccion{
+  color: white;
   font-family: 'montserrat';
   font-style:normal;
   font-weight: bold;
@@ -1562,7 +1771,7 @@ display: none;
   align-items: center;
   justify-content: center;
   width: 100%;
-  gap: 100px;
+  gap: 50px;
 }
 .correcto{
   position: absolute;
@@ -1606,33 +1815,46 @@ display: none;
 #mejorDirectorGlobos{
   display: none;
 }
+.resultados *{
+  text-decoration: none;
+  color: white;
+}
+.resultados .volverPremios{
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow:5px 5px 5px #000;
+  animation: 1s breath linear infinite;
 
-
-
-
-#resultadosOscars{
-  display: none;
-  align-content: space-between;
-  align-items: center;
-  justify-items: center;
-  margin: 400px;
-  gap:70px;
+}
+.resultados .volverPremios:hover{
+  scale: 1.05;
+  transition: all 0.5s ease;
 }
 #resultadosGoya{
   display: none;
   align-content: space-between;
   align-items: center;
   justify-items: center;
-  margin: 400px;
-  gap:70px;
+  margin: 300px;
+  transition: all 0.5s ease;
+}
+#resultadosOscars{
+  display: none;
+  align-content: space-between;
+  align-items: center;
+  justify-items: center;
+  margin: 300px;
+  transition: all 0.5s ease;
+
 }
 #resultadosGlobos{
   display: none;
   align-content: space-between;
   align-items: center;
   justify-items: center;
-  margin: 400px;
-  gap:70px;
+  margin: 300px;
+  transition: all 0.5s ease;
+
 }
 
 #revelacionMejorPeliculaOscars{
@@ -1712,6 +1934,35 @@ display: none;
   transition: all 0.5s linear;
 }
 
+.pantallaCargaOf{
+  display: none;
+}
+.pantallaCargaOn {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+  width: fit-content;
+  font-weight: bold;
+  font-family: 'montserrat';
+  font-size: 50px;
+  background: radial-gradient(circle closest-side,#000 94%,#0000) right/calc(200% - 1em) 100%;
+  animation: l24 1s infinite alternate linear;
+}
+.pantallaCargaOn::before {
+  content: "Cargando...";
+  line-height: 1em;
+  color: #0000;
+  background: inherit;
+  background-image: radial-gradient(circle closest-side,#fff 94%,#000);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+
 
 .contenidoSlider img{
   object-fit: cover;
@@ -1737,11 +1988,23 @@ display: none;
   grid-row-start: 3;
 }
 .opcionesOn h4{
- padding: 10px;
- background: rgb(0, 0, 0,0.5);
- border-radius: 10px;
- width: 100%;
- height: 50px;
+  display: flex;
+  justify-items: center;
+  text-align: center;
+  font-family: 'montserrat';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+  padding: 20px;
+  background: rgb(0, 0, 0,0.5);
+  border-radius: 10px;
+  width: 100%;
+  height: 50px;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: center;
 }
 .opcionesOn h4:hover {
   transition: all 0.5s;
@@ -1758,58 +2021,7 @@ display: none;
  
  }
 
-
-
-
-@keyframes zoomFondo {
-  0%{
-    transform: scale(1);
-}
-100%{
-    filter: blur(0px);
-    transform: scale(2.5);
-    object-position: bottom 100px;
-} 
-}
-
-@keyframes escenario {
-  0%{
-    opacity: 0;
-
-  }
-  50%{
-    opacity: 0.5;
-    transform: perspective(200px)
-  }
-  100%{
-    opacity: 1;
-    transform: perspective(0px)
-  }
-  
-}
-@keyframes desaparecerfondo{
-  0%{
-    scale: 1;
-    opacity: 1;
-  }
-  25%{
-    scale: 0.8;
-    opacity: 0.5;
-    transform: perspective(200px) rotateX(5deg) translateY(50px);
-  }
-  50%{
-    scale: 0.5;
-    opacity: 0.3;
-    transform: perspective(400px) rotateX(10deg) translateY(100px);
-  }
-  100%{
-    scale: 0;
-    opacity: 0.1;
-  }
-
-}
-
-/*------------------ FIN DE LOS ESTILOS PAGINAS PELICULAS,DIRECTORES,PRODUCTORES,ACTORES-------------------- */
+/* FIN ESTILOS PARA LA PAGINA DE PREMIOS */
 
 
 /*------------------ COMIENZO DE CONTACTO --------------------*/
