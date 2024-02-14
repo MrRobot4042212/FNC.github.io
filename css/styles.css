@@ -2063,7 +2063,8 @@ body{
   cursor: crosshair;
   filter: contrast(120%);
   opacity: 1;
-  width: 300px;
+  width: 500px;
+  -ms-zoom-animation: default;
   
 }
 

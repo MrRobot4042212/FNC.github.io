@@ -1575,7 +1575,7 @@ function drawChart() {
   data.addColumn('number', 'Edad');
   data.addColumn('number', 'Comentarios');
 
-  const users = [
+  let users = [
     {
       "nombre": "Ana García",
       "edad": 25,
@@ -1608,10 +1608,11 @@ function drawChart() {
       "nickname": "carlitos88",
       "cantidad_de_comentarios": 120
     }
-  ];
+  ]; 
 
   users.forEach(users => {
     data.addRow([users.nickname, users.edad, users.cantidad_de_comentarios]);
+    
   });
 
   // Opciones de la tabla, características
