@@ -1,6 +1,7 @@
               
               /* VARIABLES GLOBALES UTILIZADAS PARA DIFERENTES FUNCIONES */
 
+
 var flipPeliculas = document.querySelectorAll(".contenedorPeliculas");
 var flipOverlay = document.querySelectorAll(".overlay")
 var frontPeliculas = document.querySelectorAll(".peliculasActive");
@@ -1561,33 +1562,72 @@ function info(event) {
 }
 
 
-/*Seccion estadisticas*/ 
+/*CONTACTO*/
+google.charts.load('current', {'packages':['corechart']});
 
-      google.charts.load('current', {'packages':['corechart']});
+// Draw the pie chart and bar chart when Charts is loaded.
+google.charts.setOnLoadCallback(drawChart);
 
-      // Draw the pie chart and bar chart when Charts is loaded.
-      google.charts.setOnLoadCallback(drawChart);
+function drawChart() {
+  // Datos de la tabla y tipos
+  var data = new google.visualization.DataTable();
+  data.addColumn('string', 'Usuario');
+  data.addColumn('number', 'Edad');
+  data.addColumn('number', 'Comentarios');
 
-      function drawChart() {
-        // datos de la tabla y tipos
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Usuario');
-        data.addColumn('number', 'Edad');
-        data.addColumn('number', 'Comentarios');
-        data.addRows([
-        ['Ana García', 25, 102],
-        ['Juan Pérez', 30, 78],
-        ['María López', 22, 45],
-        ['Carlos Martínez', 28, 120]
-      ]);
-       //opciones de la tabla, caracteristicas
-        var piechart_options = {title: 'Usuarios con mayor actividad en la pagina',
-                       width:400,
-                       height:300};
+  const users = [
+    {
+      "nombre": "Ana García",
+      "edad": 25,
+      "fecha_de_nacimiento": "1999-03-15",
+      "sexo": "Femenino",
+      "nickname": "anag95",
+      "cantidad_de_comentarios": 92
+    },
+    {
+      "nombre": "Juan Pérez",
+      "edad": 30,
+      "fecha_de_nacimiento": "1994-08-20",
+      "sexo": "Masculino",
+      "nickname": "juapz",
+      "cantidad_de_comentarios": 45
+    },
+    {
+      "nombre": "María López",
+      "edad": 22,
+      "fecha_de_nacimiento": "2002-01-10",
+      "sexo": "Femenino",
+      "nickname": "marylo",
+      "cantidad_de_comentarios": 56
+    },
+    {
+      "nombre": "Carlos Martínez",
+      "edad": 28,
+      "fecha_de_nacimiento": "1996-11-05",
+      "sexo": "Masculino",
+      "nickname": "carlitos88",
+      "cantidad_de_comentarios": 120
+    }
+  ];
 
-        var piechart = new google.visualization.BarChart(document.getElementById('chart_div'));
-        piechart.draw(data, piechart_options);
+  users.forEach(users => {
+    data.addRow([users.nickname, users.edad, users.cantidad_de_comentarios]);
+  });
 
-        var barchart = new google.visualization.PieChart(document.getElementById('barchart_div'));
-        barchart.draw(data, piechart_options);
-      }
+  // Opciones de la tabla, características
+  var chart_options = {
+    title: 'Usuarios con mayor actividad en la página',
+    width: 400,
+    height: 300
+  };
+
+  var piechart = new google.visualization.BarChart(document.getElementById('chart_div'));
+  piechart.draw(data, chart_options);
+
+  var barchart = new google.visualization.PieChart(document.getElementById('barchart_div'));
+  barchart.draw(data, chart_options);
+}
+
+
+
+
