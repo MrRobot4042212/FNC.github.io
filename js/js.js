@@ -1,3 +1,6 @@
+              
+              /* VARIABLES GLOBALES UTILIZADAS PARA DIFERENTES FUNCIONES */
+
 var flipPeliculas = document.querySelectorAll(".contenedorPeliculas");
 var flipOverlay = document.querySelectorAll(".overlay")
 var frontPeliculas = document.querySelectorAll(".peliculasActive");
@@ -19,6 +22,11 @@ let botonOmitir= document.querySelector('.omitir');
 var goyaAccion = document.querySelector(".goya");
 var boton = document.querySelectorAll(".botonZoom");
 
+
+  /*------------------------------------------------------------------------------------------------------------------- */
+
+                      /* EFECTO FLIP PARA peliculas.html */
+
 flipPeliculas.forEach(function (elemento) {
   elemento.addEventListener('click', function voltear () {
         if (elemento.classList.contains("animacionDefault")) {
@@ -35,8 +43,11 @@ flipPeliculas.forEach(function (elemento) {
   });
 });
 
+/*   /*------------------------------------------------------------------------------------------------------------------- */
 
 
+
+            /*EFECTO DESGLOSE PARA LOS FILTROS DE "GENERO" EN pelis.html*/
 
 botonDesglose.forEach(function (botonDesglose) {
     botonDesglose.addEventListener('click', function () {
@@ -49,6 +60,13 @@ botonDesglose.forEach(function (botonDesglose) {
       }
     });
   });
+
+  /*------------------------------------------------------------------------------------------------------------------- */
+
+
+      /*AÑADIR LA CLASE tituloPelicula, generoPelicula, actorPelicula A LOS HIJOS DE overlayFLip, overlayDefault PARA SU POSTERIOR FILTRADO EN Productores.html */
+
+
 
   let checkOverlayDefault = document.querySelectorAll(".overlayDefault");
   let checkOverlayFlip = document.querySelectorAll(".overlayFlip"); 
@@ -79,7 +97,12 @@ botonDesglose.forEach(function (botonDesglose) {
       });
     });
 
+    /*------------------------------------------------------------------------------------------------------------------- */
+
+
    
+
+                  /* FILTRADO POR GENERO DE pelis.html */
 
 
     let inputFiltroGenero = document.querySelectorAll(".genero");
@@ -104,8 +127,10 @@ botonDesglose.forEach(function (botonDesglose) {
       });
     });
   
+  /*------------------------------------------------------------------------------------------------------------------- */
 
-
+  
+              /* FILTRADO POR NOMBRE DE PELICULA DE pelis.html */	
   let contenidoTituloPelicula = document.querySelectorAll(".tituloPelicula");
   let inputFiltroPelicula = document.querySelectorAll(".inputNombrePelicula");
   
@@ -130,101 +155,9 @@ botonDesglose.forEach(function (botonDesglose) {
     });
   });
 
-  document.addEventListener('DOMContentLoaded', function () {
-    let contenedorDirectores = document.querySelectorAll('.informacionDirector');
-        contenedorDirectores.forEach(function (directorclase) {
-      directorclase.children[0].classList.add('nombreDirector');       
-    });
-  });
+  /*------------------------------------------------------------------------------------------------------------------- */
 
-  let contenidoTituloDirector = document.querySelectorAll('.nombreDirector')
-  let inputFiltroDirector = document.querySelectorAll(".inputDirector");
-
-  inputFiltroDirector.forEach(function (inputD) {
-    inputD.addEventListener('keydown', function () {
-      let inputValueDirector = inputD.value.toLowerCase();
-      if (inputValueDirector === ""){
-        contenidoTituloDirector.forEach(function (filtradoD) {
-          filtradoD.style.display = "block";
-        });
-      }
-      let contenedorDirectores = document.querySelectorAll(".contenedorDirectores");
-      contenedorDirectores.forEach(function (filtrar) {
-        let directorTitulo = filtrar.querySelector(".nombreDirector").innerHTML.toLowerCase();
-        if (directorTitulo.includes(inputValueDirector)) {
-          filtrar.style.display = "block";
-        } else {
-          filtrar.style.display = "none";
-        }
-      });
-    });
-  });
-
-  document.addEventListener('DOMContentLoaded', function () {
-    let contenedorProductor = document.querySelectorAll('.informacionProductor');
-        contenedorProductor.forEach(function (productorClase) {
-      productorClase.children[0].classList.add('nombreProductor');       
-    });
-  });
-
-  let contenidoTituloProductor = document.querySelectorAll('.nombreProductor')
-  let inputFiltroProductor = document.querySelectorAll(".inputProductor");
-
-  inputFiltroProductor.forEach(function (inputPr) {
-    inputPr.addEventListener('keydown', function () {
-      let inputValueProductor = inputPr.value.toLowerCase();
-      if (inputValueProductor === ""){
-        contenidoTituloProductor.forEach(function (filtradoPr) {
-          filtradoPr.style.display = "block";
-        });
-      }
-      let contenedorProductor = document.querySelectorAll(".contenedorProductores");
-      contenedorProductor.forEach(function (filtrarPr) {
-        let productorTitulo = filtrarPr.querySelector(".nombreProductor").innerHTML.toLowerCase();
-        if (productorTitulo.includes(inputValueProductor)) {
-          filtrarPr.style.display = "block";
-        } else {
-          filtrarPr.style.display = "none";
-        }
-      });
-    });
-  });
-
-  document.addEventListener('DOMContentLoaded', function () {
-    let contenedorActor = document.querySelectorAll('.informacionActor');
-        contenedorActor.forEach(function (actorClase) {
-      actorClase.children[0].classList.add('nombreActor');       
-    });
-  });
-
-  let contenidoTituloActor = document.querySelectorAll('.nombreActor')
-  let inputFiltroActor = document.querySelectorAll(".inputActor");
-
-  inputFiltroActor.forEach(function (inputAc) {
-    inputAc.addEventListener('keydown', function () {
-      let inputValueActor = inputAc.value.toLowerCase();
-      if (inputValueActor === ""){
-        contenidoTituloActor.forEach(function (filtradoAc) {
-          filtradoAc.style.display = "block";
-        });
-      }
-      let contenedorActor = document.querySelectorAll(".contenedorActor");
-      contenedorActor.forEach(function (filtrarAc) {
-        let actorTitulo = filtrarAc.querySelector(".nombreActor").innerHTML.toLowerCase();
-        if (actorTitulo.includes(inputValueActor)) {
-          filtrarAc.style.display = "block";
-        } else {
-          filtrarAc.style.display = "none";
-        }
-      });
-    });
-  });
-
-  
-
-
-
-
+                      /*FILTRADO POR NOMBRE DE ACTOR EN pelis.html */
 
   let inputActorPelicula = document.querySelectorAll(".inputActorPelicula");
   let contenidoActorPelicula = document.querySelectorAll(".actorPelicula");
@@ -250,6 +183,136 @@ botonDesglose.forEach(function (botonDesglose) {
     });
   });
 
+  /*------------------------------------------------------------------------------------------------------------------- */
+
+      /*AÑADIR LA CLASE nombreDirector A LOS HIJOS DE informacionDirector PARA SU POSTERIOR FILTRADO EN directores.html */
+
+  document.addEventListener('DOMContentLoaded', function () {
+    let contenedorDirectores = document.querySelectorAll('.informacionDirector');
+        contenedorDirectores.forEach(function (directorclase) {
+      directorclase.children[0].classList.add('nombreDirector');       
+    });
+  });
+
+  /*------------------------------------------------------------------------------------------------------------------- */
+
+
+                /*FILTRADO POR NOMBRE DE DIRECTOR EN directores.html */
+
+
+  let contenidoTituloDirector = document.querySelectorAll('.nombreDirector')
+  let inputFiltroDirector = document.querySelectorAll(".inputDirector");
+
+  inputFiltroDirector.forEach(function (inputD) {
+    inputD.addEventListener('keydown', function () {
+      let inputValueDirector = inputD.value.toLowerCase();
+      if (inputValueDirector === ""){
+        contenidoTituloDirector.forEach(function (filtradoD) {
+          filtradoD.style.display = "block";
+        });
+      }
+      let contenedorDirectores = document.querySelectorAll(".contenedorDirectores");
+      contenedorDirectores.forEach(function (filtrar) {
+        let directorTitulo = filtrar.querySelector(".nombreDirector").innerHTML.toLowerCase();
+        if (directorTitulo.includes(inputValueDirector)) {
+          filtrar.style.display = "block";
+        } else {
+          filtrar.style.display = "none";
+        }
+      });
+    });
+  });
+
+  /*------------------------------------------------------------------------------------------------------------------- */
+
+
+      /*AÑADIR LA CLASE nombreProductor A LOS HIJOS DE informacionProductor PARA SU POSTERIOR FILTRADO EN Productores.html */
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+    let contenedorProductor = document.querySelectorAll('.informacionProductor');
+        contenedorProductor.forEach(function (productorClase) {
+      productorClase.children[0].classList.add('nombreProductor');       
+    });
+  });
+
+  /*------------------------------------------------------------------------------------------------------------------- */
+
+                   
+                      /* FILTRADO POR NOMRE DE PRODUCTOR EN productores.html */
+
+
+  let contenidoTituloProductor = document.querySelectorAll('.nombreProductor')
+  let inputFiltroProductor = document.querySelectorAll(".inputProductor");
+
+  inputFiltroProductor.forEach(function (inputPr) {
+    inputPr.addEventListener('keydown', function () {
+      let inputValueProductor = inputPr.value.toLowerCase();
+      if (inputValueProductor === ""){
+        contenidoTituloProductor.forEach(function (filtradoPr) {
+          filtradoPr.style.display = "block";
+        });
+      }
+      let contenedorProductor = document.querySelectorAll(".contenedorProductores");
+      contenedorProductor.forEach(function (filtrarPr) {
+        let productorTitulo = filtrarPr.querySelector(".nombreProductor").innerHTML.toLowerCase();
+        if (productorTitulo.includes(inputValueProductor)) {
+          filtrarPr.style.display = "block";
+        } else {
+          filtrarPr.style.display = "none";
+        }
+      });
+    });
+  });
+
+/*------------------------------------------------------------------------------------------------------------------- */
+
+
+
+/*AÑADIR LA CLASE nombreActor A LOS HIJOS DE informacionActor PARA SU POSTERIOR FILTRADO EN actores.html */
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+    let contenedorActor = document.querySelectorAll('.informacionActor');
+        contenedorActor.forEach(function (actorClase) {
+      actorClase.children[0].classList.add('nombreActor');       
+    });
+  });
+
+/*------------------------------------------------------------------------------------------------------------------- */
+
+
+
+                    /* FILTRADO POR NOMBRE DE ACTOR EN actores.html */
+
+
+  let contenidoTituloActor = document.querySelectorAll('.nombreActor')
+  let inputFiltroActor = document.querySelectorAll(".inputActor");
+
+  inputFiltroActor.forEach(function (inputAc) {
+    inputAc.addEventListener('keydown', function () {
+      let inputValueActor = inputAc.value.toLowerCase();
+      if (inputValueActor === ""){
+        contenidoTituloActor.forEach(function (filtradoAc) {
+          filtradoAc.style.display = "block";
+        });
+      }
+      let contenedorActor = document.querySelectorAll(".contenedorActor");
+      contenedorActor.forEach(function (filtrarAc) {
+        let actorTitulo = filtrarAc.querySelector(".nombreActor").innerHTML.toLowerCase();
+        if (actorTitulo.includes(inputValueActor)) {
+          filtrarAc.style.display = "block";
+        } else {
+          filtrarAc.style.display = "none";
+        }
+      });
+    });
+  });
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+
+  
+      /*FUNCION QUE NOS PERMITE CAMBIAR EL ESTILO DEL GRID, PARA AÑADIR MAS OPCIONES DE FILTRADO */
 
 
 mostrarFiltros.forEach(function (showFilter) {
@@ -278,6 +341,10 @@ mostrarFiltros.forEach(function (showFilter) {
   });
 });
 
+/*-------------------------------------------------------------------------------------------------------------------*/
+
+
+/* ANIMACIONES DE ZOOM PARA premios.html Y AÑADIR UN SONIDO DE TRANSICIÓN */
 
 document.addEventListener("DOMContentLoaded", function () {
   var elegirPremio = document.querySelector('.elegirPremio');
@@ -294,13 +361,24 @@ document.addEventListener("DOMContentLoaded", function () {
         fondoPremios.classList.add("zoomFondo");
         aplausosPlay.play();
 
+/*-------------------------------------------------------------------------------------------------------------------*/
+
+
+
+    /*AGREGAR UN TIMEOUT UNA VEZ ELEGIDA LA "ELECCION" NOS MUESTRE EN EL TIPO DE PREMIO QUE ESTAMOS */
+
+
         setTimeout(function () {
           fondoPremios.classList.add("zoomFondoDesaparecer");
           let eleccion = clickedElement.querySelector('.tituloPremio').innerHTML;
           let contenidoPremios = document.querySelector('.contenedorPremio');
           console.log(eleccion);
 
+/*-------------------------------------------------------------------------------------------------------------------*/
+
           switch (eleccion) {
+
+                              /* ELECCION DE LOS PREMIOS GOYA */
 
             case 'Premios Goya':
 
@@ -640,6 +718,10 @@ document.addEventListener("DOMContentLoaded", function () {
               comentaristaGoya.play();
 
               break;
+
+              
+/*-------------------------------------------------------------------------------------------------------------------*/
+
 
             case 'Premios Oscar':
 

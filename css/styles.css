@@ -718,7 +718,7 @@ body{
     justify-content: left;
     flex-direction: row; 
     color: rgb(228, 3, 61);
-    filter: blur(1px);
+    filter: blur(0);
     font-size: 100px;
     }
 
@@ -1424,7 +1424,6 @@ body{
 /*------------------ FIN SECCION ESTILOS PAGINAS PELICULAS,DIRECTORES,PRODUCTORES,ACTORES-------------------- */
 
 
-
 /*ESTILOS PARA LA PAGINA DE PREMIOS */
 .estructuraPremios{
   display: grid;
@@ -1549,6 +1548,7 @@ body{
    transform: none;
  }
 
+/*---------------------------------------------------------------------------------*/
 
 .contenedorPremios{
   grid-column-start: 1;
@@ -1713,6 +1713,7 @@ body{
   overflow:auto;
 }
 .tituloTraduccion{
+  color: white;
   font-family: 'montserrat';
   font-style:normal;
   font-weight: bold;
