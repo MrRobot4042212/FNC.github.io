@@ -220,7 +220,6 @@ body{
     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
     border: 2px rgb(128, 128, 128,0.6) solid;
    }
-   
    #menu li
    {
      padding: 10px;
@@ -231,3 +230,12 @@ body{
    {
      transform: none;
    }
+
+.botonVolver a{
+  text-decoration: none;
+  color: black;
+}
+
+
+
+

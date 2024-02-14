@@ -505,10 +505,22 @@ body{
     color:white;
   }
   .uneteIndex a{
+    font-size: 40px;
     text-align: center;
     font-family: 'montserrat';
     color: white;
   }
+  .uneteIndex{
+    background: rgb(100, 0, 67,0.5) ;
+    border: 2px gray solid;
+    border-radius: 5px;
+    padding: 50px;
+  }
+  .uneteIndex:hover{
+    animation: 1s breath  linear;
+
+  }
+
   .separador{
     padding: 5px;
     box-shadow: 3px 3px 3px 3px rgb(0, 0, 0,0.8);
@@ -2065,6 +2077,7 @@ body{
   opacity: 1;
   width: 500px;
   -ms-zoom-animation: default;
+  transition: all 0.5s e;
   
 }
 
@@ -2087,6 +2100,8 @@ body{
 .opinionesSeccion h3{
   text-align: center;
   color: chartreuse;
+  font-family: "montserrat";
+  
 }
 .opinionesSeccion  h4{
   color: rgb(240, 12, 209);
@@ -2105,23 +2120,18 @@ body{
 
 /*SECCION ESTADISTICAS DE CONTACTO
 Utilizando la librería charts de google*/
+
 .graficaSeccion{
   position: relative;
-  display:flex;
+  display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
   margin-top: 10px;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
-#chart_div{
-  position: relative;
-  left: 15rem;
-  padding: 3px;
-  
-}
-#barchart_div{
-  position: relative;
-  left: 15rem;
-  padding: 3px;
-}
+
