@@ -378,7 +378,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
           switch (eleccion) {
 
-                              /* ELECCION DE LOS PREMIOS GOYA */
+                                /* ELECCION DE LOS PREMIOS GOYA */
 
             case 'Premios Goya':
 
@@ -396,6 +396,8 @@ document.addEventListener("DOMContentLoaded", function () {
             setTimeout( function () {
               botonOmitir.style.display="block";
             },1000)
+
+                        /* EL TEXTO SE ESCRIBE A MEDIDA DEL COMENTARISTA */
 
 
             function escribirTexto0() {
@@ -415,6 +417,8 @@ document.addEventListener("DOMContentLoaded", function () {
                       escribirTexto0(nuevoTextoCompleto0);
                   }, 47);
 
+                               /*BOTON DE OMITIR EL TEXTO Y COMENTARISTA */
+
                   botonOmitir.addEventListener("click",function(){
                     comentaristaGoya.remove();
                     contenedorTraduccion0.style.display="none";
@@ -427,6 +431,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   });
                 }
               else{
+                                    /*EMPIECE DEL MINIJUEGO DE LOS GOYA */
                   setTimeout(() => {
                     pantallaCarga.classList.remove('pantallaCargaOn')
                     pantallaCarga.classList.add('pantallaCargaOf')
@@ -674,6 +679,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
                     };
 
+                                        /* RESULTADOS DE LOS GOYA */
+
                     function resultadosGoya(){
                       fondoPremios.src = "";
                       musicaAmbiental.remove();
@@ -719,11 +726,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
               break;
 
-              
+
 /*-------------------------------------------------------------------------------------------------------------------*/
 
 
             case 'Premios Oscar':
+
+                                    /* ELECCION DE LOS PREMIOS OSCARS */
 
               const parrafo = document.querySelector('.traduccion');
               var contenedorTraduccion = document.querySelector('.contenedorTraduccion');
