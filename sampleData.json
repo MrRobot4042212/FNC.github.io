@@ -1,5 +1,4 @@
-{
-    "usuarios": [
+[
       {
         "nombre": "Ana García",
         "edad": 25,
@@ -32,6 +31,6 @@
         "nickname": "carlitos88",
         "cantidad_de_comentarios": 120
       }
-    ]
-  }
+  
+]
   

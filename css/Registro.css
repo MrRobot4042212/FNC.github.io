@@ -112,3 +112,8 @@ body{
 .linkRegistro p a:hover{
     text-decoration: underline;
 }
+.botonRetorno{
+    text-align: center;
+    font-family:'montserrat';
+    margin-top: 0;
+}
