@@ -96,6 +96,19 @@ body{
     color: black;
     font-weight: 600;
 }
+.cuadro .botonRecoger{
+    width: 100%;
+    height: 45px;
+    background: red;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow:  0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+}
 
 .cuadro .linkRegistro{
     font-size: 14.5px;

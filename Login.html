@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./css/Registro.css">nk
-    <link rel="stylesheet" type="text/css" href="loginD.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./css/Registro.css">
     <link rel="stylesheet" href="./css/loginD.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     
     <title>Login</title>
 </head>
@@ -32,16 +31,16 @@
 </nav>
 
   <div class="cuadro">
-    <form action="">
+    <!--<form>-->
       <h1>Login</h1>
 
       <div class="caja">
-        <input type="text" placeholder="Usuario" required>
+        <input name="usuario" id="usuarioLogin" type="text" placeholder="Usuario" required>
         <i class='bx bxs-user'></i>
       </div>
 
       <div class="caja">
-        <input type="password" placeholder="Contraseña" required>
+        <input name="contraseña" id="contraseñaLogin" type="password" placeholder="Contraseña" required>
         <i class='bx bxs-lock-alt' ></i>
       </div>
 
@@ -50,13 +49,15 @@
         <a href="#">¿Has olvidado la contraseña?</a>
       </div>
 
-      <button type="submit" class="boton">Login</button>
+      <button type="submit" class="botonRecoger">Login</button>
 
        <div class="linkRegistro">
-        <p>¿No tienes cuenta? <a href="#">Regístrate</a></p>
+        <p>¿No tienes cuenta? <a href="./Registro.html">Regístrate</a></p>
       </div>
-    </form>
+   <!--</form>-->
   </div>
+
+  <script src="./js/registro.js"></script>
 
 </body>
 </html>
