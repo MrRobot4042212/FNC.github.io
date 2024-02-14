@@ -432,6 +432,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
               else{
                                     /*EMPIECE DEL MINIJUEGO DE LOS GOYA */
+
                   setTimeout(() => {
                     pantallaCarga.classList.remove('pantallaCargaOn')
                     pantallaCarga.classList.add('pantallaCargaOf')
@@ -460,6 +461,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     let peliculaSeleccionadaGoya = '';
                     let revelacionImagenGoya = document.getElementById('revelacionMejorPeliculaGoya');
                     let cambioMejorPeliculaGoya = document.getElementById('tituloMejorPeliculaGoya');
+
+                                            /* PREGUNTA 1 GOYA*/
+
 
                     Array.from(peliculasGoya).forEach(peliculaGoya => {
                         peliculaGoya.addEventListener('click', function seleccionMejorPeliculaGoya() {
@@ -501,6 +505,11 @@ document.addEventListener("DOMContentLoaded", function () {
                             },4000)
                         });
                     });
+
+                    
+                                            /* PREGUNTA 2 GOYA*/
+
+
 
                     function seleccionMejorActorGoya() {
                       let incognita = document.querySelector('.mejorActorGoya .incognita');
@@ -559,6 +568,10 @@ document.addEventListener("DOMContentLoaded", function () {
                             },4000)
                         });
                     });
+
+                    
+                                            /* PREGUNTA 3 GOYA*/
+
 
                     function seleccionMejorActrizGoya() {
                       let incognita = document.querySelector('.mejorActrizGoya .incognita');
@@ -619,6 +632,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         });
                     });
                     };
+
+                                            /* PREGUNTA 4 GOYA*/
+
+
 
                     function seleccionMejorDirectorGoya() {
                       let incognita = document.querySelector('.mejorDirectorGoya .incognita');
@@ -779,6 +796,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
               else{
+
+                                    /*EMPIECE DEL MINIJUEGO DE LOS OSCARS */
+
+
                 setTimeout(() => {
                   pantallaCarga.classList.remove('pantallaCargaOn')
                   pantallaCarga.classList.add('pantallaCargaOf')
@@ -810,6 +831,11 @@ document.addEventListener("DOMContentLoaded", function () {
                   let revelacionImagenOscars = document.getElementById('revelacionMejorPeliculaOscars');
                   let cambioMejorPeliculaOscars = document.getElementById('tituloMejorPeliculaOscars')
                   incognita = document.querySelector('.mejorPeliculaOscars .incognita')
+
+
+                                            /* PREGUNTA 1 OSCARS*/
+
+
                   Array.from(peliculasOscars).forEach(peliculaOscars => {
                       peliculaOscars.addEventListener('click', function seleccionMejorPeliculaOscars() {
                           peliculaSeleccionadaOscars = this.innerText;
@@ -850,6 +876,9 @@ document.addEventListener("DOMContentLoaded", function () {
                           },4000)
                       });
                   });
+
+                                          /* PREGUNTA 2 OSCARS*/
+
 
                   function seleccionMejorActorOscars() {
                     let incognita = document.querySelector('.mejorActorOscars .incognita');
@@ -908,6 +937,9 @@ document.addEventListener("DOMContentLoaded", function () {
                           },4000)
                       });
                   });
+
+                                          /* PREGUNTA 3 OSCARS*/
+
 
                   function seleccionMejorActrizOscars() {
                     let incognita = document.querySelector('.mejorActrizOscars .incognita');
@@ -968,6 +1000,9 @@ document.addEventListener("DOMContentLoaded", function () {
                    });
                   };
 
+                                          /* PREGUNTA 4 OSCARS*/
+
+
                   function seleccionMejorDirectorOscars() {
                     let incognita = document.querySelector('.mejorDirectorOscars .incognita');
                     let opcionesOscars = document.querySelector('.contenedorOscars .opcionesOf');
@@ -1027,6 +1062,9 @@ document.addEventListener("DOMContentLoaded", function () {
                    });
                   };
 
+                                          /* RESULTADOS OSCARS*/
+
+
                   function resultadosOscars(){
                     fondoPremios.src = "";
                     musicaAmbiental.remove();
@@ -1079,6 +1117,9 @@ document.addEventListener("DOMContentLoaded", function () {
             break;
 
             case 'Premios Globos de oro':
+
+                                  /* ELECCION DE LOS PREMIOS GLOBOS DE ORO */
+
               
                const parrafo2 = document.querySelector('.traduccionGlobos');
               var contenedorTraduccion2 = document.querySelector('.contenedorTraduccion2');
@@ -1125,6 +1166,10 @@ document.addEventListener("DOMContentLoaded", function () {
                   });
                 }
                 else{
+
+                                  /* MINIJUEGO GLOBOS DE ORO */
+
+
                   setTimeout(() => {
                     pantallaCarga.classList.remove('pantallaCargaOn')
                     pantallaCarga.classList.add('pantallaCargaOf')
@@ -1155,6 +1200,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     let revelacionImagenGlobos = document.getElementById('revelacionMejorPeliculaGlobos');
                     let cambioMejorPeliculaGlobos = document.getElementById('tituloMejorPeliculaGlobos')
                     incognita = document.querySelector('.mejorPeliculaGlobos .incognita')
+
+                                  /* PREGUNTA 1 GLOBOS DE ORO*/
+
+
                     Array.from(peliculasGlobos).forEach(peliculaGlobos => {
                         peliculaGlobos.addEventListener('click', function seleccionMejorPeliculaGlobosDrama() {
                             peliculaSeleccionadaGlobos = this.innerText;
@@ -1195,6 +1244,10 @@ document.addEventListener("DOMContentLoaded", function () {
                             },4000)
                         });
                     });
+                    
+                                  /* PREGUNTA 2 GLOBOS DE ORO*/
+
+
   
                     function seleccionMejorPeliculaAnimadaGlobos() {
                       let incognita = document.querySelector('.mejorAnimadaGlobos .incognita');
@@ -1253,6 +1306,11 @@ document.addEventListener("DOMContentLoaded", function () {
                             },4000)
                         });
                     });
+
+                    
+                                  /* PREGUNTA 3 GLOBOS DE ORO*/
+
+
   
                     function seleccionMejorActrizComediaGlobos() {
                       let incognita = document.querySelector('.mejorActrizGlobos .incognita');
@@ -1312,6 +1370,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         });
                      });
                     };
+                    
+                                  /* PREGUNTA 4 GLOBOS DE ORO*/
+
+
   
                     function seleccionMejorDirectorGlobos() {
                       let incognita = document.querySelector('.mejorDirectorGlobos .incognita');
@@ -1371,6 +1433,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         });
                      });
                     };
+                    
+                                  /* RESULTADOS DE GLOBOS DE ORO*/
+
+
   
                     function resultadosGlobos(){
                       fondoPremios.src = "";
@@ -1430,6 +1496,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+          /* FUNCION PARA ESTRABLECER LA VALORACION (ESTRELLAS) EN LA PAGINA pelis.html */
+
 
 document.addEventListener('DOMContentLoaded', function () {
     const ratingContainer = document.querySelector('.contenedorStars');
@@ -1475,6 +1543,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+/*-------------------------------------------------------------------------------------------------------------------- */
+
+
+
+
 /*CONTACTO*/
 const imagenesNosotros = document.getElementsByClassName("imagenNosotros");
 
