@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="./css/Registro.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Registro</title>
+    <script src="./js/Registro.js"></script>
+    <title>Login</title>
 </head>
 <body>
 
-  <nav class="navHamburger" role="navigation">
+<nav class="navHamburger" role="navigation">
     <div id="menuToggle">
-        <input name="checkbox" type="checkbox" />
+        <input type="checkbox" />
         <span></span>
         <span></span>
         <span></span>
@@ -21,59 +22,50 @@
             <a href="./directores.html"><li>Directores</li></a>
             <a href="./productores.html"><li>Productores</li></a>
             <a href="./actores.html"><li>Actores</li></a>
+            <a href="./premios.html"><li>Premios</li></a>
             <a href="./Login.html"><li>Login</li></a>
-            <a href="./Registro.html"><li>Registro</li></a>
             <a href="./contacto2.html"><li>Contacto</li></a>
         </ul>
     </div>
 </nav>
 
   <div class="cuadro">
-    <!--<form>-->
+    <form action="">
       <h1>Regístrate en <br> <font color="red">Films</font>N<font color="red">Critics</font></h1>
 
       <div class="caja">
-        <input name="usuario" type="text" id="usuario" placeholder="Usuario" required>
+        <input type="text" placeholder="Usuario" required>
         <i class='bx bxs-user'></i>
       </div>
 
       <div class="caja">
-        <input name="nick" type="text" id="nick" placeholder="Nick" required>
+        <input type="text" placeholder="Nick" required>
         <i class='bx bx-user'></i>
       </div>
 
       <div class="caja">
-        <input name="email" type="text" id="email" placeholder="Correo electrónico" required>
+        <input type="text" placeholder="Correo electrónico" required>
         <i class='bx bxs-envelope' ></i>
       </div>
 
       <div class="caja">
-        <input name="telefono" type="number" id="telefono" placeholder="Teléfono" required>
+        <input type="text" placeholder="Teléfono" required>
         <i class='bx bxs-phone'></i>
       </div>
 
       <div class="caja">
-        <input name="contraseña" type="password" id="contraseña" placeholder="Contraseña" required>
+        <input type="password" placeholder="Contraseña" required>
         <i class='bx bxs-lock-alt' ></i>
       </div>
 
       <div class="caja">
-        <input name="ccontraseña" type="password" id="ccontraseña" placeholder="Repita la contraseña" required>
+        <input type="password" placeholder="Repita la contraseña" required>
         <i class='bx bxs-lock-alt' ></i>
       </div>
 
       <button type="submit" class="boton">Crear cuenta</button>
-      <br><br>
-      
-      <button class="boton botonVolver"><a href="./index.html">Volver al Inicio</a></button>
-      
-
-
-    <!--</form>-->
+    </form>
   </div>
 
-  <script src="./js/registro.js"></script>
-
 </body>
-
 </html>

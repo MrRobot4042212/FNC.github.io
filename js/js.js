@@ -177,7 +177,11 @@ botonDesglose.forEach(function (botonDesglose) {
         console.log(peliculaActor);
         if (peliculaActor.includes(inputValue)) {
           filtrado.style.display = "block";
-        } else {
+        }
+        else if (inputValue === ""){
+        filtrado.style.display = "block";
+        }
+        else {
           filtrado.style.display = "none";
         }
       });
@@ -217,7 +221,11 @@ botonDesglose.forEach(function (botonDesglose) {
         let directorTitulo = filtrar.querySelector(".nombreDirector").innerHTML.toLowerCase();
         if (directorTitulo.includes(inputValueDirector)) {
           filtrar.style.display = "block";
-        } else {
+        }
+        else if (inputValueDirector === ""){
+          filtrar.style.display = "block";
+        }
+        else {
           filtrar.style.display = "none";
         }
       });
@@ -259,7 +267,12 @@ botonDesglose.forEach(function (botonDesglose) {
         let productorTitulo = filtrarPr.querySelector(".nombreProductor").innerHTML.toLowerCase();
         if (productorTitulo.includes(inputValueProductor)) {
           filtrarPr.style.display = "block";
-        } else {
+        } 
+        else if (inputValueProductor === ""){
+          filtrarPr.style.display = "block";
+          }
+        
+        else {
           filtrarPr.style.display = "none";
         }
       });
@@ -303,7 +316,11 @@ botonDesglose.forEach(function (botonDesglose) {
         let actorTitulo = filtrarAc.querySelector(".nombreActor").innerHTML.toLowerCase();
         if (actorTitulo.includes(inputValueActor)) {
           filtrarAc.style.display = "block";
-        } else {
+        } 
+        else if (inputValueActor === ""){
+          filtrarAc.style.display = "block";
+          }
+        else {
           filtrarAc.style.display = "none";
         }
       });

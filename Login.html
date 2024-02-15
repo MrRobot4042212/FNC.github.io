@@ -2,16 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./css/Registro.css">
-    <link rel="stylesheet" href="./css/loginD.css">
+    <link rel="stylesheet" type="text/css" href="./css/loginD.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    
+
     <title>Login</title>
 </head>
 <body>
-  <div class="botonRetorno">
-    <button><a href="../FNC/index.html">Volver al Inicio</a></button>
-  </div>
 
   <nav class="navHamburger" role="navigation">
     <div id="menuToggle">
@@ -26,7 +22,7 @@
             <a href="./directores.html"><li>Directores</li></a>
             <a href="./productores.html"><li>Productores</li></a>
             <a href="./actores.html"><li>Actores</li></a>
-            <a href="./Login.html"><li>Login</li></a>
+            <a href="./premios.html"><li>Premios</li></a>
             <a href="./Registro.html"><li>Registro</li></a>
             <a href="./contacto2.html"><li>Contacto</li></a>
         </ul>
@@ -34,33 +30,33 @@
 </nav>
 
   <div class="cuadro">
-    <!--<form>-->
       <h1>Login</h1>
 
       <div class="caja">
-        <input name="usuario" id="usuarioLogin" type="text" placeholder="Usuario" required>
+        <input id="usuario" type="text" placeholder="Usuario" required>
         <i class='bx bxs-user'></i>
       </div>
 
       <div class="caja">
-        <input name="contraseña" id="contraseñaLogin" type="password" placeholder="Contraseña" required>
+        <input id="contraseña" type="password" placeholder="Contraseña" required>
         <i class='bx bxs-lock-alt' ></i>
       </div>
 
       <div class="olvidado">
         <label><input type="checkbox">Recuérdamela</label>
-        <a href="../FNC/Memorama.html">¿Has olvidado la contraseña?</a>
+        <!-- Cambio aquí: Enlace a PeliculitasGiratorias.html -->
+        <a href="./PeliculitasGiratorias.html">¿Has olvidado la contraseña?</a>
       </div>
 
-      <button type="submit" class="botonRecoger">Login</button>
+      <a id="irIndex" class="boton" href=""><button name="botonLogin" id="botonLogin" type="submit" class="boton">Login</button></a>
 
        <div class="linkRegistro">
         <p>¿No tienes cuenta? <a href="./Registro.html">Regístrate</a></p>
+        
       </div>
-   <!--</form>-->
   </div>
 
-  <script src="./js/registro.js"></script>
-
+  <script src="./js/login.js"></script>
 </body>
+
 </html>
