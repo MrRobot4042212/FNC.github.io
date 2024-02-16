@@ -65,7 +65,7 @@ botonDesglose.forEach(function (botonDesglose) {
   /*------------------------------------------------------------------------------------------------------------------- */
 
 
-      /*AÑADIR LA CLASE tituloPelicula, generoPelicula, actorPelicula A LOS HIJOS DE overlayFLip, overlayDefault PARA SU POSTERIOR FILTRADO EN Productores.html */
+      /*AÑADIR LA CLASE tituloPelicula, generoPelicula, actorPelicula A LOS HIJOS DE overlayFLip, overlayDefault PARA SU POSTERIOR FILTRADO EN pelis.html */
 
 
 
