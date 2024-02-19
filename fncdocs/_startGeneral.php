@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina inicial</title>
     <link rel="stylesheet" href="../css/styles.css">
-</head>
-<body>
+<ody>
     <main class="estructuraPrincipal">
-
         <!-- HEADER DE LA PAGINA, aqui mostraremos el nombre de la empresa y el logo -->
         <header class="header">
             <a href="./index.html">
