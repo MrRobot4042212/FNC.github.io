@@ -1,19 +1,20 @@
-<nav class="navHamburger" role="navigation">
-        <div id="menuToggle">
-            <input type="checkbox" />
-            <span></span>
-            <span></span>
-            <span></span>
+<body>
+    <nav class="navHamburger" role="navigation">
+            <div id="menuToggle">
+                <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
 
-            <ul id="menu">
-                <a href="./index.html"><li>Inicio</li></a>
-                <a href="./pelis.html"><li>Películas</li></a>
-                <a href="./directores.html"><li>Directores</li></a>
-                <a href="./productores.html"><li>Productores</li></a>
-                <a href="./actores.html"><li>Actores</li></a>
-                <a href="./Login.html"><li>Login</li></a>
-                <a href="./Registro.html"><li>Registro</li></a>
-                <a href="./contacto2.html"><li>Contacto</li></a>
-            </ul>
-        </div>
- </nav>
+                <ul id="menu">
+                    <a href="./_index.php"><li>Inicio</li></a>
+                    <a href="./_peliculas.php"><li>Películas</li></a>
+                    <a href="./_directores.php"><li>Directores</li></a>
+                    <a href="./_productores.php"><li>Productores</li></a>
+                    <a href="./_actores.php"><li>Actores</li></a>
+                    <a href="./_Login.php"><li>Login</li></a>
+                    <a href="./_Registro.php"><li>Registro</li></a>
+                    <a href="./_contacto2.php"><li>Contacto</li></a>
+                </ul>
+            </div>
+    </nav>

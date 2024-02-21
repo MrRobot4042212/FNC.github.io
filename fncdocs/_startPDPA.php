@@ -1,26 +1,15 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> <?= $titulo ?> </title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-</head>
-
-<body>
-    <main class="estructuraPrincipal">
+<body >
+    <main class="estructuraPDPA">
         <!-- HEADER DE LA PAGINA, aqui mostraremos el nombre de la empresa y el logo -->
-        <header class="header">
-            <a href="./index.html">
-                <section class="fnc">
-                    <h1 class="f">Films</h1><br>
-                    <h1 class="n">N</h1>
-                    <h1 class="c">critics</h1>
+        <header class="headerPDPA">
+            <a href="./_index.php">
+                <section class="fncPDPA">
+                    <h1 class="fPDPA">F</h1><br>
+                    <h1 class="nPDPA">N</h1>
+                    <h1 class="cPDPA">c</h1>
                 </section>
             </a>
-            <h2> <?= $slogan ?> </h2>
+            <h2><?=$sloganPDPA?></h2>
         </header>
         <!-- FIN HEADER DE LA PAGINA -->
 
@@ -39,5 +28,6 @@
                     <li class="despegable"><a href="./_contacto2.php">Contacto </a></li> 
                 </ul>
             </nav>
+
         </div>
         <!--FIN DE LA BARRA DE NAVEGACIÓN -->
