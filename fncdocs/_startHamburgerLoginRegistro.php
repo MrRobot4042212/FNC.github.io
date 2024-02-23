@@ -21,7 +21,7 @@
             <a href="./_productores.php"><li>Productores</li></a>
             <a href="./_actores.php"><li>Actores</li></a>
             <a href="./_premios.php"><li>Premios</li></a>
-            <a href="./_login.php"><li>Login</li></a>
+            <a href=" ./_login.php"><li>Login</li></a>
             <a href="./_registro.php"><li>Registro</li></a>
             <a href="./_contacto2.php"><li>Contacto</li></a>
         </ul>

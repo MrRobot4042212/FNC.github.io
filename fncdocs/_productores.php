@@ -15,4 +15,4 @@
         <? require ("./_contenedorProductores.php") ?>
     </section>
 </div>
-<? require_once ("./_endPDPA.php");?>
+<? require_once ("./_endGeneral.php");?>

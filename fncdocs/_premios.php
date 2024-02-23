@@ -1,9 +1,10 @@
 <?php 
     $titulo="Premios";
 ?>
-<? require_once ("./_starHamburger.php");?>
+<? require_once ("./_startHamburger.php");?>
     <div class="contenedorPremios">
             <img class="background" src="../img/fondos/fondo.jpeg.png" alt="">
+
             <section class="elegirPremio">
                 <div class="fondo" data-image="../img/premios/goya.jpeg">
                   <img id="fondoGoya" class="fondo" src="../img/premios/goya.jpeg" alt="">
@@ -235,4 +236,4 @@
         <audio class="luces" src="./aud/sonidoResultados.mp3"></audio>
         <!--FIN SECCION PREMIOS-->
 
-<?require_once ("./_endHamburger.php");?>
+<? require_once ("./_endHamburger.php");?>

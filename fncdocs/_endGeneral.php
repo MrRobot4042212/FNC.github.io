@@ -2,7 +2,7 @@
         <footer class="piePagina">
             <section>
                 <h4>2024 FilmsNcritics.</h4>
-                <img class="cc" src="./img/iconos/CC.png" alt="CC">
+                <img class="cc" src="../img/iconos/CC.png" alt="CC">
             </section>
 
             <section>
@@ -15,12 +15,12 @@
 
             <section>
                 <h4>Social</h4>
-                <img class="iconosSocial" src="./img/iconosSocial/set-of-social-media-icon-in-round-bakground-free-vector_01.png" alt="">
-                <img class="iconosSocial" src="./img/iconosSocial/set-of-social-media-icon-in-round-bakground-free-vector_02.png" alt="">
-                <img class="iconosSocial" src="./img/iconosSocial/set-of-social-media-icon-in-round-bakground-free-vector_03.png" alt="">
-                <img class="iconosSocial" src="./img/iconosSocial/set-of-social-media-icon-in-round-bakground-free-vector_04.png" alt="">
-                <img class="iconosSocial" src="./img/iconosSocial/set-of-social-media-icon-in-round-bakground-free-vector_06.png" alt="">
-                <img class="iconosSocial" src="./img/iconosSocial/set-of-social-media-icon-in-round-bakground-free-vector_07.png" alt="">
+                <img class="iconosSocial" src="../img/iconosSocial/set-of-social-media-icon-in-round-bakground-free-vector_01.png" alt="">
+                <img class="iconosSocial" src="../img/iconosSocial/set-of-social-media-icon-in-round-bakground-free-vector_02.png" alt="">
+                <img class="iconosSocial" src="../img/iconosSocial/set-of-social-media-icon-in-round-bakground-free-vector_03.png" alt="">
+                <img class="iconosSocial" src="../img/iconosSocial/set-of-social-media-icon-in-round-bakground-free-vector_04.png" alt="">
+                <img class="iconosSocial" src="../img/iconosSocial/set-of-social-media-icon-in-round-bakground-free-vector_06.png" alt="">
+                <img class="iconosSocial" src="../img/iconosSocial/set-of-social-media-icon-in-round-bakground-free-vector_07.png" alt="">
             </section>
         </footer>
     </main>
