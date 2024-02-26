@@ -1,50 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premios</title>
-    <link rel="stylesheet" href="./css/styles.css">
-</head>
-<body>
-    <main class="estructuraPremios">
-        <!--BARRA DE NAVEGACIÓN~, aqui mostraremos la barra de navegación, esta tendra luego funcionalidad de menu Hamburguesa -->
-        <nav class="navHamburger" role="navigation">
-            <div id="menuToggle">
-                <input type="checkbox" />
-                <span></span>
-                <span></span>
-                <span></span>
-
-                <ul id="menu">
-                    <a href="./index.html"><li>Inicio</li></a>
-                    <a href="./pelis.html"><li>Películas</li></a>
-                    <a href="./directores.html"><li>Directores</li></a>
-                    <a href="./productores.html"><li>Productores</li></a>
-                    <a href="./actores.html"><li>Actores</li></a>
-                    <a href="./Login.html"><li>Login</li></a>
-                    <a href="./Registro.html"><li>Registro</li></a>
-                    <a href="./contacto2.html"><li>Contacto</li></a>
-                </ul>
-            </div>
-        </nav>
-        <!--FIN DE LA BARRA DE NAVEGACIÓN -->
-
-        <!--INICIO SECCION DE PREMIOS-->
-        <div class="contenedorPremios">
-            <img class="background" src="./img/fondos/fondo.jpeg.png" alt="">
+<?php 
+    $titulo="Premios";
+?>
+<? require_once ("./_startHamburger.php");?>
+    <div class="contenedorPremios">
+            <img class="background" src="../img/fondos/fondo.jpeg.png" alt="">
 
             <section class="elegirPremio">
-                <div class="fondo" data-image="./img/premios/goya.jpeg">
-                  <img id="fondoGoya" class="fondo" src="./img/premios/goya.jpeg" alt="">
+                <div class="fondo" data-image="../img/premios/goya.jpeg">
+                  <img id="fondoGoya" class="fondo" src="../img/premios/goya.jpeg" alt="">
                   <h1 class="tituloPremio">Premios Goya</h1>
                 </div>
-                <div class="fondo" data-image="./img/premios/oscars.jpeg">
-                  <img id="fondoOscars" class="fondo" src="./img/premios/oscars.jpeg" alt="">
+                <div class="fondo" data-image="../img/premios/oscars.jpeg">
+                  <img id="fondoOscars" class="fondo" src="../img/premios/oscars.jpeg" alt="">
                   <h1 class="tituloPremio">Premios Oscar</h1>
                 </div>
-                <div class="fondo" data-image="./img/premios/globos de oro.jpeg">
-                  <img id="fondoGlobos" class="fondo" src="./img/premios/globos de oro.jpeg" alt="">
+                <div class="fondo" data-image="../img/premios/globos de oro.jpeg">
+                  <img id="fondoGlobos" class="fondo" src="../img/premios/globos de oro.jpeg" alt="">
                   <h1 class="tituloPremio">Premios Globos de oro</h1>
                 </div>
               </section>
@@ -264,9 +235,5 @@
         <audio class="sonidoIncorrecto" src="./aud/incorrectoSound.mp3"></audio>
         <audio class="luces" src="./aud/sonidoResultados.mp3"></audio>
         <!--FIN SECCION PREMIOS-->
-    </main>
 
-    <script src="./js/js.js"></script>
-
-</body>
-</html>
+<? require_once ("./_endHamburger.php");?>
