@@ -4,39 +4,40 @@
 ?>
 <? require_once("./_startHamburgerLoginRegistro.php"); ?>
     <div class="cuadro">
-        <form action="">
+        <form action="./_registroPost.php" method="post">
         <h1>Regístrate en <br> <font color="red">Films</font>N<font color="red">Critics</font></h1>
         <div class="caja">
-            <input type="text" placeholder="Usuario" required>
+            <input name="usuario" type="text" placeholder="Usuario" required>
             <i class='bx bxs-user'></i>
         </div>
         <div class="caja">
-            <input type="text" placeholder="Nick" required>
+            <input name="nick" type="text" placeholder="Nick" required>
             <i class='bx bx-user'></i>
         </div>
 
         <div class="caja">
-            <input type="text" placeholder="Correo electrónico" required>
+            <input name="email" type="text" placeholder="Correo electrónico" required>
             <i class='bx bxs-envelope' ></i>
         </div>
 
         <div class="caja">
-            <input type="text" placeholder="Teléfono" required>
+            <input name="telefono" type="text" placeholder="Teléfono" required>
             <i class='bx bxs-phone'></i>
         </div>
 
         <div class="caja">
-            <input type="password" placeholder="Contraseña" required>
+            <input name="contraseña" type="password" placeholder="Contraseña" required>
             <i class='bx bxs-lock-alt' ></i>
         </div>
 
         <div class="caja">
-            <input type="password" placeholder="Repita la contraseña" required>
+            <input name="ccontraseña" type="password" placeholder="Repita la contraseña" required>
             <i class='bx bxs-lock-alt' ></i>
         </div>
 
-        <button type="submit" class="boton">Crear cuenta</button>
+        <button name="submit" type="submit" class="boton">Crear cuenta</button>
         </form>
+
     </div>
     <script src="../js/Registro.js"></script>
 
