@@ -21,7 +21,6 @@ if (!isset($_POST['contraseña'])){
     header("location: ./_registro.php");
     exit();
 }
-
 $usuario = $_POST['usuario'];
 $nick = $_POST['nick'];
 $email = $_POST['email'];

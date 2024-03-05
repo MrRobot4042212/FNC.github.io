@@ -37,7 +37,6 @@
             </div>
             <button name="submit" type="submit" class="boton">Crear cuenta</button>
         </form>
-
     </div>
 
 <? require_once("./_endHamburgerLoginRegistro.php"); ?>
