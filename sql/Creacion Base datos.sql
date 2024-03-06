@@ -79,7 +79,7 @@ CREATE TABLE usuarios(
 idUsuario int auto_increment PRIMARY KEY NOT NULL,
 usuario varchar (255) NOT NULL,
 nick varchar (255) NOT NULL,
-contraseña varchar (16) NOT NULL,
+contraseña varchar (255) NOT NULL,
 email varchar (255) NOT NULL,
 telefono int        
 ); 

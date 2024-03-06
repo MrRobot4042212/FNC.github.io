@@ -1,7 +1,8 @@
 <?php
+require ("./initdb.php");
 $titulo = "Inicio";
 $slogan = "Tu guía cinéfila: Opiniones auténticas, decisiones acertadas.";
-$usuario = "Usuario";
+$mostrarUsuario = $_SESSION["logged_user"];
 ?>
 
 <?php require_once("_startGeneral.php")?>
@@ -10,7 +11,7 @@ $usuario = "Usuario";
 <div class="cuerpo">
 
 <section class="espacioFondo">
-    <h1>Bienvenido: <?= $usuario ?></h1>
+    <h1>Bienvenido: <?= $mostrarUsuario ?></h1>
     <h4>FilmsNcritics es una plataforma en línea dedicada a recopilar y presentar opiniones de usuarios sobre películas de diversas épocas, géneros y culturas cinematográficas. La página web se ha establecido como un espacio interactivo donde los amantes del cine pueden expresar sus pensamientos y evaluaciones sobre las últimas producciones cinematográficas, clásicos atemporales y películas independientes.</h4>
 </section>
 
