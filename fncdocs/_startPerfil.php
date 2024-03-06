@@ -6,12 +6,10 @@
     <title> <?= $titulo ?> </title>
     <link rel="stylesheet" href="../css/styles.css">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <? session_start() ?>
 </head>
 
 <body>
-    <main class="estructuraPrincipal">
-        <!-- HEADER DE LA PAGINA, aqui mostraremos el nombre de la empresa y el logo -->
+    <main class="estructuraPerfil">
         <header class="header">
             <a href="./_index.php">
                 <section class="fnc">
@@ -22,8 +20,4 @@
             </a>
             <h2> <?= $slogan ?> </h2>
         </header>
-        <!-- FIN HEADER DE LA PAGINA -->
-
-        <!--BARRA DE NAVEGACIÓN~, aqui mostraremos la barra de navegación, esta tendra luego funcionalidad de menu Hamburguesa -->
         <?php require("./_menu.php") ?> 
-        <!--FIN DE LA BARRA DE NAVEGACIÓN -->

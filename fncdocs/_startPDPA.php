@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?=$titulo?></title>
     <link rel="stylesheet" href="../css/styles.css">
+    <? session_start() ?>
+
 </head>
 <body >
     <main class="estructuraPDPA">
@@ -22,20 +24,5 @@
         <!-- FIN HEADER DE LA PAGINA -->
 
         <!--BARRA DE NAVEGACIÓN~, aqui mostraremos la barra de navegación, esta tendra luego funcionalidad de menu Hamburguesa -->
-        <div class="bNavegacion">
-            <nav class="links">
-                <ul>
-                    <li class="despegable"><a href="./_index.php">Inicio</a></li>
-                    <li class="despegable"><a href="./_peliculas.php">Películas</a></li>
-                    <li class="despegable"><a href="./_directores.php">Directores</a></li>
-                    <li class="despegable"><a href="./_productores.php">Productores</a></li>
-                    <li class="despegable"><a href="./_actores.php">Actores</a></li> 
-                    <li class="despegable"><a href="./_premios.php">Premios</a></li>
-                    <li class="despegable"><a href="./_login.php">Login</a></li>
-                    <li class="despegable"><a href="./_registro.php">Registro</a></li> 
-                    <li class="despegable"><a href="./_contacto2.php">Contacto </a></li> 
-                </ul>
-            </nav>
-
-        </div>
+        <?php require("./_menu.php") ?> 
         <!--FIN DE LA BARRA DE NAVEGACIÓN -->
