@@ -1,4 +1,3 @@
-        <!--PIE DE LA PAGINA, aqui mostraremos el pie de la pagina, esta tendra luego funcionalidad de contacto-->
         <footer class="piePagina">
             <section>
                 <h4>2024 FilmsNcritics.</h4>
@@ -27,4 +26,3 @@
     <script src="../js/js.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </body>
-        <!--FIN PIE DE LA PAGINA -->

@@ -16,5 +16,4 @@
         <? require ("./_contenedorDirectores.php") ?>
     </section>
 </div>
-
 <? require_once ("./_endGeneral.php");?>

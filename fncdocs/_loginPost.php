@@ -1,4 +1,5 @@
 <?php
+
 require("./initdb.php");
 
 $usuario = $_POST['usuario'];
@@ -11,8 +12,14 @@ $resultado = mysqli_stmt_get_result($consulta);
 
 if($fila = mysqli_fetch_assoc($resultado)) {
     if(password_verify($contraseña, $fila["contraseña"])) {
+        $consultaNombreUsuario = mysqli_prepare($conn, "SELECT usuario FROM usuarios WHERE idUsuario = ?");
+        mysqli_stmt_bind_param($consultaNombreUsuario, "i", $fila["idUsuario"]);
+        mysqli_stmt_execute($consultaNombreUsuario);
+        $resultadoNombreUsuario = mysqli_stmt_get_result($consultaNombreUsuario);
+        $nombreUsuario = mysqli_fetch_assoc($resultadoNombreUsuario)["usuario"];
+
         session_start();
-        $_SESSION["logged_user"] = $fila["idUsuario"];
+        $_SESSION["logged_user"] = $nombreUsuario;
         header('Location: ./_index.php');
         exit();
     } else {
@@ -24,4 +31,6 @@ if($fila = mysqli_fetch_assoc($resultado)) {
 
 mysqli_stmt_close($consulta);
 mysqli_close($conn);
+
+?>
 
