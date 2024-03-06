@@ -1,4 +1,4 @@
-<footer class="piePagina">
+        <footer class="piePagina">
             <section>
                 <h4>2024 FilmsNcritics.</h4>
                 <img class="cc" src="../img/iconos/CC.png" alt="CC">
