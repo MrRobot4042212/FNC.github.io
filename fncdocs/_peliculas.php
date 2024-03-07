@@ -1,4 +1,6 @@
 <?php 
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
     $titulo= "Peliculas";
     $sloganPDPA="Tu opinión cuenta, tu película perfecta comienza aquí: ¡Explora, evalúa, disfruta!";
 ?>
