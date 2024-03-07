@@ -1,5 +1,8 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 session_start();
 $titulo = $_SESSION["logged_user"];
 require("./initdb.php");
@@ -44,18 +47,20 @@ if ($resultado_usuario) {
     </section>
 
     <section class="añadirComentarios">
-        <h1>Añadir Comentario</h1>
-        <form action="./_comentarioPost.php" method="POST">
-            <input type="text" name="nombrePelicula" id="" placeholder="Introduce nombre de la pelicula" required>
-            <select name="tipo" id="">
-                <option value="comentario">Comentario</option>
-                <option value="valoracion">Valoracion</option>
-                <option value="ambos">Ambos</option>
-            </select>
-            <input type="text" name="valoracion" id="" placeholder="Introduce la valoracion (0-5)">
-            <input type="text" name="comentario" id="" placeholder="Introduce el comentario">
-            <input type="submit" name="submit" value="Enviar">
-        </form>
-    </section>
+    <h1>Añadir Comentario</h1>
+    <form action="./_comentarioPost.php" method="POST" id="commentForm">
+        <input type="text" name="nombrePelicula" placeholder="Introduce nombre de la película" required>
+        <h1>Selecciona el tipo de critica</h1>
+        <select name="tipo" id="tipoSeleccionado" onchange="mostrarOcultarInput()">
+            <option value="comentario">Comentario</option>
+            <option value="valoracion">Valoración</option>
+            <option value="ambos" selected>Ambos</option>
+        </select>
+        <input type="text" name="valoracion" id="valoracionInput" placeholder="Introduce la valoración (0-5)">
+        <input type="text" name="comentario" id="comentarioInput" placeholder="Introduce el comentario">
+        <input id="botonComentario" type="submit" name="submit" value="Enviar">
+    </form>
+</section>
 </div>
+
 <?php require_once("./_endPerfil.php"); ?>

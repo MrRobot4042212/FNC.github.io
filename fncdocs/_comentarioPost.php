@@ -1,5 +1,8 @@
 <?php
+    session_start();
 
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
     require("./initdb.php");
 
     $nombrePelicula = $_POST["nombrePelicula"];
@@ -32,9 +35,8 @@
         header("location: ./_404");
     }
 
+
     mysqli_stmt_close($consulta_criticas);
     mysqli_close($conn);
 
-
-    
     ?>
