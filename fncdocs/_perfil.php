@@ -1,33 +1,22 @@
 <?php
+
 session_start();
 $titulo = $_SESSION["logged_user"];
 require("./initdb.php");
 
-$consulta = mysqli_prepare($conn, "SELECT usuario,nick,email,telefono FROM usuarios WHERE usuario = ?");
-mysqli_stmt_bind_param($consulta, "s", $_SESSION["logged_user"]); 
-mysqli_stmt_execute($consulta);
-$resultado = mysqli_stmt_get_result($consulta);
-$usuario = mysqli_fetch_array($resultado);
+$consulta_usuario = mysqli_prepare($conn, "SELECT usuario, nick, email, telefono FROM usuarios WHERE usuario = ?");
+mysqli_stmt_bind_param($consulta_usuario, "s", $_SESSION["logged_user"]); 
+mysqli_stmt_execute($consulta_usuario);
+$resultado_usuario = mysqli_stmt_get_result($consulta_usuario);
 
-if ($usuario === NULL){
-    header("Location: ./_404.php");
-    exit();
+if ($resultado_usuario) {
+    $usuario = mysqli_fetch_array($resultado_usuario);
+
+    if ($usuario === NULL) {
+        header("Location: ./_404.php");
+        exit();
+    }
 }
-
-$nombrePelicula = $_POST["nombrePelicula"];
-$valoracion = $_POST["valoracion"];
-$comentario = $_POST["comentario"];
-
-$idPelicula_nombre = "SELECT idPelicula FROM pelicula WHERE nombre = '$nombrePelicula'";
-idUsuario-
-$consulta = mysqli_prepare($conn, "INSERT INTO criticas(idPelicula,idUsario,
-tipo,valoracion,comentario) VALUES (?,?,?,?,?)");
-
-if ($consulta === false) {
-    die('Error de preparacion de mysql: ' . mysqli_error($conn));
-}
-
-mysqli_stmt_bind_param($consulta, "iisis", $usuario, $nick, $contraseña, $email, $telefono);
 
 ?>
 
@@ -56,8 +45,13 @@ mysqli_stmt_bind_param($consulta, "iisis", $usuario, $nick, $contraseña, $email
 
     <section class="añadirComentarios">
         <h1>Añadir Comentario</h1>
-        <form action="./_comentarioPost.php" method="post">
+        <form action="./_comentarioPost.php" method="POST">
             <input type="text" name="nombrePelicula" id="" placeholder="Introduce nombre de la pelicula" required>
+            <select name="tipo" id="">
+                <option value="comentario">Comentario</option>
+                <option value="valoracion">Valoracion</option>
+                <option value="ambos">Ambos</option>
+            </select>
             <input type="text" name="valoracion" id="" placeholder="Introduce la valoracion (0-5)">
             <input type="text" name="comentario" id="" placeholder="Introduce el comentario">
             <input type="submit" name="submit" value="Enviar">

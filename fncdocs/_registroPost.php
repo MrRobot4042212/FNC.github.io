@@ -26,7 +26,7 @@ if (!mysqli_stmt_execute($consulta)) {
 }
 
 if (mysqli_stmt_affected_rows($consulta) === 1) {
-    echo "Registro exitoso!";
+    echo "¡Registro exitoso!";
     header("location: ./_login.php");
 } else {
     echo "Error en el registro: " . mysqli_stmt_error($consulta);
