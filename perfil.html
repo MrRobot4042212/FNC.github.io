@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+
+<body>
+    <main class="estructuraPerfil">
+        <header class="header">
+            <a href="./_index.php">
+                <section class="fnc">
+                    <h1 class="f">Films</h1><br>
+                    <h1 class="n">N</h1>
+                    <h1 class="c">critics</h1>
+                </section>
+            </a>
+        </header>
+        <div class="bNavegacion">
+            <nav class="links">
+                <ul>
+                    <li class="despegable"><a href="./_index.php">Inicio</a></li>
+                    <li class="despegable"><a href="./_peliculas.php">Películas</a></li>
+                    <li class="despegable"><a href="./_directores.php">Directores</a></li>
+                    <li class="despegable"><a href="./_productores.php">Productores</a></li>
+                    <li class="despegable"><a href="./_actores.php">Actores</a></li> 
+                    <li class="despegable"><a href="./_premios.php">Premios</a></li>
+                    <li class="despegable"><a href="./_contacto2.php">Contacto </a></li> 
+                    <li class="despegable"><a href="./_login.php">Login</a></li>
+                    <li class="despegable"><a href="./_registro.php">Registro</a></li>
+                
+                </ul>
+            </nav>
+        </div>
+
+        <div class="cuerpoUsuario">
+            <section class="espacioUsuario">
+                <h1> Datos Personales</h1>
+                <ul>
+                    <li>Usuario: </li>
+                    <li>Nick: </li>
+                    <li>Email: </li>
+                    <li>Teléfono: </li>
+                </ul>
+            </section>
+            <section class="historialComentarios">
+                <h1>Historial de comentarios</h1>
+                <aside class="cajaComentario">
+                        <p class="nombrePelicula">Pelicula: </p>
+                        <p class="valoracionPelicula">Valoracion: </p>
+                        <section class="seccionComentario">
+                            <h3 class="tituloComentario">Comentario:</h3>
+                            <p class="mensajeComentario"></p>
+                        </section>
+                </aside>
+            </section>
+    
+            <section class="añadirComentarios">
+                <h1>Añadir Comentario</h1>
+                <form action="./_comentarioPost.php" method="post">
+                    <input  type="text" name="pelicula" id="" placeholder="Introduce nombre de la pelicula" required>
+                    <input type="text" name="valoracion" id="" placeholder="Introduce la valoracion (0-5)">
+                    <input type="text" name="comentario" id="" placeholder="Introduce el comentario">
+                    <input type="submit" name="submit" value="Enviar">
+                </form>
+            </section>
+        </div>
+
+        <footer class="piePagina">
+            <section>
+                <h4>2024 FilmsNcritics.</h4>
+                <img class="cc" src="./img/iconos/CC.png" alt="CC">
+            </section>
+
+            <section>
+                <h4>Contacto</h4>
+                <ul>
+                    <h5><li><a href="#">fnc.admin@gmail.com</a></li></h5>
+                    <h5><li><a href="#">+34 65368422</a></li></h5>
+                </ul>
+            </section>
+
+            <section>
+                <h4>Social</h4>
+                <img class="iconosSocial" src="./img/iconosSocial/set-of-social-media-icon-in-round-bakground-free-vector_01.png" alt="">
+                <img class="iconosSocial" src="./img/iconosSocial/set-of-social-media-icon-in-round-bakground-free-vector_02.png" alt="">
+                <img class="iconosSocial" src="./img/iconosSocial/set-of-social-media-icon-in-round-bakground-free-vector_03.png" alt="">
+                <img class="iconosSocial" src="./img/iconosSocial/set-of-social-media-icon-in-round-bakground-free-vector_04.png" alt="">
+                <img class="iconosSocial" src="./img/iconosSocial/set-of-social-media-icon-in-round-bakground-free-vector_06.png" alt="">
+                <img class="iconosSocial" src="./img/iconosSocial/set-of-social-media-icon-in-round-bakground-free-vector_07.png" alt="">
+            </section>
+        </footer>
+    </main>
+    <script src="./js/js.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</body>
