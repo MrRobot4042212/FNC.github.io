@@ -1,3 +1,63 @@
+
+
+        <?php
+        require_once("initdb.php");
+
+        if ($conn) {
+            $query = "SELECT nombre, genero, sinapsis, fechaEstreno, duracion, presupuesto, recaudacion, srcImagen FROM peliculas";
+            $result = mysqli_query($conn, $query);
+
+            if ($result) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<div class="contenedorPeliculas">';
+                        echo '<div class="posicionFrontal">';
+                            echo '<img class="imagenFrontal" src="' . $row['srcImagen'] . '" alt="' . $row['nombre'] . '">';
+                        echo '</div>';
+                        echo '<div class="posicionCarta">';
+                            echo '<section class="informacionPelicula">';
+                                echo '<h1>' . $row['nombre'] . '</h1>';
+                                echo '<div class="col2">';
+                                    echo '<h2>Género</h2>';
+                                    echo '<p>' . $row['genero'] . '</p>';
+                                echo '</div>';
+                                echo '<div class="col3">';
+                                    echo '<h2>Sinopsis</h2>';
+                                    echo '<p>' . $row['sinapsis'] . '</p>';
+                                echo '</div>';
+                                echo '<div class="col4">';
+                                    echo '<h2>Fecha de Estreno</h2>';
+                                    echo '<p>' . $row['fechaEstreno'] . '</p>';
+                                echo '</div>';
+                                echo '<div class="col5">';
+                                    echo '<h2>Duración</h2>';
+                                    echo '<p>' . $row['duracion'] . '</p>';
+                                echo '</div>';
+                                echo '<div class="col6">';
+                                    echo '<h2>Presupuesto</h2>';
+                                    echo '<p>' . $row['presupuesto'] . '</p>';
+                                echo '</div>';
+                                echo '<div class="col7">';
+                                    echo '<h2>Recaudación</h2>';
+                                    echo '<p>' . $row['recaudacion'] . '</p>';
+                                echo '</div>';
+                            echo '</section>';
+                        echo '</div>';
+                    echo '</div>';
+                }
+            } else {
+                echo "Error al ejecutar la consulta: " . mysqli_error($conn);
+            }
+
+            mysqli_close($conn);
+        } 
+    
+
+           
+    
+    ?>
+</div>
+
+
 <div class="contenedorPeliculas animacionDefault">
     <img class="imgPeliculaActive imgPelicula" src="<?=$imgPelicula?>" alt="Descripción de la imagen">
     <img class="imgPeliculaDetras imgPelicula" src="<?=$imgDetras?>" alt="">
