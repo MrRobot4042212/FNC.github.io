@@ -1,7 +1,6 @@
-
-
-
 <?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
     $titulo = "Actores";
     $sloganPDPA = "Actuaciones que inspiran, historias que perduran. Descubre el arte de la interpretación en nuestra página de películas sobre actores.";
 ?>

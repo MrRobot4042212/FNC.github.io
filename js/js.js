@@ -1646,6 +1646,20 @@ function drawChart() {
   barchart.draw(data, chart_options);
 }
 
+function mostrarOcultarInput() {
+  var tipoSeleccionado = document.getElementById("tipoSeleccionado").value;
+  if (tipoSeleccionado === "valoracion") {
+      document.getElementById("comentarioInput").style.display = "none";
+      document.getElementById("valoracionInput").style.display = "block";
+  } else if (tipoSeleccionado === "comentario") {
+      document.getElementById("valoracionInput").style.display = "none";
+      document.getElementById("comentarioInput").style.display = "block";
+  } else {
+      document.getElementById("comentarioInput").style.display = "block";
+      document.getElementById("valoracionInput").style.display = "block";
+  }
+};
+
 
 
 
