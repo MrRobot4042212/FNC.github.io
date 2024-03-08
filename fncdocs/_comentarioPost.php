@@ -11,6 +11,7 @@
     $nombreUsuario = $_SESSION["logged_user"];
     $tipoSeleccionado = $_POST['tipo'];
 
+
     $resultadoIdPelicula = mysqli_query($conn, "SELECT idPelicula FROM peliculas WHERE nombre = '$nombrePelicula'");
     $filaIdPelicula = mysqli_fetch_assoc($resultadoIdPelicula);
     $idPelicula = $filaIdPelicula['idPelicula'];
@@ -20,8 +21,11 @@
     $idUsuario = $filaIdUsuario['idUsuario'];
 
     $consulta_criticas = mysqli_prepare($conn, "INSERT INTO criticas(idPelicula, idUsuario, tipo, valoracion, comentario) VALUES (?, ?, ?, ?, ?)");
-    mysqli_stmt_bind_param($consulta_criticas, "iisss", $idPelicula, $idUsuario, $tipoSeleccionado, $valoracion, $comentario);
+    mysqli_stmt_bind_param($consulta_criticas, "iisis", $idPelicula, $idUsuario, $tipoSeleccionado, $valoracion, $comentario);
+    
+  
     mysqli_stmt_execute($consulta_criticas);
+    
 
     if ($consulta_criticas === false) {
         die('Error de preparacion de mysql: ' . mysqli_error($conn));
@@ -32,8 +36,9 @@
         header("location: ./_perfil.php");
     } else {
         echo "Error en el registro: " . mysqli_stmt_error($consulta_criticas);
-        header("location: ./_404");
     }
+    
+
 
 
     mysqli_stmt_close($consulta_criticas);

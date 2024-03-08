@@ -21,6 +21,30 @@ if ($resultado_usuario) {
     }
 }
 
+
+$consulta_historial = mysqli_prepare($conn, 'SELECT criticas.idPelicula, 
+  criticas.idUsuario, criticas.tipo, criticas.valoracion, criticas.comentario,
+  peliculas.nombre
+   FROM criticas 
+   INNER JOIN usuarios ON criticas.idUsuario = usuarios.idUsuario
+   INNER JOIN peliculas ON criticas.idPelicula = peliculas.idPelicula
+   WHERE usuarios.usuario = ? 
+   ');
+
+if ($consulta_historial === false) {
+    die('Error en la preparación de la consulta: ' . mysqli_error($conn));
+}
+
+mysqli_stmt_bind_param($consulta_historial, "s", $_SESSION["logged_user"]);
+mysqli_stmt_execute($consulta_historial);
+$resultado = mysqli_stmt_get_result($consulta_historial);
+
+if($resultado) {
+    $comentarios = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
+} else {
+    header("location: ./_404.php");
+}
+
 ?>
 
 <?php require_once("./_startPerfil.php"); ?>
@@ -36,14 +60,16 @@ if ($resultado_usuario) {
     </section>
     <section class="historialComentarios">
         <h1>Historial de comentarios</h1>
-        <aside class="cajaComentario">
-            <p class="nombrePelicula">Pelicula: </p>
-            <p class="valoracionPelicula">Valoracion: </p>
-            <section class="seccionComentario">
-                <h3 class="tituloComentario">Comentario:</h3>
-                <p class="mensajeComentario"></p>
-            </section>
-        </aside>
+        <?php foreach($comentarios as $comentario):?>
+            <aside class="cajaComentario">
+                <p class="nombrePelicula">Pelicula: <?=$comentario["nombre"] ?></p>
+                <p class="valoracionPelicula">Valoración: <?=$comentario["valoracion"] ?></p>
+                <section class="seccionComentario">
+                    <h3 class="tituloComentario">Comentario:</h3>
+                    <p class="mensajeComentario"> <?=$comentario["comentario"] ?></p>
+                </section>
+            </aside>
+        <?php endforeach;?>
     </section>
 
     <section class="añadirComentarios">

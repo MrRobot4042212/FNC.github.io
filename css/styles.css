@@ -2201,21 +2201,21 @@ Utilizando la librería charts de google*/
   text-align: center;
 }
 .historialComentarios{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   color: white;
   font-family: "montserrat";
   font-size: 20px;
   text-align: center;
-  overflow:auto;
+  overflow: scroll;
+  width: 500px;
+  height: 350px;
+  row-gap: 10px;
 }
 .cajaComentario{
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   background-color: rgb(0, 0, 0,0.5);
+  margin: 10px;
 }
 .nombrePelicula{
   grid-row-start: 1;

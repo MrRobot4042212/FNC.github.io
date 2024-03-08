@@ -34,7 +34,7 @@ $usuario= $_SESSION["logged_user"];
     <div class="graficaSeccion">
         <div id="chart_div" style="width:400; height:300"></div>
         <div id="barchart_div" style="width:400; height:300"></div>
-        <h4 class="uneteIndex"><a href="./Registro.php">UNETE A LA FAMILIA</a></h4>
+        <h4 class="uneteIndex"><a href="./_registro.php">UNETE A LA FAMILIA</a></h4>
     </div>
             
 </section>
