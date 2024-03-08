@@ -7,43 +7,50 @@
         if ($conn) {
             $query = "SELECT nombre, genero, sinapsis, fechaEstreno, duracion, presupuesto, recaudacion, srcImagen FROM peliculas";
             $result = mysqli_query($conn, $query);
+           
 
             if ($result) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                    echo '<div class="contenedorPeliculas">';
-                        echo '<div class="posicionFrontal">';
-                            echo '<img class="imagenFrontal" src="' . $row['srcImagen'] . '" alt="' . $row['nombre'] . '">';
-                        echo '</div>';
-                        echo '<div class="posicionCarta">';
-                            echo '<section class="informacionPelicula">';
+                    echo '<section class="gridPeliculas">'
+                    echo '<div class="contenedorPeliculas animacionDefault">';
+                        echo '<img class="imgPeliculaActive imgPelicula" src="' . $row['srcImagen'] . '" alt="' . $row['nombre'] . '">';
+                        echo '<img class="imgPeliculaDetras imgPelicula" src="./img/peliculas/fx/fondoNegro.png" alt="">';
+                        echo '<div class="overlay">';
+                            echo '<div class="overlayDefault">';
+                                echo '<h1 class="nombreTitulo">' . $row['nombre'] . '</h1>';
+                                echo '<br>';
+                                echo '<span class="rating">';
+                                    echo '<h2>RATING</h2>';
+                                    echo '<br>';
+                                echo '</span>';
+                                echo '<div class="contenedorStars">';
+                                    echo '<div class="star" data-value="1"></div>';
+                                    echo '<div class="star" data-value="2"></div>';
+                                    echo '<div class="star" data-value="3"></div>';
+                                    echo '<div class="star" data-value="4"></div>';
+                                    echo '<div class="star" data-value="5"></div>';
+                                echo '</div>';
+                                echo '<h4>Click para más información</h4>';
+                            echo '</div>';
+                            echo '<div class="overlayFlip">';
                                 echo '<h1>' . $row['nombre'] . '</h1>';
-                                echo '<div class="col2">';
-                                    echo '<h2>Género</h2>';
-                                    echo '<p>' . $row['genero'] . '</p>';
-                                echo '</div>';
-                                echo '<div class="col3">';
-                                    echo '<h2>Sinopsis</h2>';
-                                    echo '<p>' . $row['sinapsis'] . '</p>';
-                                echo '</div>';
-                                echo '<div class="col4">';
-                                    echo '<h2>Fecha de Estreno</h2>';
-                                    echo '<p>' . $row['fechaEstreno'] . '</p>';
-                                echo '</div>';
-                                echo '<div class="col5">';
-                                    echo '<h2>Duración</h2>';
-                                    echo '<p>' . $row['duracion'] . '</p>';
-                                echo '</div>';
-                                echo '<div class="col6">';
-                                    echo '<h2>Presupuesto</h2>';
-                                    echo '<p>' . $row['presupuesto'] . '</p>';
-                                echo '</div>';
-                                echo '<div class="col7">';
-                                    echo '<h2>Recaudación</h2>';
-                                    echo '<p>' . $row['recaudacion'] . '</p>';
-                                echo '</div>';
-                            echo '</section>';
+                                echo '<br>';
+                                echo '<h2>Sinapsis</h2>';
+                                echo '<p>' . $row['sinapsis'] . '</p>';
+                                echo '<br>';
+                                echo '<h2>Equipo de rodaje</h2>';
+                                echo '<h3>Producido por: ' . $row['productor'] . '</h3>';
+                                echo '<h3>Dirección por: ' . $row['director'] . '</h3>';
+                                echo '<h3>Actores principales por: ' . $row['actores'] . '</h3>';
+                                echo '<h2>Género</h2>';
+                                echo '<h3>' . $row['genero'] . '</h3>';
+                                echo '<h4>Click para volver a la calificación</h4>';
+                            echo '</div>';
                         echo '</div>';
                     echo '</div>';
+                }
+            }
+        
                 }
             } else {
                 echo "Error al ejecutar la consulta: " . mysqli_error($conn);

@@ -1,10 +1,11 @@
 <?php
-    session_start();
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
 
     require("initdb.php");
 
     $consulta = mysqli_prepare($conn, "SELECT nombre, genero, sinapsis, fechaEstreno, duracion, presupuesto, recaudacion, srcImagen, srcFondo FROM peliculas");
-
+    
     mysqli_stmt_execute($consulta);
     $resultado = mysqli_stmt_get_result($consulta);
     $peliculas = mysqli_fetch_all($resultado,MYSQLI_ASSOC);
@@ -93,4 +94,5 @@
 
 </section>
 </div>
+
 <? require_once ("_endGeneral.php"); ?>

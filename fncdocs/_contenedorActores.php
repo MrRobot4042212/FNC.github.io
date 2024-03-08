@@ -1,4 +1,4 @@
-<?php
+S<?php
     require_once("initdb.php");
 
     if ($conn) {
@@ -6,9 +6,7 @@
 
 
         $result = mysqli_query($conn, $query);
-
         if ($result) {
-           
             while ($row = mysqli_fetch_assoc($result)) {
                 echo '<div class="contenedorActor">';
                     echo '<div class="posicionFrontal">';
@@ -32,7 +30,6 @@
         } else {
             echo "Error al ejecutar la consulta: " . mysqli_error($conn);
         }
-
         mysqli_close($conn);
     } 
 ?>

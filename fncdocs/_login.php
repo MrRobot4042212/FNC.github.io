@@ -28,7 +28,7 @@ ini_set('display_errors', 1);
       <a id="irIndex" class="boton" href=""><button name="botonLogin" id="botonLogin" type="submit" class="boton">Login</button></a>
 
        <div class="linkRegistro">
-        <p>¿No tienes cuenta? <a href="./Registro.html">Regístrate</a></p>
+        <p>¿No tienes cuenta? <a href="./_registro.php">Regístrate</a></p>
         
       </div>
 
