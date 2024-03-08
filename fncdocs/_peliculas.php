@@ -1,14 +1,16 @@
-<?php 
+<?php
     session_start();
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
-    require_once("initdb.php");
+
+    require("initdb.php");
+
     $consulta = mysqli_prepare($conn, "SELECT nombre, genero, sinapsis, fechaEstreno, duracion, presupuesto, recaudacion, srcImagen, srcFondo FROM peliculas");
+
     mysqli_stmt_execute($consulta);
     $resultado = mysqli_stmt_get_result($consulta);
     $peliculas = mysqli_fetch_all($resultado,MYSQLI_ASSOC);
     $titulo= "Peliculas";
     $sloganPDPA="Tu opinión cuenta, tu película perfecta comienza aquí: ¡Explora, evalúa, disfruta!";
+
 ?>
 <? require_once ("_startPDPA.php"); ?>
 <div class="cuerpoPDPA">
