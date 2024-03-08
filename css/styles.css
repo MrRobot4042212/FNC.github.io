@@ -538,10 +538,9 @@ body{
   .slider ul {
     padding: 0%;
     display: flex;
-    width: 600%;
+    width: 300%;
     text-align: center;
     border-bottom: 10px;
-
     animation: cambio 20s infinite;
     animation-direction: alternate;
   }
