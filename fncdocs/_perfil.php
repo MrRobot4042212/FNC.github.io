@@ -56,6 +56,7 @@ if($resultado) {
             <li>Nick: <?= $usuario["nick"] ?></li>
             <li>Email: <?= $usuario["email"] ?></li>
             <li>Teléfono: <?= $usuario["telefono"] ?></li>
+            <li><a href="_editar.php"><button>Editar perfil</button></li>
         </ul>
     </section>
     <section class="historialComentarios">
