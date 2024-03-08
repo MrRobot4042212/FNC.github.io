@@ -177,3 +177,8 @@ CONSTRAINT guardadoPeliculas_id_peli
 	FOREIGN KEY guardadoPeliculas(idPelicula) 
 	REFERENCES peliculas(idPelicula) ON UPDATE CASCADE  ON DELETE SET NULL
 );
+
+ALTER TABLE criticas ADD COLUMN valoracion int(5);
+ALTER TABLE criticas ADD COLUMN comentario longtext;
+ALTER TABLE criticas DROP tipo;
+ALTER TABLE criticas ADD COLUMN tipo ENUM ('valoracion','comentario');
