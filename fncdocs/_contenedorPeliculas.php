@@ -1,8 +1,9 @@
 
 
         <?php
+        error_reporting(E_ALL);
+        ini_set('display_errors', 1);
         require_once("initdb.php");
-
         if ($conn) {
             $query = "SELECT nombre, genero, sinapsis, fechaEstreno, duracion, presupuesto, recaudacion, srcImagen FROM peliculas";
             $result = mysqli_query($conn, $query);

@@ -1,6 +1,5 @@
 <?php
     require_once("initdb.php");
-
     if ($conn) {
         $query = "SELECT nombre, genero, premios, fechaNacimiento, nacionalidad, descripcion, srcImagen FROM productores";
 
@@ -30,7 +29,6 @@
         } else {
             echo "Error al ejecutar la consulta: " . mysqli_error($conn);
         }
-
         mysqli_close($conn);
     } else {
         echo "Error al conectar con la base de datos";

@@ -1,6 +1,16 @@
-<?php 
+<?php
+    session_start();
+
+    require("initdb.php");
+
+    $consulta = mysqli_prepare($conn, "SELECT nombre, genero, sinapsis, fechaEstreno, duracion, presupuesto, recaudacion, srcImagen, srcFondo FROM peliculas");
+
+    mysqli_stmt_execute($consulta);
+    $resultado = mysqli_stmt_get_result($consulta);
+    $peliculas = mysqli_fetch_all($resultado,MYSQLI_ASSOC);
     $titulo= "Peliculas";
     $sloganPDPA="Tu opinión cuenta, tu película perfecta comienza aquí: ¡Explora, evalúa, disfruta!";
+
 ?>
 <? require_once ("_startPDPA.php"); ?>
 <div class="cuerpoPDPA">
@@ -47,7 +57,40 @@
         </section>
     </section>
     <section class="gridPeliculas">
-        <? require ("./_contenedorPeliculas.php"); ?>
-    </section>
+
+    <?php foreach($peliculas as $pelicula):?>
+
+    <div class="contenedorPeliculas animacionDefault">
+        <img class="imgPeliculaActive imgPelicula" src="<?=$pelicula["srcImagen"]?>" alt="Descripción de la imagen">
+        <img class="imgPeliculaDetras imgPelicula" src="<?=$pelicula["srcFondo"]?>" alt="">
+        <div class="overlay">
+            <div class="overlayDefault">
+                <h1 class="nombreTitulo"><?=$pelicula["nombre"]?></h1>
+                <br>
+                <span class="rating">
+                    <h2>RATING</h2>
+                    <br>
+                </span>
+                <div class="contenedorStars"></div>
+                <h4>Click para más información</h4>
+            </div>
+
+            <div class="overlayFlip">
+                <h1><?=$pelicula["nombre"]?></h1>
+                <br>
+                <h2>Sinapsis</h2>
+                <p> <?=$pelicula["sinapsis"]?></p>
+                <br>
+                <h2>Equipo de rodaje</h2>
+                <h2>Género</h2>
+                <h3><?=$pelicula["genero"]?></h3>
+                <h4>Click para volver a la calificación</h4>
+            </div>
+        </div>
+    </div>
+
+    <?php endforeach; ?>
+
+</section>
 </div>
 <? require_once ("_endGeneral.php"); ?>
